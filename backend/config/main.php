@@ -11,8 +11,23 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module'
+        ]
+    ],
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'kvgrid' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@vendor/kartik-v/yii2-grid/messages',
+                ],
+            ],
+        ],
+        'user' => [
+            'class' => 'app\components\Member', // extend User component
+        ],
         'view' => [
             'class' => 'yii\web\View',
             'renderers' => [

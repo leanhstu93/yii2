@@ -7,6 +7,7 @@ IndexIgnore */*
 
     RewriteCond %{REQUEST_URI} ^/(admin)
 
+    RewriteRule ^admin/upload/(.*)$ backend/web/upload/$1 [L]
     RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
 
     RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
@@ -15,7 +16,6 @@ IndexIgnore */*
     RewriteRule ^admin/images/(.*)$ backend/web/images/$1 [L]
     RewriteRule ^admin/app/(.*)$ backend/web/app/$1 [L]
     RewriteRule ^admin/libs/(.*)$ backend/web/libs/$1 [L]
-
 
     RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css)/
 

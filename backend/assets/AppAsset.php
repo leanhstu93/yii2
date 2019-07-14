@@ -27,9 +27,11 @@ class AppAsset extends AssetBundle
         'libs/web-icons/web-icons.min.css',
         'libs/brand-icons/brand-icons.min.css',
         'libs/font-google/css.css',
+        'libs/font-awesome/font-awesome.min.css?v4.0.2',
         # End libs
         # custom
         'css/site.min.css',
+        'css/main.css'
         #end custom
     ];
     public $js = [
@@ -76,6 +78,6 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        #'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }

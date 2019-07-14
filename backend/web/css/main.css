@@ -1,0 +1,9 @@
+/* custom bootstrap */
+.input-group-addon{
+    width: auto;
+}
+.alert-dismissable .close, .alert-dismissible .close {
+     top: 0px;
+     right: 0px;
+}
+/* end custom bootstrap */

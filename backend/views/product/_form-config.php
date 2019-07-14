@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
-use dosamigos\ckeditor\CKEditorInline;
+use iutbay\yii2kcfinder\KCFinderInputWidget;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ConfigPage */
@@ -35,12 +35,17 @@ use dosamigos\ckeditor\CKEditorInline;
                 </div>
             </div>
 
-            <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
+        </div>
+            <?= $this->render('//element/panel-heading', [
+                'name' => 'Hình ảnh',
+            ]) ?>
+            <div class="panel-body container-fluid">
 
-            <?php $_SESSION['KCFINDER'] = array(
-                'disabled' => 11
-            ); ?>
-            <?= $form->field($model, 'conten')->textarea(['rows' => 6]) ?>
+
+            <?= $form->field($model, 'image')->widget(KCFinderInputWidget::className(), [
+            'buttonLabel' => 'Chọn hình'
+            ]) ?>
             <?= $form->field($model, 'conten')->widget(CKEditor::className(), [
                     'kcfinder' => true,
                 ]);
@@ -63,10 +68,8 @@ use dosamigos\ckeditor\CKEditorInline;
 
             <?= $form->field($model, 'meta_keyword')->textarea(['rows' => 6]) ?>
 
-            <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-
             <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                <?= Html::submitButton('Lưu', [ 'name' => 'aa' , 'class' => 'btn btn-primary']) ?>
             </div>
         </div>
     </div>

@@ -42,6 +42,7 @@ class ProductController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'searchModel' => new Product()
         ]);
     }
 
@@ -65,10 +66,20 @@ class ProductController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new Product();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->user_id = Yii::$app->user->identity->id;
+            $model->date_update = time();
+            $model->count_view = 1;
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Lưu thành công");
+                return $this->redirect(['index']);
+            } else {
+                var_dump($model->errors);
+                Yii::$app->session->setFlash('danger', "Lưu thất bại");
+            }
         }
 
         return $this->render('create', [
@@ -100,6 +111,19 @@ class ProductController extends Controller
     {
         if ($model =  ConfigPage::find()->where(['id' => ConfigPage::TYPE_PRODUCT])->one() === null) {
             $model = new ConfigPage();
+            $model->type = ConfigPage::TYPE_PRODUCT;
+        } else {
+            $model =  ConfigPage::find()->where(['id' => ConfigPage::TYPE_PRODUCT])->one();
+        }
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Lưu thành công");
+
+             } else {
+                Yii::$app->session->setFlash('danger', "Lưu thất bại");
+            }
+            return $this->redirect(['config']);
         }
 
         return $this->render('config', [
@@ -108,11 +132,11 @@ class ProductController extends Controller
     }
 
     /**
-     * Deletes an existing Product model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param $id
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {

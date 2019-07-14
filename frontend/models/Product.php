@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
 
@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "product".
  *
  * @property int $id
+ * @property int $name
  * @property string $sku
  * @property string $brand_name
  * @property string $desc
@@ -31,6 +32,11 @@ use Yii;
  */
 class Product extends \yii\db\ActiveRecord
 {
+
+    const STATUS_INACTIVE = 3;
+    const STATUS_ACTIVE = 1;
+    const OPTION_NEW = 1;
+    const OPTION_HOT = 3;
     /**
      * {@inheritdoc}
      */
@@ -45,7 +51,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sku', 'date_update', 'seo_name'], 'required'],
+            [[ 'name','sku', 'date_update', 'seo_name'], 'required'],
             [['desc', 'content'], 'string'],
             [['count_view', 'user_id', 'date_update', 'target_blank', 'option', 'quantity', 'status'], 'integer'],
             [['weight', 'price', 'price_sale'], 'number'],
@@ -62,6 +68,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'name' => 'Tiêu đề',
             'sku' => 'Sku',
             'brand_name' => 'Thương hiệu',
             'desc' => 'Mô tả',
@@ -72,9 +79,9 @@ class Product extends \yii\db\ActiveRecord
             'date_update' => 'Ngày cập nhật',
             'seo_name' => 'Seo Name',
             'target_blank' => 'Target Blank',
-            'image' => 'Image',
-            'option' => 'Option',
-            'quantity' => 'Quantity',
+            'image' => 'Hình ảnh',
+            'option' => 'Đặc điểm',
+            'quantity' => 'Số lượng',
             'weight' => 'Weight',
             'price' => 'Price',
             'price_sale' => 'Price Sale',
@@ -82,6 +89,28 @@ class Product extends \yii\db\ActiveRecord
             'meta_title' => 'Meta Title',
             'meta_desc' => 'Meta Desc',
             'meta_keyword' => 'Meta Keyword',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function listStatus()
+    {
+        return [
+            self::STATUS_ACTIVE => 'Hoạt động',
+            self::STATUS_INACTIVE => 'Ngưng hoạt động',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function listOption()
+    {
+        return [
+            self::OPTION_HOT => 'Hot',
+            self::OPTION_NEW => 'Mới',
         ];
     }
 }

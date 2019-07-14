@@ -24,15 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
         <?= $form->field($model, 'username')->textInput(['autofocus' => true,'placeholder' => 'Tài khoản'])->label(false) ?>
         <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Mật khẩu'])->label(false) ?>
-            <div class="form-group clearfix">
-                <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
-                    <input type="hidden" id="inputCheckbox" name="LoginForm[rememberMe]" value="0">
-                    <input type="checkbox" id="inputCheckbox" name="LoginForm[rememberMe]" value="1">
-                    <label for="inputCheckbox">Remember me</label>
 
-                </div>
-                <a class="float-right" href="forgot-password.html">Forgot password?</a>
-            </div>
             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
         <?php ActiveForm::end(); ?>
         <p>Still no account? Please go to <a href="register.html">Register</a></p>

@@ -452,7 +452,7 @@ class AssetManager extends Component
         }
 
         if (!is_string($path) || ($src = realpath($path)) === false) {
-            throw new InvalidArgumentException("The file or directory to be published does not exist: $path");
+            throw new InvalidArgumentException("The file or directory to be published does not exist: ".$path);
         }
 
         if (!is_writable($this->basePath)) {

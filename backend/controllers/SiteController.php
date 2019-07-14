@@ -72,17 +72,23 @@ class SiteController extends Controller
     {
         $this->layout = 'login';
         if (!Yii::$app->user->isGuest) {
-            exit('ooo');
             return $this->goHome();
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            $model->password = '';
-            return $this->render('login', ['model' => $model]);
+        //debug($model->load(Yii::$app->request->post()),true);
+       // debug($model,true);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->password = md5($model->password);
+            if($model->login()) {
+                return $this->goBack();
+            }
         }
+
+        $model->password = '';
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
     /**
