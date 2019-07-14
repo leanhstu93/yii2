@@ -33,16 +33,15 @@ class AppAsset extends AssetBundle
         #end custom
     ];
     public $js = [
-        #'libs/requirejs/require.js',
         'https://unpkg.com/react@16/umd/react.development.js',
         'https://unpkg.com/react-dom@16/umd/react-dom.development.js',
         'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js',
         'libs/skintools/skintools.min.js',
         'libs/breakpoints/breakpoints.min.js',
         'libs/babel-external-helpers/babel-external-helpers.js',
-        'libs/jquery/jquery.min.js',
         'libs/popper-js/popper.min.js',
         'libs/bootstrap/bootstrap.min.js',
+        'libs/bootstrap/bootstrap-anchor.min.js',
         'libs/animsition/animsition.min.js',
         'libs/mousewheel/jquery.mousewheel.js',
         'libs/asscrollable/jquery-asScrollable.min.js',
@@ -72,10 +71,11 @@ class AppAsset extends AssetBundle
         'libs/global/jquery-appear.min.js',
         'libs/global/nprogress.min.js',
         'libs/global/animation.min.js',
-
+        'js/base.js',
+        'js/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        #'yii\bootstrap\BootstrapAsset',
     ];
 }

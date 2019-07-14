@@ -12,6 +12,7 @@ IndexIgnore */*
     RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
 
     RewriteRule ^admin/js/(.*)$ backend/web/js/$1 [L]
+    RewriteRule ^admin/images/(.*)$ backend/web/images/$1 [L]
     RewriteRule ^admin/app/(.*)$ backend/web/app/$1 [L]
     RewriteRule ^admin/libs/(.*)$ backend/web/libs/$1 [L]
 

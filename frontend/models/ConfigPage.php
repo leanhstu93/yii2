@@ -24,6 +24,8 @@ class ConfigPage extends \yii\db\ActiveRecord
     const TYPE_PRODUCT = 1;
     const TYPE_PRODUCT_CATEGORY = 1;
     const TYPE_NEWS_CATEGORY = 1;
+    const STATUS_INACTIVE = 3;
+    const STATUS_ACTIVE = 1;
     /**
      * {@inheritdoc}
      */
@@ -54,13 +56,21 @@ class ConfigPage extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'type' => 'Type',
-            'desc' => 'Desc',
-            'conten' => 'Conten',
+            'desc' => 'Mô tả',
+            'conten' => 'Nội dung',
             'meta_title' => 'Meta Title',
             'meta_desc' => 'Meta Desc',
             'meta_keyword' => 'Meta Keyword',
-            'status' => 'Status',
-            'image' => 'Image',
+            'status' => 'Trạng thái',
+            'image' => 'Hình ảnh',
+        ];
+    }
+
+    public static function listStatus()
+    {
+        return [
+            self::STATUS_ACTIVE => 'Hoạt động',
+            self::STATUS_INACTIVE => 'Ngưng hoạt động',
         ];
     }
 }

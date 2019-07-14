@@ -20,7 +20,7 @@ $menubarAdmin = \Yii::$app->params['menubarAdmin'];
                                 <ul class="site-menu-sub">
                          <?php  foreach($item['submenu'] as $key_sub => $item_sub) { ?>
                                      <li class="site-menu-item">
-                                         <a href="<?php echo $item_sub['link'] ?>">
+                                         <a href="<?php echo Yii::$app->getUrlManager()->getBaseUrl().'/'.$item_sub['link'] ?>">
                                              <span class="site-menu-title">
                                                  <?php echo $item_sub['name'] ?>
                                              </span>

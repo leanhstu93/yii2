@@ -1,9 +1,10 @@
 <?php
 
+use Codeception\Util\Stub;
 use Facebook\WebDriver\WebDriverBy;
 use Codeception\Util\Locator;
 
-class StepTest extends \PHPUnit_Framework_TestCase
+class StepTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param $args
@@ -32,6 +33,14 @@ class StepTest extends \PHPUnit_Framework_TestCase
 
         $step = $this->getStep([null, [['PDO', 'getAvailableDrivers']]]);
         $this->assertEquals('["PDO","getAvailableDrivers"]', $step->getArgumentsAsString());
+
+        $step = $this->getStep([null, [[Stub::make($this, []), 'testGetArguments']]]);
+        $this->assertEquals('["StepTest","testGetArguments"]', $step->getArgumentsAsString());
+
+        $mock = $this->createMock(get_class($this));
+        $step = $this->getStep([null, [[$mock, 'testGetArguments']]]);
+        $className = get_class($mock);
+        $this->assertEquals('["' . $className . '","testGetArguments"]', $step->getArgumentsAsString());
     }
 
     public function testGetHtml()

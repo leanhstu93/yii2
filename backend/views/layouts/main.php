@@ -20,7 +20,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="animsition">
+<body class="animsition page-aside-static page-aside-left">
 <?php $this->beginBody() ?>
 <?php echo $this->render("//element/header"); ?>
 <?php echo $this->render("//element/menubar"); ?>

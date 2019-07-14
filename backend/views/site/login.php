@@ -18,7 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <h2 class="brand-text">Remark</h2>
         </div>
         <p><?= Html::encode($this->title) ?></p>
-        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+        <?php $form = ActiveForm::begin([
+                'id' => 'login-form',
+                'enableClientScript' => true,
+            ]); ?>
         <?= $form->field($model, 'username')->textInput(['autofocus' => true,'placeholder' => 'Tài khoản'])->label(false) ?>
         <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Mật khẩu'])->label(false) ?>
             <div class="form-group clearfix">
