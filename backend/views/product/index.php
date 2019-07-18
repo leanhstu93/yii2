@@ -22,50 +22,56 @@ $scrollingTop = 10;
 <!-- Page -->
 <div class="page">
     <?php echo $this->render("//element/breadcrumb"); ?>
-    <div class="panel-body container-fluid">
-        <?php echo $this->render("page-aside"); ?>
-        <div class="page-main">
-            <?php echo $this->render("//element/message"); ?>
-            <div class="page-content">
+    <div class="page-content css__table ">
+        <div class="panel">
+            <div class="panel-body">
+                <?php echo $this->render("//element/message"); ?>
                 <?php
                 $gridColumns = [
-                    ['class' => 'kartik\grid\SerialColumn'],
+                     ['class' => 'kartik\grid\CheckboxColumn'],
                     [
                         'attribute' => 'name',
                     ],
                     [
-                        'class'=>'kartik\grid\BooleanColumn',
+                        'class'=>'kartik\grid\EnumColumn',
                         'attribute'=>'status',
                         'vAlign'=>'middle',
+                        'enum' => \frontend\models\Product::listStatus()
                     ],
                     [
                         'class' => 'kartik\grid\ActionColumn',
-                        'dropdown' => true,
-                        'vAlign'=>'middle',
-                        'urlCreator' => function($action, $model, $key, $index) { return '#'; },
-                        'viewOptions'=>['title'=>$viewMsg, 'data-toggle'=>'tooltip'],
-                        'updateOptions'=>['title'=>$updateMsg, 'data-toggle'=>'tooltip'],
-                        'deleteOptions'=>['title'=>$deleteMsg, 'data-toggle'=>'tooltip'],
+                        'header' => 'Thao tác',
+                        'width' => '100px',
+                        'updateOptions' => ['title' => 'Cập nhật', 'data-toggle' => 'tooltip'],
+                        'deleteOptions' => ['title' => 'Xóa', 'data-toggle' => 'tooltip'],
+                        'headerOptions' => ['class' => 'kartik-sheet-style'],
+                        'template' => '{update} {delete}'
                     ],
-                    ['class' => 'kartik\grid\CheckboxColumn']
                 ];
                 ?>
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,
                     'columns' =>$gridColumns,
-                    'showPageSummary' => true,
-                    'pjax' => true,
-                    'striped' => true,
+                    'showPageSummary' => false,
+                    'striped' => false,
                     'hover' => true,
-                    'panel' => ['type' => 'primary', 'heading' => 'Grid Grouping Example'],
+        //            'panel' => [
+        //                'type' => GridView::TYPE_PRIMARY,
+        //                'heading' => "Danh sách sản phẩm",
+        //            ],
                     'toggleDataContainer' => ['class' => 'btn-group mr-2'],
                     'toolbar' =>  [
-                        ['content'=>
-
-                            Html::a('<i class="glyphicon glyphicon-plus"></i> Thêm mới', ['create'], [ 'class' => 'btn btn-success', 'title'=>Yii::t('kvgrid', 'Reset Grid')])
-                        ],
+                        ['content'=> ' '  ],
                     ],
                     'filterModel' => $searchModel,
+                    'containerOptions' => ['style' => 'overflow: auto', 'class' => 'aa'], // only set when $responsive = false
+                    'responsive' => true,
+                    'filterRowOptions' => ['class' => 'kartik-sheet-style'],
+                    'pjax' => true, // pjax is set to always true for this demo
+                    'persistResize' => false,
+                    'toggleDataOptions' => ['minCount' => 10],
+                    'itemLabelSingle' => 'sản phẩm',
+                    'itemLabelPlural' => 'Danh sách sản phẩm'
                 ]); ?>
             </div>
         </div>

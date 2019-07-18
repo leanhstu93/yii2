@@ -102,15 +102,5 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-
-    /**
-     * Test action.
-     *
-     * @return string
-     */
-    public function actionTest()
-    {exit;
-       echo 'ok';
-    }
 }
 

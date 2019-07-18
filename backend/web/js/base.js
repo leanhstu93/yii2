@@ -10,10 +10,14 @@ Base.fn = Base.prototype = {
         selectTitleValue : '.js__title',
         selectAliasValue : '.js__alias',
         selectToggleGetAlias : '.js__toggle-auto-get-alias',
+		selectorSideBar: '.js__sidebar',
+		selectorSideBarItem: '.js__sidebar-item'
     },
     init: function () {
         this.handleSelectImage();
         this.autoSlugEvent();
+        this.handleActiveSideBar();
+
     },
 
     handleSelectImage : function () {
@@ -66,6 +70,20 @@ Base.fn = Base.prototype = {
 	        if ($(self.config.selectToggleGetAlias).prop('checked'))
 	            self.JS_bodau_tv(self.config.selectTitleValue, self.config.selectAliasValue, 0);
 	    });
+	},
+
+	handleActiveSideBar: function () {
+    	var self = this;
+		$('body').scrollspy({target: self.config.selectorSideBar, offset: 100});
+		$(self.config.selectorSideBarItem).click(function(a) {
+			var i = $(this).data("link");
+			if ("" != i) {
+				var t = $("#" + i).offset().top - 67;
+				$(window).width() <= 1190 && (t += 7), $("html, body").animate({
+					scrollTop: t
+				}, 500)
+			}
+		})
 	}
 };
 

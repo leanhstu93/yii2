@@ -17,6 +17,7 @@ use frontend\models\Product;
     <div class="panel">
         <?= $this->render('//element/panel-heading', [
             'name' => 'Tổng quan',
+            'id' => 'js__overview'
         ]) ?>
         <div class="panel-body container-fluid">
             <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
@@ -62,16 +63,18 @@ use frontend\models\Product;
         </div>
         <?= $this->render('//element/panel-heading', [
             'name' => 'Hình ảnh',
+            'id' => 'js__image'
         ]) ?>
         <div class="panel-body container-fluid">
 
             <?= $form->field($model, 'image')->widget(KCFinderInputWidget::className(), [
-                'buttonLabel' => 'Chọn hình'
+                'buttonLabel' => 'Chọn hình',
+                'multiple' => true,
             ]) ?>
-
         </div>
         <?= $this->render('//element/panel-heading', [
             'name' => 'Trạng thái',
+            'id' => 'js__status'
         ]) ?>
         <div class="panel-body container-fluid">
 
@@ -82,6 +85,7 @@ use frontend\models\Product;
         </div>
         <?= $this->render('//element/panel-heading', [
             'name' => 'SEO',
+             'id' => 'js__seo'
         ]) ?>
         <div class="panel-body container-fluid">
 

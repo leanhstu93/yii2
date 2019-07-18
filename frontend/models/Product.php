@@ -3,7 +3,7 @@
 namespace frontend\models;
 
 use Yii;
-
+use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "product".
  *
@@ -85,11 +85,48 @@ class Product extends \yii\db\ActiveRecord
             'weight' => 'Weight',
             'price' => 'Price',
             'price_sale' => 'Price Sale',
-            'status' => 'Status',
+            'status' => 'Trạng thái',
             'meta_title' => 'Meta Title',
             'meta_desc' => 'Meta Desc',
             'meta_keyword' => 'Meta Keyword',
         ];
+    }
+
+    public function search($params) {
+        $query = Product::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query'=>$query,
+        ]);
+
+        /**
+         * Setup your sorting attributes
+         * Note: This is setup before the $this->load($params)
+         * statement below
+         */
+        $dataProvider->setSort([
+            'attributes'=>[
+                'id',
+                'name',
+            ]
+        ]);
+
+        if (!($this->load($params))) {
+
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id'=>$this->id,
+            'status'=>$this->status,
+        ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name]);
+
+
+        // filter by order amount
+
+        return $dataProvider;
     }
 
     /**
