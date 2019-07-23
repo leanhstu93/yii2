@@ -3,22 +3,22 @@
 namespace frontend\models;
 
 use Yii;
-
+use frontend\models\ProductCategory;
 /**
- * This is the model class for table "product_image".
+ * This is the model class for table "rl_product_category".
  *
  * @property int $id
  * @property int $product_id
- * @property string $image
+ * @property int $category_id
  */
-class ProductImage extends \yii\db\ActiveRecord
+class RlProductCategory extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'product_image';
+        return 'rl_product_category';
     }
 
     /**
@@ -27,9 +27,8 @@ class ProductImage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'image'], 'required'],
-            [['product_id'], 'integer'],
-            [['image'], 'string', 'max' => 255],
+            [['product_id', 'category_id'], 'required'],
+            [['product_id', 'category_id'], 'integer'],
         ];
     }
 
@@ -41,7 +40,8 @@ class ProductImage extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'product_id' => 'Product ID',
-            'image' => 'Image',
+            'category_id' => 'Category ID',
         ];
     }
+
 }

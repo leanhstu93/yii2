@@ -13,6 +13,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         #libs
+        'libs/sumo-select/sumoselect.min.css',
         'libs/bootstrap/bootstrap.min.css',
         'libs/bootstrap/bootstrap-extend.min.css',
         'libs/skintools/skintools.min.css',
@@ -35,9 +36,6 @@ class AppAsset extends AssetBundle
         #end custom
     ];
     public $js = [
-        'https://unpkg.com/react@16/umd/react.development.js',
-        'https://unpkg.com/react-dom@16/umd/react-dom.development.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js',
         'libs/skintools/skintools.min.js',
         'libs/breakpoints/breakpoints.min.js',
         'libs/babel-external-helpers/babel-external-helpers.js',
@@ -65,6 +63,7 @@ class AppAsset extends AssetBundle
         'libs/Plugin/menu.min.js',
         'libs/global/colors.min.js',
         'libs/config/tour.min.js',
+        'libs/sumo-select/jquery.sumoselect.js',
         'js/Site.min.js',
         'libs/global/asscrollable.min.js',
         'libs/global/jquery-asScrollbar.min.js',

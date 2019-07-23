@@ -8,17 +8,15 @@ use iutbay\yii2kcfinder\KCFinderInputWidget;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ConfigPage */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 <div class="config-page-form">
 
     <?php $form = ActiveForm::begin(); ?>
     <div class="panel">
-        <?= $this->render('//element/panel-heading', [
-            'name' => 'Tổng quan',
-        ]) ?>
+        <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
             <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
-
             <div class="form-group">
                 <label>
                     Đường dẫn
@@ -37,12 +35,8 @@ use iutbay\yii2kcfinder\KCFinderInputWidget;
 
             <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
         </div>
-            <?= $this->render('//element/panel-heading', [
-                'name' => 'Hình ảnh',
-            ]) ?>
+            <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
             <div class="panel-body container-fluid">
-
-
             <?= $form->field($model, 'image')->widget(KCFinderInputWidget::className(), [
             'buttonLabel' => 'Chọn hình'
             ]) ?>
@@ -51,15 +45,11 @@ use iutbay\yii2kcfinder\KCFinderInputWidget;
                 ]);
             ?>
         </div>
-        <?= $this->render('//element/panel-heading', [
-            'name' => 'Trạng thái',
-        ]) ?>
+        <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
             <?= $form->field($model, 'status')->dropDownList(\frontend\models\ConfigPage::listStatus()) ?>
         </div>
-        <?= $this->render('//element/panel-heading', [
-            'name' => 'SEO',
-        ]) ?>
+        <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
 
             <?= $form->field($model, 'meta_title')->textarea(['rows' => 6]) ?>

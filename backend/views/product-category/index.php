@@ -10,8 +10,7 @@ use kartik\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $searchModel app\models\Product */
 
-$this->title = 'Danh sách sản phẩm';
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->title = 'Danh sách danh mục sản phẩm';
 $this->params['breadcrumbs'][] = $this->title;
 $viewMsg = 'Xem';
 $updateMsg = 'Cập nhật';
@@ -45,7 +44,7 @@ $scrollingTop = 10;
                         'class'=>'kartik\grid\EnumColumn',
                         'attribute'=>'active',
                         'vAlign'=>'middle',
-                        'enum' => \frontend\models\Product::listActive()
+                        'enum' => \frontend\models\ProductCategory::listActive()
                     ],
                     [
                         'class' => 'kartik\grid\ActionColumn',

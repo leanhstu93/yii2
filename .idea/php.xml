@@ -89,6 +89,8 @@
       <path value="$PROJECT_DIR$/vendor/kartik-v/yii2-popover-x" />
       <path value="$PROJECT_DIR$/vendor/kartik-v/yii2-editable" />
       <path value="$PROJECT_DIR$/vendor/kartik-v/bootstrap-popover-x" />
+      <path value="$PROJECT_DIR$/vendor/jpunanua/yii2-seotools" />
+      <path value="$PROJECT_DIR$/vendor/mihaildev/yii2-ckeditor" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />

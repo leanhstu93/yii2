@@ -14,11 +14,23 @@ return [
     'modules' => [
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
+        ],
+        'seotools' => [
+            'class' => 'jpunanua\seotools\Module',
+            'roles' => ['@'], // For setting access levels to the seotools interface.
         ]
     ],
     'components' => [
         'i18n' => [
             'translations' => [
+                '*' => [
+                    'class'          => 'yii\i18n\PhpMessageSource',
+                    'basePath'       => '@app/messages', // if advanced application, set @frontend/messages
+                    'sourceLanguage' => 'en',
+                    'fileMap'        => [
+                        //'main' => 'main.php',
+                    ],
+                ],
                 'kvgrid' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@vendor/kartik-v/yii2-grid/messages',
@@ -45,6 +57,9 @@ return [
                 ],
                 // ...
             ],
+        ],
+        'seotools' => [
+            'class' => 'jpunanua\seotools\Component',
         ],
         'request' => [
             'baseUrl' => '/admin',

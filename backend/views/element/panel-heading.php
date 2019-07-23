@@ -1,4 +1,4 @@
-<div class="panel-heading" id="<?= $id ?>">
+<div class="panel-heading" id="<?= $link ?>">
     <h3 class="panel-title">
        <?= $name ?>
     </h3>

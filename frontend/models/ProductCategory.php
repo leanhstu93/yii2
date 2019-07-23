@@ -1,0 +1,134 @@
+<?php
+
+namespace frontend\models;
+
+use Yii;
+use yii\data\ActiveDataProvider;
+
+/**
+ * This is the model class for table "product_category".
+ *
+ * @property int $id
+ * @property string $name
+ * @property int $parent_id
+ * @property int $display_order
+ * @property string $image
+ * @property int $option
+ * @property int $active
+ * @property string $content
+ * @property string $desc
+ * @property string $tags
+ * @property int $user_id
+ * @property string $meta_title
+ * @property string $meta_desc
+ * @property string $meta_keyword
+ */
+class ProductCategory extends \yii\db\ActiveRecord
+{
+
+    public $seo_name = '';
+    const OPTION_NEW = 1;
+    const OPTION_HOT = 3;
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'product_category';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['name', 'user_id'], 'required'],
+            [['parent_id','active', 'display_order', 'option', 'user_id'], 'integer'],
+            [['content', 'desc'], 'string'],
+            [['name', 'image', 'tags', 'meta_title', 'meta_desc', 'meta_keyword'], 'string', 'max' => 255],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Tiêu đề',
+            'parent_id' => 'Danh mục cha',
+            'display_order' => 'Thứ tự',
+            'image' => 'Hình ảnh',
+            'option' => 'Option',
+            'content' => 'Content',
+            'active' => 'Hoạt động',
+            'desc' => 'Mô tả',
+            'tags' => 'Tags',
+            'user_id' => 'User ID',
+            'meta_title' => 'Meta Title',
+            'meta_desc' => 'Meta Desc',
+            'meta_keyword' => 'Meta Keyword',
+        ];
+    }
+
+    public function search($params) {
+        $query = ProductCategory::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query'=>$query,
+        ]);
+
+        /**
+         * Setup your sorting attributes
+         * Note: This is setup before the $this->load($params)
+         * statement below
+         */
+        $dataProvider->setSort([
+            'attributes'=>[
+                'id',
+                'name',
+            ]
+        ]);
+
+        if (!($this->load($params))) {
+
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id'=>$this->id,
+            'active'=>$this->active,
+        ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name]);
+
+        // filter by order amount
+
+        return $dataProvider;
+    }
+
+    /**
+     * @return array
+     */
+    public static function listOption()
+    {
+        return [
+            self::OPTION_HOT => 'Hot',
+            self::OPTION_NEW => 'Mới',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function listActive()
+    {
+        return [
+            1 => 'Có',
+            0=> 'Không',
+        ];
+    }
+}

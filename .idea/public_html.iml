@@ -25,6 +25,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/iutbay/yii2-fontawesome" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/iutbay/yii2-kcfinder" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jpunanua/yii2-seotools" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kartik-v/bootstrap-popover-x" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kartik-v/yii2-dialog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kartik-v/yii2-editable" />
@@ -33,6 +34,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/kartik-v/yii2-popover-x" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kartik-v/yii2-widget-activeform" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kartik-v/yii2-widget-colorinput" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mihaildev/yii2-ckeditor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/version" />

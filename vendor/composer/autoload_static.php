@@ -37,6 +37,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'm' => 
+        array (
+            'mihaildev\\ckeditor\\' => 19,
+        ),
         'k' => 
         array (
             'kartik\\popover\\' => 15,
@@ -47,6 +51,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
             'kartik\\dialog\\' => 14,
             'kartik\\color\\' => 13,
             'kartik\\base\\' => 12,
+        ),
+        'j' => 
+        array (
+            'jpunanua\\seotools\\' => 18,
         ),
         'i' => 
         array (
@@ -154,6 +162,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
+        'mihaildev\\ckeditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mihaildev/yii2-ckeditor',
+        ),
         'kartik\\popover\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-popover-x/src',
@@ -185,6 +197,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         'kartik\\base\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base/src',
+        ),
+        'jpunanua\\seotools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jpunanua/yii2-seotools',
         ),
         'iutbay\\yii2kcfinder\\' => 
         array (

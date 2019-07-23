@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
 use iutbay\yii2kcfinder\KCFinderInputWidget;
-use frontend\models\Product;
+use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Product */
+/* @var $model frontend\models\ProductCategory */
 /* @var $form yii\widgets\ActiveForm */
 
 ?>
@@ -18,11 +18,8 @@ use frontend\models\Product;
     <div class="panel">
         <?= $this->render('//element/panel-heading', array_pop($menu)) ?>
         <div class="panel-body container-fluid">
-            <?php ?>
-            <?= $form->field($model, 'category_ids')->dropDownList($listCate,[
-                'class' => 'form-control js__init-select-sumo',
-                'multiple' => true,
-                ])->label('Danh mục') ?>
+
+            <?= $form->field($model, 'parent_id')->dropDownList($listCate,['class' => 'form-control'])->label('Danh mục cha') ?>
 
             <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
 
@@ -31,7 +28,7 @@ use frontend\models\Product;
                     Đường dẫn
                 </label>
                 <div class="input-group input-group-icon">
-                    <?= Html::textInput('Product[seo_name]',$model->seo_name,array('class'=>'js__alias form-control')) ?>
+                    <?= Html::textInput('ProductCategory[seo_name]',$model->seo_name,array('class'=>'js__alias form-control')) ?>
 
                     <span class="input-group-addon">
                       <span class="checkbox-custom checkbox-default">
@@ -43,24 +40,7 @@ use frontend\models\Product;
                 </div>
             </div>
 
-            <?= $form->field($model, 'price')->textInput() ?>
-
-            <?= $form->field($model, 'price_sale')->textInput() ?>
-
-            <?= $form->field($model, 'sku')->textInput(['maxlength' => true]) ?>
-
-            <?= $form->field($model, 'brand_name')->textInput(['maxlength' => true]) ?>
-
             <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
-
-            <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                'kcfinder' => true,
-            ]);
-            ?>
-
-            <?= $form->field($model, 'quantity')->textInput() ?>
-
-            <?= $form->field($model, 'weight')->textInput() ?>
 
             <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
 
@@ -68,7 +48,7 @@ use frontend\models\Product;
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
 
-            <?= $form->field($model, 'images',['template' => '{input}',])->widget(KCFinderInputWidget::className(), [
+            <?= $form->field($model, 'image',['template' => '{input} '])->widget(KCFinderInputWidget::className(), [
                 'buttonLabel' => 'Chọn hình',
                 'multiple' => true,
                 'model' => $model,
@@ -77,9 +57,9 @@ use frontend\models\Product;
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
 
-            <?= $form->field($model, 'option')->dropDownList(Product::listOption()) ?>
+            <?= $form->field($model, 'option')->dropDownList(ProductCategory::listOption()) ?>
 
-            <?= $form->field($model, 'active')->dropDownList(Product::listActive()) ?>
+            <?= $form->field($model, 'active')->dropDownList(ProductCategory::listActive()) ?>
 
         </div>
         <?= $this->render('//element/panel-heading', array_pop($menu)) ?>

@@ -147,4 +147,22 @@ return array (
       '@kartik/editable' => $vendorDir . '/kartik-v/yii2-editable/src',
     ),
   ),
+  'mihaildev/yii2-ckeditor' => 
+  array (
+    'name' => 'mihaildev/yii2-ckeditor',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@mihaildev/ckeditor' => $vendorDir . '/mihaildev/yii2-ckeditor',
+    ),
+  ),
+  'jpunanua/yii2-seotools' => 
+  array (
+    'name' => 'jpunanua/yii2-seotools',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@jpunanua/seotools' => $vendorDir . '/jpunanua/yii2-seotools',
+    ),
+  ),
 );

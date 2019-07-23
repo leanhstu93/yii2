@@ -32,11 +32,14 @@ use yii\data\ActiveDataProvider;
  */
 class Product extends \yii\db\ActiveRecord
 {
+    public $images;
+    public $category_ids;
 
     const STATUS_INACTIVE = 3;
     const STATUS_ACTIVE = 1;
     const OPTION_NEW = 1;
     const OPTION_HOT = 3;
+
     /**
      * {@inheritdoc}
      */
@@ -53,7 +56,7 @@ class Product extends \yii\db\ActiveRecord
         return [
             [[ 'name','sku', 'date_update', 'seo_name'], 'required'],
             [['desc', 'content'], 'string'],
-            [['count_view', 'user_id', 'date_update', 'target_blank', 'option', 'quantity', 'status'], 'integer'],
+            [['count_view', 'user_id', 'date_update', 'target_blank', 'option', 'quantity'], 'integer'],
             [['weight', 'price', 'price_sale'], 'number'],
             [['sku'], 'string', 'max' => 50],
             [['brand_name'], 'string', 'max' => 100],
@@ -85,7 +88,7 @@ class Product extends \yii\db\ActiveRecord
             'weight' => 'Weight',
             'price' => 'Price',
             'price_sale' => 'Price Sale',
-            'status' => 'Trạng thái',
+            'active' => 'Hoạt động',
             'meta_title' => 'Meta Title',
             'meta_desc' => 'Meta Desc',
             'meta_keyword' => 'Meta Keyword',
@@ -132,7 +135,7 @@ class Product extends \yii\db\ActiveRecord
     /**
      * @return array
      */
-    public static function listStatus()
+    public static function listActive()
     {
         return [
             self::STATUS_ACTIVE => 'Hoạt động',
@@ -149,5 +152,20 @@ class Product extends \yii\db\ActiveRecord
             self::OPTION_HOT => 'Hot',
             self::OPTION_NEW => 'Mới',
         ];
+    }
+
+    public function getCategory() {
+        return $this->hasMany(ProductCategory::className(), ['id' => 'category_id'])
+            ->viaTable('rl_product_category', ['product_id' => 'id']);
+    }
+    public function getCategoryIds()
+    {
+
+        $data = $this->hasMany(ProductCategory::className(), ['id' => 'category_id'])
+            ->viaTable('rl_product_category', ['product_id' => 'id'])->select('name,id')->asArray()->all();
+
+        $result = array_column($data,'id');
+        $this->category_ids = $result;
+
     }
 }

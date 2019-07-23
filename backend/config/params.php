@@ -17,7 +17,7 @@ return [
                 ],
                 'submenu_3' => [
                     'name' => 'Danh sách danh mục',
-                    'link' => 'productCategory/index'
+                    'link' => 'product-category/index'
                 ]
             ]
         ]

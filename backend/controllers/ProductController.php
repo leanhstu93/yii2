@@ -5,7 +5,9 @@ namespace backend\controllers;
 use Yii;
 use backend\controllers\BaseController;
 use frontend\models\Product;
+use frontend\models\ProductImage;
 use frontend\models\ConfigPage;
+use frontend\models\RlProductCategory;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -57,14 +59,27 @@ class ProductController extends BaseController
         $model = new Product();
 
         if ($model->load(Yii::$app->request->post())) {
+            $formData = Yii::$app->request->post();
+
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
             $model->count_view = 1;
+            if (!empty($formData['product']['image'][0])) {
+                $model->image = $formData['product']['image'][0];
+                array_shift($formData['product']['image']);
+
+            }
             if ($model->save()) {
+                if (!empty($formData['product']['image'][0])) {
+                    $this->saveProductImage($formData['Product']['images'], $model->id);
+                }
+
+                if (!empty($formData['Product']['category_ids'])) {
+                    $this->saveProductCategory($formData['Product']['category_ids'], $model->id);
+                }
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
-                var_dump($model->errors);
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
         }
@@ -83,11 +98,33 @@ class ProductController extends BaseController
      */
     public function actionUpdate($id)
     {
+        /**
+         * @var Product $model
+         */
         $model = $this->findModel($id);
+        # lay danh sach hinh anh
+        $modelProductImage = ProductImage::find()->select('image')->where(['product_id' => $id])->asArray()->all();
+        $model->images = array_merge([$model->image],array_column($modelProductImage,'image'));
+
+        # lay danh sach danh muc
+        $model->getCategoryIds();
 
         if ($model->load(Yii::$app->request->post())) {
+            $formData = Yii::$app->request->post();
             $model->date_update = time();
+            if (!empty($formData['Product']['images'][0])) {
+                $model->image = $formData['Product']['images'][0];
+
+            }
+
             if ($model->save()) {
+                if (!empty($formData['product']['image'][0])) {
+                    $this->saveProductImage($formData['Product']['images'], $model->id);
+                }
+
+                if (!empty($formData['Product']['category_ids'])) {
+                    $this->saveProductCategory($formData['Product']['category_ids'], $model->id);
+                }
                 return $this->redirect(['index']);
             }
         }
@@ -95,6 +132,40 @@ class ProductController extends BaseController
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    /**
+     * @param $data
+     */
+    private function saveProductImage($data,$id)
+    {
+        if (!empty($data)) {
+            ProductImage::deleteAll(['product_id' => $id]);
+            foreach ($data as $value) {
+                $modelProductImage = new ProductImage();
+                $modelProductImage->product_id = $id;
+                $modelProductImage->image = $value;
+                $modelProductImage->save();
+            }
+
+        }
+    }
+
+    /**
+     * @param $data
+     */
+    private function saveProductCategory($data,$id)
+    {
+        if (!empty($data)) {
+            RlProductCategory::deleteAll(['product_id' => $id]);
+
+            foreach ($data as $value) {
+                $modelRLProductCategory = new RlProductCategory();
+                $modelRLProductCategory->product_id = $id;
+                $modelRLProductCategory->category_id = $value;
+                $modelRLProductCategory->save();
+            }
+        }
     }
 
     public function actionConfig()

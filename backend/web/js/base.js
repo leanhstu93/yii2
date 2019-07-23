@@ -11,14 +11,20 @@ Base.fn = Base.prototype = {
         selectAliasValue : '.js__alias',
         selectToggleGetAlias : '.js__toggle-auto-get-alias',
 		selectorSideBar: '.js__sidebar',
-		selectorSideBarItem: '.js__sidebar-item'
+		selectorSideBarItem: '.js__sidebar-item',
+		selectorSelectSumo: '.js__init-select-sumo'
     },
     init: function () {
         this.handleSelectImage();
         this.autoSlugEvent();
         this.handleActiveSideBar();
-
+		this.initSumoSlect();
     },
+
+	initSumoSlect: function() {
+    	var self = this;
+		$(self.config.selectorSelectSumo).SumoSelect({placeholder: 'Nhập danh mục ...', csvDispCount: 3 });
+	},
 
     handleSelectImage : function () {
         var self = this;
@@ -50,7 +56,7 @@ Base.fn = Base.prototype = {
 		    if(typeof id === "undefined" || id == '' || id == 0) $(seo_name).val(str);
 		},
     autoSlugEvent: function () {
-    	var self = this; 
+    	var self = this;
 	    if ($(self.config.selectAliasValue).val() == '')
 	    {
 	        $(self.config.selectAliasValue).attr('readonly', 'readonly');
