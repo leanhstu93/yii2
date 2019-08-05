@@ -24,10 +24,10 @@ use frontend\models\Product;
                 'multiple' => true,
                 ])->label('Danh mục') ?>
 
-            <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
+            <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control','required'])->label('Tiêu đề',['class' => 'required']) ?>
 
             <div class="form-group">
-                <label>
+                <label class="required control-label">
                     Đường dẫn
                 </label>
                 <div class="input-group input-group-icon">

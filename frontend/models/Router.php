@@ -3,18 +3,27 @@
 namespace frontend\models;
 
 use Yii;
-
+use frontend\models\Base;
 /**
  * This is the model class for table "router".
  *
  * @property int $id
- * @property int $idObject
- * @property string $alias
+ * @property int $id_object
+ * @property string $seo_name
  * @property int $type
- * @property int $active
  */
-class Router extends \yii\db\ActiveRecord
+class Router extends Base
 {
+
+    const TYPE_PRODUCT=1;
+    const TYPE_PRODUCT_CATEGORY=3;
+    const TYPE_NEWS = 5;
+    const TYPE_NEWS_CATEGORY=7;
+    const TYPE_SINGLE_PAGE=9;
+    const TYPE_VIDEO=11;
+    const TYPE_VIDEO_CATEGORY=13;
+    const TYPE_PRODUCT_PAGE=15;
+    const TYPE_NEWS_PAGE = 17;
     /**
      * {@inheritdoc}
      */
@@ -29,9 +38,9 @@ class Router extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idObject', 'alias', 'type', 'active'], 'required'],
-            [['idObject', 'type', 'active'], 'integer'],
-            [['alias'], 'string', 'max' => 255],
+            [['id_object', 'seo_name', 'type'], 'required'],
+            [['id_object', 'type'], 'integer'],
+            [['seo_name'], 'string', 'max' => 255],
         ];
     }
 
@@ -42,10 +51,9 @@ class Router extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'idObject' => 'Id Object',
-            'alias' => 'Alias',
+            'id_object' => 'Id Object',
+            'seo_name' => 'Seo Name',
             'type' => 'Type',
-            'active' => 'Active',
         ];
     }
 
@@ -53,36 +61,26 @@ class Router extends \yii\db\ActiveRecord
     {
         extract($data);
         /**
-         * @property $alias
-         * @property $idObject
-         * @property $type
+         * @var $seo_name
+         * @var $id_object
+         * @var $type
          */
         switch ($exc) {
             case 'create':
-                $router = \Router::model()->find("alias = '$alias'");
-                if(!empty($router)) {
-                    $alias = $alias .'-'.$idObject;
-                }
                 $self = new Router;
-                $self->attributes = $data;
-                $self->alias = $alias;
+                $self->setAttributes($data);
                 $self->save();
                 break;
             case 'update':
-                $self = Router::model()->find("idObject = $idObject AND type = $type");
+                $router = self::find()->where(['id_object' => $id_object,'type' => $type])->one();
                 if(!empty($router)) {
-                    # check alias ton tai
-                    $check  = Router::model()->find("alias = '$alias' AND idObject != $idObject ");
-                    if(!empty($check)) {
-                        $alias = $alias.'-'.$idObject;
-                    }
-                    # END
-                    $self->alias = $alias;
-                    $self->save();
+                    $router->seo_name = $seo_name;
+                    $router->save();
                 }
                 break;
             case 'delete':
-                $self = Router::model()->find("idObject = $idObject AND type = $type")->delete();
+               self::deleteAll("id_object = :id_object AND type = :type",
+                    ['id_object' => $id_object,'type' => $type]);
                 break;
         }
 

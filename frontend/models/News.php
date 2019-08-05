@@ -4,29 +4,36 @@ namespace frontend\models;
 
 use Yii;
 use yii\data\ActiveDataProvider;
-use frontend\models\Base;
 
 /**
- * This is the model class for table "product_category".
+ * This is the model class for table "news".
  *
  * @property int $id
  * @property string $name
  * @property string $seo_name
- * @property int $parent_id
- * @property int $display_order
+ * @property int $category_id
+ * @property int $order
  * @property string $image
- * @property int $option
- * @property int $active
- * @property string $content
  * @property string $desc
+ * @property string $content
+ * @property string $alias
  * @property string $tags
  * @property int $user_id
+ * @property int $date_create
+ * @property int $date_update
+ * @property int $count_view
  * @property string $meta_title
  * @property string $meta_desc
  * @property string $meta_keyword
+ * @property int $active
+ * @property int $option
  */
-class ProductCategory extends Base
+class News extends \yii\db\ActiveRecord
 {
+    public $images;
+    public $category_ids;
+    const STATUS_INACTIVE = 3;
+    const STATUS_ACTIVE = 1;
     const OPTION_NEW = 1;
     const OPTION_HOT = 3;
 
@@ -35,7 +42,7 @@ class ProductCategory extends Base
      */
     public static function tableName()
     {
-        return 'product_category';
+        return 'news';
     }
 
     /**
@@ -44,11 +51,10 @@ class ProductCategory extends Base
     public function rules()
     {
         return [
-            [['name', 'user_id', 'seo_name'], 'required'],
-            [['name'], 'unique','message'=>'Danh mục này đã thêm'],
-            [['parent_id','active', 'display_order', 'option', 'user_id'], 'integer'],
-            [['content', 'desc'], 'string'],
-            [['name','seo_name', 'image', 'tags', 'meta_title', 'meta_desc', 'meta_keyword'], 'string', 'max' => 255],
+            [['name', 'seo_name', 'user_id', 'date_create', 'date_update', 'count_view'], 'required', 'message' => ' {attribute} không thể để trống'],
+            [['category_id', 'order', 'user_id', 'date_create', 'date_update', 'count_view', 'active', 'option'], 'integer'],
+            [['desc', 'content'], 'string'],
+            [['name', 'seo_name', 'image', 'alias', 'tags', 'meta_title', 'meta_desc', 'meta_keyword'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,25 +65,29 @@ class ProductCategory extends Base
     {
         return [
             'id' => 'ID',
-            'name' => 'Tiêu đề',
-            'seo_name' => 'Seo Name',
-            'parent_id' => 'Danh mục cha',
-            'display_order' => 'Thứ tự',
-            'image' => 'Hình ảnh',
-            'option' => 'Option',
+            'name' => 'Name',
+            'seo_name' => 'Đường dẫn',
+            'category_id' => 'Category ID',
+            'order' => 'Order',
+            'image' => 'Image',
+            'desc' => 'Desc',
             'content' => 'Content',
-            'active' => 'Hoạt động',
-            'desc' => 'Mô tả',
+            'alias' => 'Alias',
             'tags' => 'Tags',
             'user_id' => 'User ID',
+            'date_create' => 'Date Create',
+            'date_update' => 'Date Update',
+            'count_view' => 'Count View',
             'meta_title' => 'Meta Title',
             'meta_desc' => 'Meta Desc',
             'meta_keyword' => 'Meta Keyword',
+            'active' => 'Active',
+            'option' => 'Option',
         ];
     }
 
     public function search($params) {
-        $query = ProductCategory::find();
+        $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
             'query'=>$query,
@@ -102,35 +112,14 @@ class ProductCategory extends Base
 
         $query->andFilterWhere([
             'id'=>$this->id,
-            'active'=>$this->active,
+            'status'=>$this->status,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);
 
+
         // filter by order amount
 
         return $dataProvider;
-    }
-
-    /**
-     * @return array
-     */
-    public static function listOption()
-    {
-        return [
-            self::OPTION_HOT => 'Hot',
-            self::OPTION_NEW => 'Mới',
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function listActive()
-    {
-        return [
-            1 => 'Có',
-            0=> 'Không',
-        ];
     }
 }

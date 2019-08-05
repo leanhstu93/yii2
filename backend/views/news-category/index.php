@@ -6,12 +6,11 @@ use yii\web\View;
 use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Product */
+/* @var $model app\models\News */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $searchModel app\models\Product */
+/* @var $searchModel app\models\News */
 
-$this->title = 'Danh sách sản phẩm';
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->title = 'Danh sách danh mục tin tức';
 $this->params['breadcrumbs'][] = $this->title;
 $viewMsg = 'Xem';
 $updateMsg = 'Cập nhật';
@@ -45,7 +44,7 @@ $scrollingTop = 10;
                         'class'=>'kartik\grid\EnumColumn',
                         'attribute'=>'active',
                         'vAlign'=>'middle',
-                        'enum' => \frontend\models\Product::listActive()
+                        'enum' => \frontend\models\NewsCategory::listActive()
                     ],
                     [
                         'class' => 'kartik\grid\ActionColumn',
@@ -54,21 +53,7 @@ $scrollingTop = 10;
                         'updateOptions' => ['title' => 'Cập nhật', 'data-toggle' => 'tooltip'],
                         'deleteOptions' => ['title' => 'Xóa', 'data-toggle' => 'tooltip','data-style' => 'top:100px' ],
                         'headerOptions' => ['class' => 'kartik-sheet-style'],
-                        'template' => '{update} {delete}',
-                        'buttons' => [
-                            'delete' => function ($url, $model, $key) {
-                                return Html::a('<span class="glyphicon glyphicon-trash"></span>',$url,
-                                    [
-                                        'title' => Yii::t('app', 'Xóa'),
-                                        'data-pjax' => '1',
-                                        'data' => [
-                                            'method' => 'post',
-                                            'confirm' => Yii::t('app', 'Bạn chắc chắn thực hiện thao tác này?'),
-                                            'pjax' => 1,],
-                                    ]
-                                );
-                            },
-                        ]
+                        'template' => '{update} {delete}'
                     ],
                 ];
                 ?>
@@ -89,8 +74,8 @@ $scrollingTop = 10;
                     'pjax' => true, // pjax is set to always true for this demo
                     'persistResize' => false,
                     'toggleDataOptions' => ['minCount' => 10],
-                    'itemLabelSingle' => 'sản phẩm',
-                    'itemLabelPlural' => 'Danh sách sản phẩm'
+                    'itemLabelSingle' => 'tin tức',
+                    'itemLabelPlural' => 'Danh sách tin tức'
                 ]); ?>
             </div>
         </div>

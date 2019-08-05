@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $seo_name
  * @property int $type
  * @property string $desc
  * @property string $conten
@@ -22,8 +23,9 @@ class ConfigPage extends \yii\db\ActiveRecord
 {
 
     const TYPE_PRODUCT = 1;
-    const TYPE_PRODUCT_CATEGORY = 1;
-    const TYPE_NEWS_CATEGORY = 1;
+    const TYPE_PRODUCT_CATEGORY = 3;
+    const TYPE_NEWS_CATEGORY = 5;
+    const TYPE_NEWS = 7;
     const STATUS_INACTIVE = 3;
     const STATUS_ACTIVE = 1;
     /**
@@ -38,12 +40,12 @@ class ConfigPage extends \yii\db\ActiveRecord
      * {@inheritdoc}
      */
     public function rules()
-    {
+        {
         return [
-            [['name', 'type'], 'required'],
+            [['name','seo_name', 'type'], 'required'],
             [['type', 'status'], 'integer'],
             [['desc', 'conten', 'meta_title', 'meta_desc', 'meta_keyword'], 'string'],
-            [['name', 'image'], 'string', 'max' => 255],
+            [['name', 'image','seo_name'], 'string', 'max' => 255],
         ];
     }
 
@@ -55,6 +57,7 @@ class ConfigPage extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'seo_name' => 'Seo Name',
             'type' => 'Type',
             'desc' => 'Mô tả',
             'conten' => 'Nội dung',

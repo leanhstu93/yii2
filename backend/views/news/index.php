@@ -10,7 +10,7 @@ use kartik\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $searchModel app\models\Product */
 
-$this->title = 'Danh sách sản phẩm';
+$this->title = 'Danh sách tin tức';
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 $viewMsg = 'Xem';
@@ -89,8 +89,8 @@ $scrollingTop = 10;
                     'pjax' => true, // pjax is set to always true for this demo
                     'persistResize' => false,
                     'toggleDataOptions' => ['minCount' => 10],
-                    'itemLabelSingle' => 'sản phẩm',
-                    'itemLabelPlural' => 'Danh sách sản phẩm'
+                    'itemLabelSingle' => 'tin tức',
+                    'itemLabelPlural' => 'Danh sách tin tức'
                 ]); ?>
             </div>
         </div>

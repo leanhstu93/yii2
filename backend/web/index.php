@@ -12,9 +12,6 @@ function debug($data,$continue = false) {
     echo '<pre>';
     print_r($data);
     echo '</pre>';
-    if($continue == true) {
-        echo '==========================';
-    }
     if($continue == false) {
         exit();
     }

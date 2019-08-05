@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+use frontend\models\Base;
 /**
  * This is the model class for table "product".
  *
@@ -30,7 +31,7 @@ use yii\data\ActiveDataProvider;
  * @property string $meta_desc
  * @property string $meta_keyword
  */
-class Product extends \yii\db\ActiveRecord
+class Product extends Base
 {
     public $images;
     public $category_ids;
@@ -54,8 +55,9 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'name','sku', 'date_update', 'seo_name'], 'required'],
-            [['desc', 'content'], 'string'],
+            [[ 'name', 'date_update', 'seo_name'], 'required'],
+            [['name'], 'unique','message'=>'Sản phẩm này đã thêm'],
+            [['desc','sku', 'content'], 'string'],
             [['count_view', 'user_id', 'date_update', 'target_blank', 'option', 'quantity'], 'integer'],
             [['weight', 'price', 'price_sale'], 'number'],
             [['sku'], 'string', 'max' => 50],

@@ -2,12 +2,14 @@
 
 namespace backend\controllers;
 
+use frontend\models\ProductCategory;
 use Yii;
 use backend\controllers\BaseController;
 use frontend\models\Product;
 use frontend\models\ProductImage;
 use frontend\models\ConfigPage;
 use frontend\models\RlProductCategory;
+use frontend\models\Router;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -57,23 +59,25 @@ class ProductController extends BaseController
     {
 
         $model = new Product();
-
-        if ($model->load(Yii::$app->request->post())) {
-            $formData = Yii::$app->request->post();
-
+        $formData = Yii::$app->request->post();
+        if (!empty($formData)) {
+            $model->load($formData);
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
             $model->count_view = 1;
             if (!empty($formData['product']['image'][0])) {
                 $model->image = $formData['product']['image'][0];
                 array_shift($formData['product']['image']);
-
             }
+            $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
+
             if ($model->save()) {
+                #xu ly node
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT]);
+                #xu ly hinh anh
                 if (!empty($formData['product']['image'][0])) {
                     $this->saveProductImage($formData['Product']['images'], $model->id);
                 }
-
                 if (!empty($formData['Product']['category_ids'])) {
                     $this->saveProductCategory($formData['Product']['category_ids'], $model->id);
                 }
@@ -109,15 +113,17 @@ class ProductController extends BaseController
         # lay danh sach danh muc
         $model->getCategoryIds();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $formData = Yii::$app->request->post();
+        $formData = Yii::$app->request->post();
+        if (!empty($formData)) {
+            $model->load($formData);
             $model->date_update = time();
             if (!empty($formData['Product']['images'][0])) {
                 $model->image = $formData['Product']['images'][0];
-
             }
-
+            $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
+                #xu ly node
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT],'update');
                 if (!empty($formData['product']['image'][0])) {
                     $this->saveProductImage($formData['Product']['images'], $model->id);
                 }
@@ -147,7 +153,6 @@ class ProductController extends BaseController
                 $modelProductImage->image = $value;
                 $modelProductImage->save();
             }
-
         }
     }
 
@@ -177,10 +182,12 @@ class ProductController extends BaseController
             $model =  ConfigPage::find()->where(['id' => ConfigPage::TYPE_PRODUCT])->one();
         }
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post(),'ConfigPage')) {
+            $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
+                #xu ly node
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_PRODUCT_PAGE]);
                 Yii::$app->session->setFlash('success', "Lưu thành công");
-
              } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
@@ -202,7 +209,9 @@ class ProductController extends BaseController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        #xu ly node
+        Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_PRODUCT],'delete');
+        ProductImage::deleteAll(['product_id' => $id]);
         return $this->redirect(['index']);
     }
 

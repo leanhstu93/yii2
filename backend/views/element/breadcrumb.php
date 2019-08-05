@@ -4,6 +4,7 @@ use common\widgets\Alert;
 use yii\widgets\Breadcrumbs;
 
 ?>
+
     <div class="page-header">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

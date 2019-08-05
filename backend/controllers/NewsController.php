@@ -2,19 +2,21 @@
 
 namespace backend\controllers;
 
+use frontend\models\NewsCategory;
 use frontend\models\Product;
-use frontend\models\Router;
 use Yii;
-use frontend\models\ProductCategory;
+use frontend\models\News;
+use frontend\models\ConfigPage;
+use frontend\models\Router;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductCategoryController implements the CRUD actions for ProductCategory model.
+ * NewsController implements the CRUD actions for News model.
  */
-class ProductCategoryController extends Controller
+class NewsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,24 +34,24 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Lists all ProductCategory models.
+     * Lists all News models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel =  new ProductCategory();
+        $searchModel =  new News();
         $dataProvider = new ActiveDataProvider([
-            'query' => ProductCategory::find(),
+            'query' => News::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel
+            'searchModel' =>$searchModel
         ]);
     }
 
     /**
-     * Displays a single ProductCategory model.
+     * Displays a single News model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,25 +64,30 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Creates a new ProductCategory model.
+     * Creates a new News model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ProductCategory();
+        $model = new News();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
             $model->user_id = Yii::$app->user->identity->id;
+            $model->date_update = time();
+            $model->date_create = time();
+            $model->count_view = 1;
+            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
+
             if ($model->save()) {
                 #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY]);
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_NEWS]);
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
+
         }
 
         return $this->render('create', [
@@ -89,7 +96,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Updates an existing ProductCategory model.
+     * Updates an existing News model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -100,11 +107,15 @@ class ProductCategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->seo_name = ProductCategory::processSeoName($model->seo_name,$model->id);
+            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
+            $model->date_update = time();
             if ($model->save()) {
                 #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY],'update');
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_NEWS],'update');
+                Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
         }
 
@@ -114,7 +125,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Deletes an existing ProductCategory model.
+     * Deletes an existing News model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,23 +135,50 @@ class ProductCategoryController extends Controller
     {
         $this->findModel($id)->delete();
         #xu ly node
-        Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_PRODUCT_CATEGORY],'delete');
+        Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_NEWS],'delete');
+        Yii::$app->session->setFlash('success', "Xóa thành công");
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the ProductCategory model based on its primary key value.
+     * Finds the News model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ProductCategory the loaded model
+     * @return News the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ProductCategory::findOne($id)) !== null) {
+        if (($model = News::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionConfig()
+    {
+        if ($model =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_NEWS])->one() === null) {
+            $model = new ConfigPage();
+            $model->type = ConfigPage::TYPE_NEWS;
+        } else {
+            $model =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_NEWS])->one();
+        }
+
+        if ($model->load(Yii::$app->request->post(),'ConfigPage')) {
+            $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
+            if ($model->save()) {
+                #xu ly node
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_NEWS_PAGE],'update');
+                Yii::$app->session->setFlash('success', "Lưu thành công");
+            } else {
+                Yii::$app->session->setFlash('danger', "Lưu thất bại");
+            }
+            return $this->redirect(['config']);
+        }
+
+        return $this->render('config', [
+            'model' => $model,
+        ]);
     }
 }

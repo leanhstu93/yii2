@@ -28,7 +28,7 @@ use frontend\models\ProductCategory;
                     Đường dẫn
                 </label>
                 <div class="input-group input-group-icon">
-                    <?= Html::textInput('ProductCategory[seo_name]',$model->seo_name,array('class'=>'js__alias form-control')) ?>
+                    <?= Html::textInput('NewsCategory[seo_name]',$model->seo_name,array('class'=>'js__alias form-control')) ?>
 
                     <span class="input-group-addon">
                       <span class="checkbox-custom checkbox-default">

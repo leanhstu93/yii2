@@ -35,3 +35,16 @@
 .SumoSelect{
     width: 100%;
 }
+/* form */
+.form-group label.required{
+    position: relative;
+}
+.form-group label.required:after{
+    position: absolute;
+    content: "*";
+    right: -12px;
+    top: 0;
+    color: red;
+
+}
+/* end form */
