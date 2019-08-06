@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use frontend\models\Base;
 use Yii;
 
 /**
@@ -10,7 +11,7 @@ use Yii;
  * @property int $id
  * @property string $setting
  */
-class ConfigWebsite extends \yii\db\ActiveRecord
+class ConfigWebsite extends Base
 {
     /**
      * {@inheritdoc}

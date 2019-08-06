@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use frontend\models\Base;
 
 /**
  * This is the model class for table "config_page".
@@ -19,7 +20,7 @@ use Yii;
  * @property int $status
  * @property string $image
  */
-class ConfigPage extends \yii\db\ActiveRecord
+class ConfigPage  extends Base
 {
 
     const TYPE_PRODUCT = 1;

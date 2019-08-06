@@ -27,4 +27,15 @@ class Base extends \yii\db\ActiveRecord
 
         return $seo_name;
     }
+
+    /**
+     * @return array
+     */
+    public static function listActive()
+    {
+        return [
+            1 => 'Có',
+            0=> 'Không',
+        ];
+    }
 }

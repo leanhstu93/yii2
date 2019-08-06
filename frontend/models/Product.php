@@ -98,7 +98,7 @@ class Product extends Base
     }
 
     public function search($params) {
-        $query = Product::find();
+        $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
             'query'=>$query,

@@ -2,18 +2,18 @@
 
 namespace backend\controllers;
 
-use frontend\models\Router;
 use Yii;
-use frontend\models\ProductCategory;
+use frontend\models\Router;
+use frontend\models\BannerCategory;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductCategoryController implements the CRUD actions for ProductCategory model.
+ * BannerCategoryController implements the CRUD actions for BannerCategory model.
  */
-class ProductCategoryController extends Controller
+class BannerCategoryController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,24 +31,24 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Lists all ProductCategory models.
+     * Lists all BannerCategory models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel =  new ProductCategory();
+        $searchModel =  new BannerCategory();
         $dataProvider = new ActiveDataProvider([
-            'query' => ProductCategory::find(),
+            'query' => BannerCategory::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel
+            'searchModel' =>$searchModel
         ]);
     }
 
     /**
-     * Displays a single ProductCategory model.
+     * Displays a single BannerCategory model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,20 +61,22 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Creates a new ProductCategory model.
+     * Creates a new BannerCategory model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ProductCategory();
+        $model = new BannerCategory();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
             $model->user_id = Yii::$app->user->identity->id;
+            $model->date_update = time();
+            $model->date_create = time();
+            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
                 #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY]);
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_BANNER_CATEGORY]);
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -88,7 +90,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Updates an existing ProductCategory model.
+     * Updates an existing BannerCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -99,11 +101,15 @@ class ProductCategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->seo_name = ProductCategory::processSeoName($model->seo_name,$model->id);
-            if ($model->save()) {
+            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
+            $model->date_update = time();
+            if ( $model->save()) {
                 #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY],'update');
+                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_BANNER_CATEGORY],'update');
+                Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
         }
 
@@ -113,7 +119,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Deletes an existing ProductCategory model.
+     * Deletes an existing BannerCategory model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -123,20 +129,21 @@ class ProductCategoryController extends Controller
     {
         $this->findModel($id)->delete();
         #xu ly node
-        Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_PRODUCT_CATEGORY],'delete');
+        Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_BANNER_CATEGORY],'delete');
+        Yii::$app->session->setFlash('success', "Xóa thành công");
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the ProductCategory model based on its primary key value.
+     * Finds the BannerCategory model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ProductCategory the loaded model
+     * @return BannerCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ProductCategory::findOne($id)) !== null) {
+        if (($model = BannerCategory::findOne($id)) !== null) {
             return $model;
         }
 

@@ -77,7 +77,7 @@ class ProductCategory extends Base
     }
 
     public function search($params) {
-        $query = ProductCategory::find();
+        $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
             'query'=>$query,

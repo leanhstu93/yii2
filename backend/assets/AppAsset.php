@@ -14,6 +14,8 @@ class AppAsset extends AssetBundle
     public $css = [
         #libs
         'libs/sumo-select/sumoselect.min.css',
+        'libs/multi-select/multi-select.min.css',
+        'libs/bootstrap-select/bootstrap-select.min.css',
         'libs/bootstrap/bootstrap.min.css',
         'libs/bootstrap/bootstrap-extend.min.css',
         'libs/skintools/skintools.min.css',
@@ -64,6 +66,8 @@ class AppAsset extends AssetBundle
         'libs/global/colors.min.js',
         'libs/config/tour.min.js',
         'libs/sumo-select/jquery.sumoselect.js',
+        'libs/multi-select/multi-select.min.js',
+        'libs/bootstrap-select/bootstrap-select.min.js',
         'js/Site.min.js',
         'libs/global/asscrollable.min.js',
         'libs/global/jquery-asScrollbar.min.js',
@@ -72,6 +76,10 @@ class AppAsset extends AssetBundle
         'libs/global/jquery-appear.min.js',
         'libs/global/nprogress.min.js',
         'libs/global/animation.min.js',
+        'js/panel.min.js',
+        'js/jquery.multi-select.js',
+        'js/panel-actions.min.js',
+//        'js/advanced.min.js',
         'js/base.js',
         'js/main.js',
     ];

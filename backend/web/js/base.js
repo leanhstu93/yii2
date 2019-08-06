@@ -12,14 +12,20 @@ Base.fn = Base.prototype = {
         selectToggleGetAlias : '.js__toggle-auto-get-alias',
 		selectorSideBar: '.js__sidebar',
 		selectorSideBarItem: '.js__sidebar-item',
-		selectorSelectSumo: '.js__init-select-sumo'
+		selectorSelectSumo: '.js__init-select-sumo',
+		selectorSelectMultiple: '.js__init-select-multiple'
     },
     init: function () {
         this.handleSelectImage();
         this.autoSlugEvent();
         this.handleActiveSideBar();
 		this.initSumoSlect();
+		this.initSelectMultiple();
     },
+
+	initSelectMultiple: function() {
+		$(this.config.selectorSelectMultiple).selectpicker('show');
+	},
 
 	initSumoSlect: function() {
     	var self = this;

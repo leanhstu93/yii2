@@ -2,18 +2,17 @@
 
 namespace backend\controllers;
 
-use frontend\models\Router;
 use Yii;
-use frontend\models\ProductCategory;
+use frontend\models\Custom;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductCategoryController implements the CRUD actions for ProductCategory model.
+ * CustomController implements the CRUD actions for Custom model.
  */
-class ProductCategoryController extends Controller
+class CustomController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,24 +30,22 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Lists all ProductCategory models.
+     * Lists all Custom models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel =  new ProductCategory();
         $dataProvider = new ActiveDataProvider([
-            'query' => ProductCategory::find(),
+            'query' => Custom::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel
         ]);
     }
 
     /**
-     * Displays a single ProductCategory model.
+     * Displays a single Custom model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,25 +58,16 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Creates a new ProductCategory model.
+     * Creates a new Custom model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ProductCategory();
+        $model = new Custom();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
-            $model->user_id = Yii::$app->user->identity->id;
-            if ($model->save()) {
-                #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY]);
-                Yii::$app->session->setFlash('success', "Lưu thành công");
-                return $this->redirect(['index']);
-            } else {
-                Yii::$app->session->setFlash('danger', "Lưu thất bại");
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -88,32 +76,38 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Updates an existing ProductCategory model.
+     * Updates an existing Custom model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id = 1)
     {
+        $custom = Custom::getSettingcustom();
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->seo_name = ProductCategory::processSeoName($model->seo_name,$model->id);
-            if ($model->save()) {
-                #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY],'update');
-                return $this->redirect(['index']);
+        if(isset($_POST['Custom']))
+        {
+            if(!empty($_POST['Custom'])) {
+                $model->data = json_encode($_POST['Custom'],JSON_UNESCAPED_UNICODE );
+                if($model->save()) {
+                    Yii::$app->session->setFlash('success', "Lưu thành công");
+                    $this->redirect(['update']);
+                } else {
+                    Yii::$app->session->setFlash('danger', "Lưu thất bại");
+                }
             }
         }
 
         return $this->render('update', [
             'model' => $model,
+            'custom' => $custom
         ]);
     }
 
     /**
-     * Deletes an existing ProductCategory model.
+     * Deletes an existing Custom model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -122,21 +116,20 @@ class ProductCategoryController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        #xu ly node
-        Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_PRODUCT_CATEGORY],'delete');
+
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the ProductCategory model based on its primary key value.
+     * Finds the Custom model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ProductCategory the loaded model
+     * @return Custom the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ProductCategory::findOne($id)) !== null) {
+        if (($model = Custom::findOne($id)) !== null) {
             return $model;
         }
 
