@@ -47,7 +47,7 @@ $listCate = array_merge([0 => 'Danh mục gốc'],$listCate);
 <!-- Page -->
 <div class="page">
     <div class="panel-body container-fluid">
-        <?php echo $this->render("page-aside",['data' =>$menu]); ?>
+        <?php echo $this->render("//element/page-aside",['data' =>$menu]); ?>
         <div class="page-main">
             <?php echo $this->render("//element/message"); ?>
             <div class="page-content">

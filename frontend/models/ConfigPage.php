@@ -77,4 +77,16 @@ class ConfigPage  extends Base
             self::STATUS_INACTIVE => 'Ngưng hoạt động',
         ];
     }
+
+    public function getSeoName()
+    {
+        $model = Router::find()->where(['id_object' => $this->id,'type' => Router::TYPE_PRODUCT_PAGE])->one();
+        return $model->seo_name;
+    }
+
+    public function getUrl()
+    {
+        return Yii::$app->homeUrl .$this->getSeoName();
+    }
+
 }

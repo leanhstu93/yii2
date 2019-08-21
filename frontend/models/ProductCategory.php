@@ -133,4 +133,10 @@ class ProductCategory extends Base
             0=> 'Không',
         ];
     }
+
+    public function getSeoName()
+    {
+        $model = Router::find()->where(['id_object' => $this->id,'type' => Router::TYPE_PRODUCT_CATEGORY])->one();
+        return $model->seo_name;
+    }
 }

@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
 use iutbay\yii2kcfinder\KCFinderInputWidget;
-use frontend\models\ProductCategory;
+use frontend\models\NewsCategory;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\ProductCategory */
+/* @var $model frontend\models\NewsCategory */
 /* @var $form yii\widgets\ActiveForm */
 
 ?>
@@ -56,9 +56,9 @@ use frontend\models\ProductCategory;
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
 
-            <?= $form->field($model, 'option')->dropDownList(ProductCategory::listOption()) ?>
+            <?= $form->field($model, 'option')->dropDownList(NewsCategory::listOption()) ?>
 
-            <?= $form->field($model, 'active')->dropDownList(ProductCategory::listActive()) ?>
+            <?= $form->field($model, 'active')->dropDownList(NewsCategory::listActive()) ?>
 
         </div>
         <?= $this->render('//element/panel-heading', array_pop($menu)) ?>

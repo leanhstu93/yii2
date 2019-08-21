@@ -14,6 +14,11 @@ use yii\data\ActiveDataProvider;
  */
 class Custom extends Base
 {
+
+    const KEY_IMAGE = 'CUSTOM_IMAGE';
+    const KEY_SINGLE_PAGE = 'CUSTOM_SINGLE_PAGE';
+    const KEY_NEWS_CATEGORY = 'CUSTOM_NEWS_CATEGORY';
+
     /**
      * {@inheritdoc}
      */

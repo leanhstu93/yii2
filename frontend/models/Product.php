@@ -35,11 +35,17 @@ class Product extends Base
 {
     public $images;
     public $category_ids;
+    public $field_lang = [
+        'name' => 'name',
+        'desc' => 'desc',
+        'content' => 'content',
+    ];
 
     const STATUS_INACTIVE = 3;
     const STATUS_ACTIVE = 1;
     const OPTION_NEW = 1;
     const OPTION_HOT = 3;
+    const OPTION_HOME = 5;
 
     /**
      * {@inheritdoc}
@@ -153,6 +159,7 @@ class Product extends Base
         return [
             self::OPTION_HOT => 'Hot',
             self::OPTION_NEW => 'Mới',
+            self::OPTION_HOME => 'Trang chủ',
         ];
     }
 
@@ -168,6 +175,22 @@ class Product extends Base
 
         $result = array_column($data,'id');
         $this->category_ids = $result;
+    }
 
+    public function getSeoName()
+    {
+        $model = Router::find()->where(['id_object' => $this->id,'type' => Router::TYPE_PRODUCT])->one();
+        return $model->seo_name;
+    }
+
+    public function getUrl()
+    {
+        return Yii::$app->homeUrl .$this->getSeoName();
+    }
+
+    public function getUrlAll()
+    {
+        $model = Router::find()->where(['type' => Router::TYPE_PRODUCT_PAGE])->one();
+        return Yii::$app->homeUrl .$model->seo_name;
     }
 }

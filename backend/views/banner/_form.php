@@ -23,22 +23,7 @@ use frontend\models\ProductCategory;
             ])->label('Danh mục') ?>
             <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
 
-            <div class="form-group">
-                <label>
-                    Đường dẫn
-                </label>
-                <div class="input-group input-group-icon">
-                    <?= Html::textInput('BannerCategory[seo_name]',$model->seo_name,array('class'=>'js__alias form-control')) ?>
-
-                    <span class="input-group-addon">
-                      <span class="checkbox-custom checkbox-default">
-                        <input type="checkbox" id="inputCheckbox" class="js__toggle-auto-get-alias" name="inputCheckbox" checked="">
-                        <label for="inputCheckbox"></label>
-                          Lấy đường dẫn tự động
-                      </span>
-                    </span>
-                </div>
-            </div>
+            <?= $form->field($model, 'link')->textInput(['class' => 'js__title form-control'])?>
 
             <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
@@ -47,6 +32,15 @@ use frontend\models\ProductCategory;
             ]);
             ?>
         </div>
+        <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
+        <div class="panel-body container-fluid">
+
+            <?= $form->field($model, 'image',['template' => '{input}',])->widget(KCFinderInputWidget::className(), [
+                'buttonLabel' => 'Chọn hình',
+                'model' => $model,
+            ]) ?>
+        </div>
+
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
 

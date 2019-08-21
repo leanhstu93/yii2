@@ -38,4 +38,10 @@ class Base extends \yii\db\ActiveRecord
             0=> 'Không',
         ];
     }
+
+    public static function getAll()
+    {
+        return self::find()->where(['active' => 1])->all();
+    }
+
 }

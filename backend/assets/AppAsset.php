@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         'libs/slidepanel/slidePanel.min.css',
         'libs/flag-icon-css/flag-icon.min.css',
         'libs/nprogress/nprogress.min.css',
+        'libs/nestable/nestable.min.css',
         'libs/animation/animation.min.css',
         'libs/web-icons/web-icons.min.css',
         'libs/brand-icons/brand-icons.min.css',
@@ -38,9 +39,10 @@ class AppAsset extends AssetBundle
         #end custom
     ];
     public $js = [
+        #'libs/requirejs/require.js',
+        'libs/babel-external-helpers/babel-external-helpers.js',
         'libs/skintools/skintools.min.js',
         'libs/breakpoints/breakpoints.min.js',
-        'libs/babel-external-helpers/babel-external-helpers.js',
         'libs/popper-js/popper.min.js',
         'libs/bootstrap/bootstrap.min.js',
         'libs/bootstrap/bootstrap-anchor.min.js',
@@ -55,6 +57,9 @@ class AppAsset extends AssetBundle
         'libs/jquery-appear/jquery.appear.js',
         'libs/nprogress/nprogress.js',
         'libs/Component/Component.min.js',
+        'libs/sortable/Sortable.min.js',
+        'libs/sortable/jquery-sortable.js',
+//        'libs/nestable/jquery.nestable.min.js',
         'libs/global/Plugin.min.js',
         'libs/global/Base.min.js',
         'libs/global/Config.min.js',
@@ -76,6 +81,7 @@ class AppAsset extends AssetBundle
         'libs/global/jquery-appear.min.js',
         'libs/global/nprogress.min.js',
         'libs/global/animation.min.js',
+//        'libs/nestable/nestable.min.js',
         'js/panel.min.js',
         'js/jquery.multi-select.js',
         'js/panel-actions.min.js',

@@ -30,10 +30,12 @@ IndexIgnore */*
 
     RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
 
+    RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
+
     RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
 
 
-    RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css)/
+    RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css|js|fonts)/
 
     RewriteCond %{REQUEST_URI} !index.php
 

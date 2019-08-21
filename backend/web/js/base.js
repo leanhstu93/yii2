@@ -13,7 +13,18 @@ Base.fn = Base.prototype = {
 		selectorSideBar: '.js__sidebar',
 		selectorSideBarItem: '.js__sidebar-item',
 		selectorSelectSumo: '.js__init-select-sumo',
-		selectorSelectMultiple: '.js__init-select-multiple'
+		selectorSelectMultiple: '.js__init-select-multiple',
+		selectorSortAble: '.js__init-sort-able',
+		classNotEdit : 'Ta_js-not-edit',
+		selectorDataMenu : '.Ta_js-data-menu',
+		selectorNavItem : '.js-nav-item',
+		classNavItem : 'js-nav-item',
+		classTabLangDefault: 'js-tab-language-',
+		selectorTabLang: '.js-tab-language',
+		selectorBtnSubmit: '.js-submit',
+		selectorHasError: '.has-error',
+		classNavItem: 'js-nav-item',
+		selectorForm:'.js-form'
     },
     init: function () {
         this.handleSelectImage();
@@ -21,6 +32,11 @@ Base.fn = Base.prototype = {
         this.handleActiveSideBar();
 		this.initSumoSlect();
 		this.initSelectMultiple();
+		this.initSortAble();
+		this.checkSave();
+		this.handleListLanguage();
+		this.initTabLang();
+		this.handleBtnSubmit();
     },
 
 	initSelectMultiple: function() {
@@ -46,7 +62,7 @@ Base.fn = Base.prototype = {
     },
     JS_bodau_tv: function (cataname_id, seo_name, id)
 		{
-		    var str = $(cataname_id).val();
+		    var str = cataname_id.val();
 		    str = str.toLowerCase();
 		    str = str.trim();
 		    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
@@ -79,8 +95,10 @@ Base.fn = Base.prototype = {
 	    });
 
 	    $(self.config.selectTitleValue).on('input ', function () {
-	        if ($(self.config.selectToggleGetAlias).prop('checked'))
-	            self.JS_bodau_tv(self.config.selectTitleValue, self.config.selectAliasValue, 0);
+	        if ($(self.config.selectToggleGetAlias).prop('checked')) {
+	        	console.log($(this).parent().parent().find(self.config.selectAliasValue).length);
+				self.JS_bodau_tv($(this), $(this).parent().parent().find(self.config.selectAliasValue), 0);
+			}
 	    });
 	},
 
@@ -96,6 +114,102 @@ Base.fn = Base.prototype = {
 				}, 500)
 			}
 		})
+	},
+
+	initSortAble : function () {
+		var self = this;
+
+		var group = $(self.config.selectorSortAble).sortable({
+			group: 'shared',
+			animation: 150,
+			pullPlaceholder: false,
+			// animation on drop
+			onDrop: function  ($item, container, _super) {
+				var data = group.sortable("serialize").get();
+				var result = JSON.stringify(data[0]);
+				$(self.config.selectorSortAble).addClass(self.config.classNotEdit);
+				$(self.config.selectorDataMenu).val(result);
+				var $clonedItem = $('<li/>').css({height: 0});
+				$item.before($clonedItem);
+				$clonedItem.animate({'height': $item.height()});
+
+				$item.animate($clonedItem.position(), function  () {
+					$clonedItem.detach();
+					_super($item, container);
+				});
+			},
+
+			// set $item relative to cursor position
+			onDragStart: function ($item, container, _super) {
+				var offset = $item.offset(),
+					pointer = container.rootGroup.pointer;
+
+				adjustment = {
+					left: pointer.left - offset.left,
+					top: pointer.top - offset.top
+				};
+
+				_super($item, container);
+			},
+			onDrag: function ($item, position) {
+				$item.css({
+					left: position.left - adjustment.left,
+					top: position.top - adjustment.top
+				});
+			}
+		});
+	},
+
+	checkSave : function() {
+		var self  = this;
+		$(self.config.selectorEditName).click(function(){
+			var has = $(self.config.selectorSortAble).hasClass(self.config.classNotEdit);
+
+			if(has == true) {
+				alert('Vui lòng cập nhật trước khi thực hiện thao tác này!');
+				return false;
+			} else {
+				return true;
+			}
+
+		});
+	},
+
+	handleListLanguage: function() {
+		var self = this;
+
+		$(self.config.selectorNavItem).click(function(){
+			$(self.config.selectorNavItem).removeClass('active');
+			$(this).addClass('active');
+			self.initTabLang();
+		});
+	},
+
+	initTabLang: function()
+	{
+		var self = this;
+
+		var code = $("."+self.config.classNavItem + '.active').data('code');
+		$(self.config.selectorTabLang).hide();
+		$("."+self.config.classTabLangDefault + code).show();
+	},
+
+	handleBtnSubmit: function()
+	{
+		var self = this;
+		console.log($(self.config.selectorForm).length);
+		$("#w1").on('afterValidate', function(e){
+			var code = $(this).find(self.config.selectorHasError).closest(self.config.selectorTabLang).data('code');
+
+			if( typeof(code) != 'undefined') {
+				console.log(989);
+				$(self.config.selectorTabLang).hide();
+				$("." + self.config.classTabLangDefault + code).show();
+				console.log($("." + self.config.classTabLangDefault + code).length);
+				$(self.config.selectorNavItem).removeClass('active');
+				$("." + self.config.classNavItem + "-" + code).addClass('active');
+			}
+		});
 	}
 };
 

@@ -126,4 +126,34 @@ class SinglePage extends Base
             self::OPTION_NEW => 'Mới',
         ];
     }
+
+    public function getSeoName()
+    {
+        $model = Router::find()->where(['id_object' => $this->id,'type' => Router::TYPE_SINGLE_PAGE])->one();
+        return $model->seo_name;
+    }
+
+    public static function getDataByCustomSetting($key)
+    {
+        $custom = Custom::getSettingcustom();
+        $custom_image =  (object)$custom[Custom::KEY_SINGLE_PAGE][$key];
+
+        if(!empty($custom_image->data)) {
+            $data = implode(',',$custom_image->data);
+            if(!empty($data)) {
+                if ($custom_image->limit == 1) {
+                    return self::find()->where('id IN (' . $data . ') AND active =1 ')->one();
+                } elseif ($custom_image->limit == 0) {
+                    return self::find()->where('id IN (' . $data . ') AND active =1 ')->all();
+                } else {
+                    return self::find()->where('id IN (' . $data . ') AND active =1 ')->limit($custom_image->limit)->all();
+                }
+            }
+        }
+    }
+
+    public function getUrl()
+    {
+        return Yii::$app->homeUrl .$this->getSeoName();
+    }
 }

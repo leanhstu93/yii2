@@ -74,13 +74,11 @@ class BannerController extends Controller
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
             $model->date_create = time();
-            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
-                #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_BANNER]);
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
+
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
         }
@@ -102,18 +100,14 @@ class BannerController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
             $model->date_update = time();
             if ($model->save()) {
-                #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_BANNER],'update');
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -129,8 +123,6 @@ class BannerController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        #xu ly node
-        Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_BANNER],'delete');
         Yii::$app->session->setFlash('success', "Xóa thành công");
         return $this->redirect(['index']);
     }

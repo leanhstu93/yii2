@@ -48,3 +48,34 @@
 
 }
 /* end form */
+.example{position:relative;padding:10px;border:1px solid #e4eaec}.example .scrollable-horizontal .scrollable-content{width:1400px}
+.css__init-sort-able .dragged{
+    position: absolute;
+    z-index: 2000;
+}
+.css__init-sort-able .dragged .dd-handle{
+    top:5px;
+    background: #f3f7f9;
+}
+.css__init-sort-able .dragged .dd-content{
+    background: #f3f7f9;
+}
+.css__init-sort-able{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.css__init-sort-able a .dd-content,.css__init-sort-able a:hover{
+    color:#76838f;
+    text-decoration: none;
+}
+.menu-form .example{
+    padding: 0 10px;
+    margin: 0;
+}
+.menu-form .example .field-menu-data{
+    display: none;
+}
+.menu-form .wrap-button{
+    margin-top: 20px;
+    margin-left: 15px;
+}

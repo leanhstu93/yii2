@@ -76,8 +76,19 @@ return [
                     'link' => 'custom/update'
                 ],
                 'submenu_2' => [
-                    'name' => 'Danh sách danh mục',
-                    'link' => 'banner-category/index'
+                    'name' => 'Thiết lập menu',
+                    'link' => 'menu/update'
+                ],
+            ]
+        ],
+        'mn_manager_company' => [
+            'name' => 'Quản lý website',
+            'link' => 'javascript:void(0)',
+            'icon' => '<i class="site-menu-icon wb-layout" aria-hidden="true"></i>',
+            'submenu' => [
+                'submenu_1' => [
+                    'name' => 'Thiết lập website',
+                    'link' => 'company/update'
                 ],
             ]
         ]
@@ -92,13 +103,27 @@ return [
                 'note' => '',
                 'limit' => 0
             ],
+            'bottom_slide' =>[
+                'name' => '3 banner dưới banner slide',
+                'data' => 2,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 3
+            ],
+            'background_middle_one' =>[
+                'name' => 'Background giữa trang chủ',
+                'data' => 3,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 1
+            ],
         ],
         'CUSTOM_SINGLE_PAGE' => [
-            'list_doctor' =>[
-                'name' => 'Danh sách bác sĩ',
+            'one_middle_home' =>[
+                'name' => 'Trang đơn giữa trang chủ',
                 'data' => 1,
                 'note' => '',
-                'limit' => 0
+                'limit' => 1
             ],
         ],
         'CUSTOM_NEWS_CATEGORY' => [
@@ -108,6 +133,47 @@ return [
                 'note' => '',
                 'limit' => 4
             ],
+        ],
+    ],
+
+    #menu
+    'menuDefault' => [
+        [
+            'name' => 'Trang chủ',
+            'id' => 'mn_home',
+            'module' => 'home',
+            'link' => 'ourhome',
+        ],
+        [
+            'name' => 'Sản phẩm',
+            'id' => 'mn_product',
+            'module' => 'product',
+            'link' => '/product/config',
+        ],
+        [
+            'name' => 'Tin tức',
+            'id' => 'mn_news',
+            'module' => 'news',
+            'link' => 'news/config'
+        ],
+    ],
+
+    # setting language
+    'settingLanguage' => [
+        'home' => 'Trang chủ',
+        'phone' => 'Gửi',
+    ],
+    'listLanguage' => [
+        'vi' => [
+            'default' => true,
+            'icon' => 'images/vn.svg',
+            'name' => 'Tiếng việt'
+        ],
+        'us' => [
+            'default' => false,
+            'icon' => 'images/uk.svg',
+            'name' => 'Tiếng anh'
         ]
-    ]
+    ],
+
 ];

@@ -17,7 +17,10 @@ use yii\helpers\Html;
         </div>
         <div class="panel-body">
             <?php
-            foreach ($data as $key_parent => $item){?>
+
+            foreach ($data as $key_parent => $item){
+                if(empty($item['name'])) continue;
+                ?>
                 <div class="form-group">
                     <label class="col-sm-4 control-label form-label"><?php echo $item['name'] ?>:</label>
                     <div class="col-sm-8">

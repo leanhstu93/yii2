@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use frontend\models\ProductCategory;
+use frontend\models\DataLang;
 use Yii;
 use backend\controllers\BaseController;
 use frontend\models\Product;
@@ -50,6 +51,30 @@ class ProductController extends BaseController
         ]);
     }
 
+    protected function saveDataLang($data, $id_object = 0)
+    {
+        if (empty($data)) {
+            return false;
+        }
+
+        foreach ($data as $key => $item) {
+            if (empty($id_object)) {
+                $dataLang = new DataLang();
+                $dataLang->code_lang = $key;
+                $dataLang->id_object = $id_object;
+                $dataLang->type = DataLang::TYPE_PRODUCT;
+            } else {
+                $dataLang = DataLang::find()->where(['id_object' => $id_object,'code_lang' => $key, 'type' => DataLang::TYPE_PRODUCT])->one();
+            }
+
+            $dataLang->name = $item['name'];
+            $dataLang->desc = $item['desc'];
+            $dataLang->content = $item['content'];
+            $dataLang->save();
+        }
+        return true;
+    }
+
     /**
      * Creates a new Product model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -59,6 +84,7 @@ class ProductController extends BaseController
     {
 
         $model = new Product();
+        $dataLang = new DataLang();
         $formData = Yii::$app->request->post();
         if (!empty($formData)) {
             $model->load($formData);
@@ -81,6 +107,12 @@ class ProductController extends BaseController
                 if (!empty($formData['Product']['category_ids'])) {
                     $this->saveProductCategory($formData['Product']['category_ids'], $model->id);
                 }
+
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                   $this->saveDataLang($_POST['DataLang']);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -90,6 +122,7 @@ class ProductController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -102,6 +135,7 @@ class ProductController extends BaseController
      */
     public function actionUpdate($id)
     {
+        $dataLang = new DataLang();
         /**
          * @var Product $model
          */
@@ -128,6 +162,12 @@ class ProductController extends BaseController
                     $this->saveProductImage($formData['Product']['images'], $model->id);
                 }
 
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id );
+                }
+                #end save data lang
+
                 if (!empty($formData['Product']['category_ids'])) {
                     $this->saveProductCategory($formData['Product']['category_ids'], $model->id);
                 }
@@ -137,6 +177,7 @@ class ProductController extends BaseController
 
         return $this->render('update', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -212,6 +253,8 @@ class ProductController extends BaseController
         #xu ly node
         Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_PRODUCT],'delete');
         ProductImage::deleteAll(['product_id' => $id]);
+        # xoa data lang
+        DataLang::deleteAll(['type' => DataLang::TYPE_PRODUCT, 'id_object' => $id]);
         return $this->redirect(['index']);
     }
 
@@ -227,7 +270,6 @@ class ProductController extends BaseController
         if (($model = Product::findOne($id)) !== null) {
             return $model;
         }
-
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

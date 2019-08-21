@@ -6,6 +6,7 @@ use yii\web\View;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
+/* @var $dataLang app\models\DataLang */
 
 $this->title = 'Cập nhật';
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
@@ -44,7 +45,7 @@ $listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'n
 <!-- Page -->
 <div class="page">
     <div class="panel-body container-fluid">
-        <?php echo $this->render("page-aside", ['data' => $menu]); ?>
+        <?php echo $this->render("//element/page-aside", ['data' => $menu]); ?>
         <div class="page-main">
             <?php echo $this->render("//element/message"); ?>
             <div class="page-content">
@@ -52,7 +53,8 @@ $listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'n
                 <?= $this->render('_form', [
                     'model' => $model,
                     'menu' => array_reverse($menu),
-                    'listCate' => $listCate
+                    'listCate' => $listCate,
+                    'dataLang' => $dataLang
                 ]) ?>
             </div>
         </div>

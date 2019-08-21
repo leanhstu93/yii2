@@ -28,6 +28,9 @@ use yii\data\ActiveDataProvider;
  */
 class NewsCategory extends \yii\db\ActiveRecord
 {
+    const OPTION_HOME = 1;
+    const OPTION_NEW = 3;
+    const OPTION_HOT = 5;
     /**
      * {@inheritdoc}
      */
@@ -119,6 +122,7 @@ class NewsCategory extends \yii\db\ActiveRecord
         return [
             self::OPTION_HOT => 'Hot',
             self::OPTION_NEW => 'Mới',
+            self::OPTION_HOME => 'Trang chủ',
         ];
     }
 
@@ -131,5 +135,16 @@ class NewsCategory extends \yii\db\ActiveRecord
             1 => 'Có',
             0=> 'Không',
         ];
+    }
+
+    public function getSeoName()
+    {
+        $model = Router::find()->where(['id_object' => $this->id,'type' => Router::TYPE_NEWS_CATEGORY])->one();
+        return $model->seo_name;
+    }
+
+    public function getUrl()
+    {
+        return Yii::$app->homeUrl .$this->getSeoName();
     }
 }
