@@ -89,15 +89,34 @@ class Custom extends Base
     /**
      * lấy dữ liệu setting
      */
-    public static function getSettingcustom()
+    public static function getSettingCustomTemplate()
     {
         $custom =  \Yii::$app->params['settingTemplate'];
         $model = self::findOne(1);
-        $data = json_decode($model->data,true);
 
-        if(!empty($data)) {
-            $custom = array_replace_recursive($custom, json_decode($model->data,true));
+        $dataArray = json_decode($model->data,true);
+        if(!empty($dataArray['settingTemplate'])) {
+            $custom = array_replace_recursive($custom, $dataArray['settingTemplate']);
         }
         return $custom;
+    }
+
+    public static function getSettingCustomLanguage()
+    {
+        $custom =  \Yii::$app->params['settingLanguage'];
+        $listLanguage =  \Yii::$app->params['listLanguage'];
+        $customLanguage = [];
+        $model = self::findOne(1);
+        $dataArray = json_decode($model->data,true);
+
+        foreach ($listLanguage as $key => $value) {
+            $customLanguage[$key] = $custom;
+
+            if (!empty($dataArray['settingLanguage'][$key])) {
+                $customLanguage[$key] = array_replace_recursive($customLanguage[$key], $dataArray['settingLanguage'][$key]);
+            }
+        }
+
+        return $customLanguage;
     }
 }

@@ -75,12 +75,6 @@ use frontend\models\DataLang;
                    'class' => 'required'
                ],
                 [
-                    'type' => 'text',
-                    'name' => 'seo_name',
-                    'required' => 'required',
-                    'class' => 'required'
-                ],
-                [
                     'type' => 'textarea',
                     'name' => 'desc',
                     'required' => '',

@@ -44,4 +44,14 @@ class Base extends \yii\db\ActiveRecord
         return self::find()->where(['active' => 1])->all();
     }
 
+    public function getImageDecode()
+    {
+
+        $imageEx = explode('/',$this->image);
+        $nameImage = array_pop($imageEx);
+        $nameImage = urlencode($nameImage);
+        $linkFolder =implode("/",$imageEx);
+
+        return $linkFolder. '/'.$nameImage;
+    }
 }

@@ -8,12 +8,12 @@ use frontend\models\ConfigPage;
 <?php
 $banner = Banner::getDataByCustomSetting('background_middle_one');
 ?>
-<section class="funfact-section sp-two" style="background-image:url(<?= $banner->images->image ?>)">
+<section class="funfact-section sp-two" style="background-image:url(<?= $banner->images->getImageDecode() ?>)">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 fact-counter">
                 <div class="sec-title light">
-                    <a href="#" class="theme-btn">Thiết Kế 4.0</a>
+                    <a href="#" class="theme-btn">Về chúng tôi</a>
                     <h1><?= $banner->images->name ?></h1>
                     <div class="text"><?= $banner->images->desc ?></div>
                 </div>

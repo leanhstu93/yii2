@@ -6,7 +6,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 $listLanguage = Yii::$app->params['listLanguage'];
-if(!empty($dataFieldLang) && count($listLanguage) > 1) {
+
+if(!empty($dataFieldLang) && count($listLanguage) > 0) {
     foreach ($listLanguage as $code => $lang) {
         if($lang['default']) continue;
         ?>
@@ -25,7 +26,7 @@ if(!empty($dataFieldLang) && count($listLanguage) > 1) {
                         Đường dẫn
                     </label>
                     <div class="input-group input-group-icon">
-                        <?= Html::textInput('DataLang[' . $code . '][seo_name]', $model->seo_name, array('class' => 'js__alias form-control')) ?>
+                        <?= Html::textInput('DataLang[' . $code . '][seo_name]', $model[[$code]]->seo_name, array('class' => 'js__alias form-control')) ?>
                         <span class="input-group-addon">
                       <span class="checkbox-custom checkbox-default">
                         <input type="checkbox" id="inputCheckbox" class="js__toggle-auto-get-alias" name="inputCheckbox"
@@ -39,14 +40,16 @@ if(!empty($dataFieldLang) && count($listLanguage) > 1) {
 
                 <?php
             } else if($name == 'content') {
-                echo $form->field($model, 'content')->widget(CKEditor::className(), [
+                echo $form->field($model[$code], 'content')->widget(CKEditor::className(), [
                     'kcfinder' => true,
+                    'options' => [
+                        'name' => 'DataLang['.$code.']['.$name.']'
+                    ]
                 ]);
             } else if($name == 'desc') {
-                echo $form->field($model, 'desc')->textarea(['rows' => 3]);
+                echo $form->field($model[$code], 'desc')->textarea(['rows' => 3,'name' => 'DataLang['.$code.']['.$name.']']);
             } else {
-
-               echo $form->field($model, $name)->textInput(['name' => 'DataLang['.$code.']['.$name.']','class' => 'js__title form-control', $required])->label(null, ['class' => $required]);
+               echo $form->field($model[$code], $name)->textInput(['name' => 'DataLang['.$code.']['.$name.']','class' => 'js__title form-control', $required])->label(null, ['class' => $required]);
             }
         }
         echo "</div>";

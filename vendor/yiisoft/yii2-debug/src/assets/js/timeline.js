@@ -2,16 +2,21 @@
     'use strict';
 
     var on = function (element, event, handler) {
+        var i;
+        if (null === element) {
+            return;
+        }
         if (element instanceof NodeList) {
-            element.forEach(function (value) {
-                value.addEventListener(event, handler, false);
-            });
+            for (i = 0; i <  element.length; i++) {
+                element[i].addEventListener(event, handler, false);
+            }
+
             return;
         }
         if (!(element instanceof Array)) {
             element = [element];
         }
-        for (var i in element) {
+        for (i in element) {
             if (typeof element[i].addEventListener !== 'function') {
                 continue;
             }
@@ -28,8 +33,9 @@
                 delete this.options.$focus;
             }
             var links = document.querySelectorAll('.debug-timeline-panel__item a');
-            links.forEach(function (link) {
-                new Tooltip(link);
+
+            for (var i = 0, len = links.length; i < len; i++) {
+                new Tooltip(links[i]);
 
                 on(link, 'show.bs.tooltip', function() {
                     if (this.hasAttribute('data-memory')) {
@@ -38,7 +44,8 @@
                         self.options.$memory.style.bottom = data[1] + '%';
                     }
                 });
-            });
+
+            }
             return self;
         };
         this.setFocus = function ($elem) {

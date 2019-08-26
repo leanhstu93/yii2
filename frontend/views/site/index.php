@@ -7,5 +7,10 @@ echo $this->render("//element/single-page-middle");
 
 echo $this->render("//element/funnfact-home");
 
+echo $this->render("//element/service-home");
+
 echo $this->render("//element/product-home");
+
+echo $this->render("//element/news-letter-home");
+
 ?>

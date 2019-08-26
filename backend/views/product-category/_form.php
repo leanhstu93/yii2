@@ -50,6 +50,8 @@ use frontend\models\ProductCategory;
 
             <?= $form->field($model, 'image',['template' => '{input} '])->widget(KCFinderInputWidget::className(), [
                 'buttonLabel' => 'Chọn hình',
+                'multiple' => false,
+                'name' => 'image',
                 'model' => $model,
             ]) ?>
         </div>

@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\Custom;
 use frontend\models\SinglePage;
 use Yii;
 use yii\helpers\Url;
@@ -116,9 +117,13 @@ class BaseController extends Controller
         parent::init();
 
         $company = Company::find()->where(['id' => 1])->one();
+        $custom = new Custom();
 
         Yii::$app->view->params['menu'] =  $this->buildMenu();
         Yii::$app->view->params['company'] =  $company;
+        $dataLang = $custom->getSettingCustomLanguage();
+
+        Yii::$app->view->params['lang'] = (object) $dataLang['vi'];
         $this->view->title = $company->name;
         $this->view->registerMetaTag([
             'name' => 'keywords',

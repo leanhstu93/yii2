@@ -51,14 +51,14 @@ class ProductController extends BaseController
         ]);
     }
 
-    protected function saveDataLang($data, $id_object = 0)
+    protected function saveDataLang($data, $id_object = 0,$is_update = 0)
     {
         if (empty($data)) {
             return false;
         }
 
         foreach ($data as $key => $item) {
-            if (empty($id_object)) {
+            if (empty($is_update)) {
                 $dataLang = new DataLang();
                 $dataLang->code_lang = $key;
                 $dataLang->id_object = $id_object;
@@ -70,7 +70,9 @@ class ProductController extends BaseController
             $dataLang->name = $item['name'];
             $dataLang->desc = $item['desc'];
             $dataLang->content = $item['content'];
-            $dataLang->save();
+            if (!$dataLang->save()) {
+                debug($dataLang->errors);
+            }
         }
         return true;
     }
@@ -82,18 +84,28 @@ class ProductController extends BaseController
      */
     public function actionCreate()
     {
-
         $model = new Product();
         $dataLang = new DataLang();
         $formData = Yii::$app->request->post();
+        $dataLangUpdate = [];
+        $dataLangUpdate['vn'] =  $model;
+        $listLanguage =  \Yii::$app->params['listLanguage'];
+
+        if (!empty($listLanguage)) {
+            foreach ($listLanguage as $key => $item) {
+                if($item['default']) continue;
+
+                $dataLangUpdate[$key] = $dataLang;
+            }
+        }
         if (!empty($formData)) {
             $model->load($formData);
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
             $model->count_view = 1;
-            if (!empty($formData['product']['image'][0])) {
-                $model->image = $formData['product']['image'][0];
-                array_shift($formData['product']['image']);
+            $dataImage = array_filter($formData['Product']['images']);
+            if (count($dataImage) > 0) {
+                $model->image = array_shift($dataImage);
             }
             $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
 
@@ -101,8 +113,8 @@ class ProductController extends BaseController
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT]);
                 #xu ly hinh anh
-                if (!empty($formData['product']['image'][0])) {
-                    $this->saveProductImage($formData['Product']['images'], $model->id);
+                if (count($dataImage) > 0) {
+                    $this->saveProductImage($dataImage, $model->id);
                 }
                 if (!empty($formData['Product']['category_ids'])) {
                     $this->saveProductCategory($formData['Product']['category_ids'], $model->id);
@@ -110,7 +122,7 @@ class ProductController extends BaseController
 
                 #save Data Lang
                 if (!empty($_POST['DataLang'])) {
-                   $this->saveDataLang($_POST['DataLang']);
+                   $this->saveDataLang($_POST['DataLang'],$model->id);
                 }
                 #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
@@ -122,7 +134,7 @@ class ProductController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
-            'dataLang' => $dataLang
+            'dataLang' => $dataLangUpdate
         ]);
     }
 
@@ -135,11 +147,18 @@ class ProductController extends BaseController
      */
     public function actionUpdate($id)
     {
-        $dataLang = new DataLang();
+        $dataLang = DataLang::find()->where(['id_object' => $id, 'type' => DataLang::TYPE_PRODUCT])->all();
+        $dataLangUpdate = [];
+        if (!empty($dataLang)) {
+            foreach ($dataLang as $item) {
+                $dataLangUpdate[$item->code_lang] = $item;
+            }
+        }
         /**
          * @var Product $model
          */
         $model = $this->findModel($id);
+        $dataLangUpdate['vn'] = $model;
         # lay danh sach hinh anh
         $modelProductImage = ProductImage::find()->select('image')->where(['product_id' => $id])->asArray()->all();
         $model->images = array_merge([$model->image],array_column($modelProductImage,'image'));
@@ -151,15 +170,16 @@ class ProductController extends BaseController
         if (!empty($formData)) {
             $model->load($formData);
             $model->date_update = time();
-            if (!empty($formData['Product']['images'][0])) {
-                $model->image = $formData['Product']['images'][0];
+            $dataImage = array_filter($formData['Product']['images']);
+            if (!empty($dataImage)) {
+                $model->image = array_shift($dataImage);
             }
             $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT],'update');
                 if (!empty($formData['product']['image'][0])) {
-                    $this->saveProductImage($formData['Product']['images'], $model->id);
+                    $this->saveProductImage($dataImage, $model->id);
                 }
 
                 #save Data Lang
@@ -177,7 +197,7 @@ class ProductController extends BaseController
 
         return $this->render('update', [
             'model' => $model,
-            'dataLang' => $dataLang
+            'dataLang' => $dataLangUpdate
         ]);
     }
 

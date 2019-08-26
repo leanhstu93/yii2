@@ -38,7 +38,7 @@ return [
             ],
         ],
         'user' => [
-            'class' => 'app\components\Member', // extend User component
+            'identityClass' => 'common\models\Member',
         ],
         'view' => [
             'class' => 'yii\web\View',
@@ -65,11 +65,11 @@ return [
             'baseUrl' => '/admin',
             'csrfParam' => '_csrf-backend',
         ],
-        'user' => [
-            'identityClass' => 'common\models\Member',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
+//        'user' => [
+//            'identityClass' => 'common\models\Member',
+//            'enableAutoLogin' => true,
+//            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+//        ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',

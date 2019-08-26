@@ -11,7 +11,6 @@ use Yii;
  * @property int $id
  * @property int $id_object
  * @property string $name
- * @property string $seo_name
  * @property string $desc
  * @property string $content
  * @property int $type
@@ -37,10 +36,10 @@ class DataLang extends Base
     public function rules()
     {
         return [
-            [['id_object', 'name', 'seo_name', 'type', 'code_lang'], 'required'],
+            [['id_object', 'name', 'type', 'code_lang'], 'required'],
             [['id_object', 'type'], 'integer'],
             [['desc', 'content'], 'string'],
-            [['name', 'seo_name', 'meta_title', 'meta_desc', 'meta_keyword'], 'string', 'max' => 255],
+            [['name', 'meta_title', 'meta_desc', 'meta_keyword'], 'string', 'max' => 255],
             [['code_lang'], 'string', 'max' => 10],
         ];
     }
@@ -54,7 +53,6 @@ class DataLang extends Base
             'id' => 'ID',
             'id_object' => 'Id Object',
             'name' => 'Name',
-            'seo_name' => 'Seo Name',
             'desc' => 'Desc',
             'content' => 'Content',
             'type' => 'Type',

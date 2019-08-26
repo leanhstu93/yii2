@@ -35,7 +35,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    //'logout' => ['post'],
                 ],
             ],
         ];
@@ -81,6 +81,25 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->password = md5($model->password);
             if($model->login()) {
+                $kcfOptions = [
+                    'files' => [
+                        'upload' => true,
+                        'delete' => true,
+                        'copy' => true,
+                        'move' => true,
+                        'rename' => true,
+                    ],
+                    'dirs' => [
+                        'create' => true,
+                        'delete' => true,
+                        'rename' => true,
+                    ],
+                ];
+//                $session = Yii::$app->session;
+//                if (!$session->isActive) {
+//                    $session->open();
+//                }
+//                Yii::$app->session->set('KCF_ACCESS', $kcfOptions);
                 return $this->goBack();
             }
         }

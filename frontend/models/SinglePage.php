@@ -135,7 +135,8 @@ class SinglePage extends Base
 
     public static function getDataByCustomSetting($key)
     {
-        $custom = Custom::getSettingcustom();
+        $custom = Custom::getSettingCustomTemplate();
+
         $custom_image =  (object)$custom[Custom::KEY_SINGLE_PAGE][$key];
 
         if(!empty($custom_image->data)) {

@@ -91,6 +91,17 @@ return [
                     'link' => 'company/update'
                 ],
             ]
+        ],
+        'mn_manager_language' => [
+            'name' => 'Quản lý ngôn ngữ',
+            'link' => 'javascript:void(0)',
+            'icon' => '<i class="site-menu-icon wb-layout" aria-hidden="true"></i>',
+            'submenu' => [
+                'submenu_1' => [
+                    'name' => 'Tùy chĩnh ngôn ngữ',
+                    'link' => 'custom/custom-language'
+                ],
+            ]
         ]
     ],
     # tuy chinh giao dien
@@ -124,6 +135,12 @@ return [
                 'data' => 1,
                 'note' => '',
                 'limit' => 1
+            ],
+            'tree_middle_home' =>[
+                'name' => '3 trang đơn giữa trang chủ',
+                'data' => 2,
+                'note' => '',
+                'limit' => 3
             ],
         ],
         'CUSTOM_NEWS_CATEGORY' => [
@@ -162,6 +179,8 @@ return [
     'settingLanguage' => [
         'home' => 'Trang chủ',
         'phone' => 'Gửi',
+        'newsletter_subscription' => 'Đăng ký nhận bản tin',
+        'enter_email' => 'Nhập địa chỉ email'
     ],
     'listLanguage' => [
         'vi' => [

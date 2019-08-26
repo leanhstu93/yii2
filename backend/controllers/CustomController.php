@@ -45,6 +45,28 @@ class CustomController extends Controller
     }
 
     /**
+     * @param $data
+     * @param $key
+     * @return bool
+     * @throws NotFoundHttpException
+     */
+    protected function saveData($dataSave,$key)
+    {
+        $model = $this->findModel(1);
+
+        if(!empty($dataSave)) {
+            $dataCustom = json_decode($model->data,true);
+            $dataCustom[$key] = $dataSave;
+            $model->data = json_encode($dataCustom,JSON_UNESCAPED_UNICODE );
+            if($model->save()) {
+               return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    /**
      * Displays a single Custom model.
      * @param integer $id
      * @return mixed
@@ -84,25 +106,42 @@ class CustomController extends Controller
      */
     public function actionUpdate($id = 1)
     {
-        $custom = Custom::getSettingcustom();
+        $custom = Custom::getSettingCustomTemplate();
         $model = $this->findModel($id);
 
-        if(isset($_POST['Custom']))
-        {
-            if(!empty($_POST['Custom'])) {
-                $model->data = json_encode($_POST['Custom'],JSON_UNESCAPED_UNICODE );
-                if($model->save()) {
-                    Yii::$app->session->setFlash('success', "Lưu thành công");
-                    $this->redirect(['update']);
-                } else {
-                    Yii::$app->session->setFlash('danger', "Lưu thất bại");
-                }
+        if(!empty($_POST['Custom'])) {
+            if($this->saveData($_POST['Custom'],'settingTemplate')) {
+                Yii::$app->session->setFlash('success', "Lưu thành công");
+                $this->redirect(['update']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
         }
 
         return $this->render('update', [
             'model' => $model,
             'custom' => $custom
+        ]);
+    }
+
+    public function actionCustomLanguage($id = 1)
+    {
+        $dataLanguage = Custom::getSettingCustomLanguage();
+        $model = $this->findModel($id);
+
+        if(!empty($_POST['Custom'])) {
+
+            if($this->saveData($_POST['Custom'],'settingLanguage')) {
+                Yii::$app->session->setFlash('success', "Lưu thành công");
+                $this->redirect(['custom-language']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Lưu thất bại");
+            }
+        }
+
+        return $this->render('custom-language', [
+            'model' => $model,
+            'dataLanguage' => $dataLanguage
         ]);
     }
 
