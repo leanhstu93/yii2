@@ -128,6 +128,14 @@ return [
                 'note' => '',
                 'limit' => 1
             ],
+            'list_customer' =>[
+                'name' => 'Danh sách cảm nhận khách hàng',
+                'data' => 4,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 0
+            ],
+
         ],
         'CUSTOM_SINGLE_PAGE' => [
             'one_middle_home' =>[

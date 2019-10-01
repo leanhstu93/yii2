@@ -74,11 +74,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/vendor/ckeditor/ckeditor" />
-      <path value="$PROJECT_DIR$/vendor/2amigos/yii2-ckeditor-widget" />
-      <path value="$PROJECT_DIR$/vendor/sunhater/kcfinder" />
-      <path value="$PROJECT_DIR$/vendor/bower-asset/jquery-ui" />
-      <path value="$PROJECT_DIR$/vendor/iutbay/yii2-fontawesome" />
       <path value="$PROJECT_DIR$/vendor/kartik-v/yii2-dialog" />
       <path value="$PROJECT_DIR$/vendor/kartik-v/yii2-grid" />
       <path value="$PROJECT_DIR$/vendor/kartik-v/yii2-krajee-base" />
@@ -90,8 +85,21 @@
       <path value="$PROJECT_DIR$/vendor/jpunanua/yii2-seotools" />
       <path value="$PROJECT_DIR$/vendor/mihaildev/yii2-ckeditor" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-jui" />
-      <path value="$PROJECT_DIR$/vendor/iutbay/yii2-kcfinder" />
+      <path value="$PROJECT_DIR$/vendor/sunhater/kcfinder" />
+      <path value="$PROJECT_DIR$/vendor/ckeditor/ckeditor" />
+      <path value="$PROJECT_DIR$/vendor/2amigos/yii2-ckeditor-widget" />
+      <path value="$PROJECT_DIR$/vendor/bower-asset/blueimp-file-upload" />
+      <path value="$PROJECT_DIR$/vendor/bower-asset/blueimp-load-image" />
+      <path value="$PROJECT_DIR$/vendor/bower-asset/blueimp-gallery" />
+      <path value="$PROJECT_DIR$/vendor/linchpinstudios/yii2-filemanager" />
+      <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
+      <path value="$PROJECT_DIR$/vendor/guzzle/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/2amigos/yii2-file-upload-widget" />
+      <path value="$PROJECT_DIR$/vendor/2amigos/yii2-gallery-widget" />
+      <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-imagine" />
+      <path value="$PROJECT_DIR$/vendor/bower-asset/blueimp-tmpl" />
+      <path value="$PROJECT_DIR$/vendor/bower-asset/blueimp-canvas-to-blob" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />

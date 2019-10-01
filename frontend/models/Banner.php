@@ -52,7 +52,7 @@ class Banner extends Base
         return [
             'id' => 'ID',
             'name' => 'Tiêu đề',
-            'desc' => 'Mo tả',
+            'desc' => 'Mô tả',
             'category_id' => 'Danh mục',
             'content' => 'Nội dung',
             'active' => 'Active',

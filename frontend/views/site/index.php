@@ -13,4 +13,6 @@ echo $this->render("//element/product-home");
 
 echo $this->render("//element/news-letter-home");
 
+echo $this->render("//element/customer");
+
 ?>

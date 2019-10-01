@@ -3,9 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
-use iutbay\yii2kcfinder\KCFinderInputWidget;
 use frontend\models\Product;
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
 /* @var $form yii\widgets\ActiveForm */
@@ -52,11 +50,9 @@ use frontend\models\Product;
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
+            <?php
 
-            <?= $form->field($model, 'image',['template' => '{input}',])->widget(KCFinderInputWidget::className(), [
-                'buttonLabel' => 'Chọn hình',
-                'model' => $model,
-            ]) ?>
+            ?>
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">

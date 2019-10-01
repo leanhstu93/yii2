@@ -139,4 +139,9 @@ class ProductCategory extends Base
         $model = Router::find()->where(['id_object' => $this->id,'type' => Router::TYPE_PRODUCT_CATEGORY])->one();
         return $model->seo_name;
     }
+
+    public function getUrl()
+    {
+        return Yii::$app->homeUrl .$this->getSeoName();
+    }
 }

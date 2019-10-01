@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
@@ -26,7 +26,7 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
-            'yii\\jui\\' => 8,
+            'yii\\imagine\\' => 12,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -41,6 +41,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         'm' => 
         array (
             'mihaildev\\ckeditor\\' => 19,
+        ),
+        'l' => 
+        array (
+            'linchpinstudios\\filemanager\\' => 28,
         ),
         'k' => 
         array (
@@ -57,13 +61,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         array (
             'jpunanua\\seotools\\' => 18,
         ),
-        'i' => 
-        array (
-            'iutbay\\yii2kcfinder\\' => 20,
-            'iutbay\\yii2fontawesome\\' => 23,
-        ),
         'd' => 
         array (
+            'dosamigos\\gallery\\' => 18,
+            'dosamigos\\fileupload\\' => 21,
             'dosamigos\\ckeditor\\' => 19,
         ),
         'c' => 
@@ -102,6 +103,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         array (
             'Opis\\Closure\\' => 13,
         ),
+        'I' => 
+        array (
+            'Imagine\\' => 8,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -133,9 +138,9 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer/src',
         ),
-        'yii\\jui\\' => 
+        'yii\\imagine\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui/src',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-imagine/src',
         ),
         'yii\\gii\\' => 
         array (
@@ -170,6 +175,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         'mihaildev\\ckeditor\\' => 
         array (
             0 => __DIR__ . '/..' . '/mihaildev/yii2-ckeditor',
+        ),
+        'linchpinstudios\\filemanager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/linchpinstudios/yii2-filemanager',
         ),
         'kartik\\popover\\' => 
         array (
@@ -207,13 +216,13 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         array (
             0 => __DIR__ . '/..' . '/jpunanua/yii2-seotools',
         ),
-        'iutbay\\yii2kcfinder\\' => 
+        'dosamigos\\gallery\\' => 
         array (
-            0 => __DIR__ . '/..' . '/iutbay/yii2-kcfinder',
+            0 => __DIR__ . '/..' . '/2amigos/yii2-gallery-widget/src',
         ),
-        'iutbay\\yii2fontawesome\\' => 
+        'dosamigos\\fileupload\\' => 
         array (
-            0 => __DIR__ . '/..' . '/iutbay/yii2-fontawesome',
+            0 => __DIR__ . '/..' . '/2amigos/yii2-file-upload-widget/src',
         ),
         'dosamigos\\ckeditor\\' => 
         array (
@@ -303,6 +312,10 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
+        'Imagine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/imagine/imagine/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -351,6 +364,17 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
+        'G' => 
+        array (
+            'Guzzle\\Tests' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/tests',
+            ),
+            'Guzzle' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/src',
+            ),
+        ),
         'D' => 
         array (
             'Diff' => 
@@ -363,6 +387,13 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
             'Behat\\Gherkin' => 
             array (
                 0 => __DIR__ . '/..' . '/behat/gherkin/src',
+            ),
+        ),
+        'A' => 
+        array (
+            'Aws' => 
+            array (
+                0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
             ),
         ),
     );
