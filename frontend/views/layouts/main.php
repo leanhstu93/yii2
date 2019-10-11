@@ -32,6 +32,7 @@ AppAsset::register($this);
     <?php echo $this->render("//element/header"); ?>
 
         <?= Alert::widget() ?>
+    <?php echo $this->render("//element/message"); ?>
         <?= $content ?>
 </div>
 

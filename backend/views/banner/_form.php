@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
-use iutbay\yii2kcfinder\KCFinderInputWidget;
 use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */
@@ -30,17 +29,22 @@ use frontend\models\ProductCategory;
             ]); ?>
 
             <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                'kcfinder' => true,
             ]);
             ?>
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
 
-            <?= $form->field($model, 'image',['template' => '{input}',])->widget(KCFinderInputWidget::className(), [
+            <?= $form->field($model, 'image',['template' => '<div class="input-group input-group-file js__select-image">{input}<span class="input-group-btn">
+                      <span class="btn btn-success btn-file">
+                        <i class="icon wb-upload" aria-hidden="true"></i>
+                       
+                      </span>
+                    </span></div>'], [
                 'buttonLabel' => 'Chọn hình',
                 'model' => $model,
-            ]) ?>
+            ])->textInput(['class' => 'js__image-value form-control']) ?>
+
         </div>
 
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>

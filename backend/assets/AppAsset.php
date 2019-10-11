@@ -32,6 +32,7 @@ class AppAsset extends AssetBundle
         'libs/brand-icons/brand-icons.min.css',
         'libs/font-google/css.css',
         'libs/font-awesome/font-awesome.min.css?v4.0.2',
+        'libs/jquery.fancybox-2.1.7/jquery.fancybox.css',
         # End libs
         # custom
         'css/site.min.css',
@@ -85,7 +86,8 @@ class AppAsset extends AssetBundle
         'js/panel.min.js',
         'js/jquery.multi-select.js',
         'js/panel-actions.min.js',
-//        'js/advanced.min.js',
+        'libs/jquery.fancybox-2.1.7/jquery.fancybox.js',
+        '/ckfinder/ckfinder.js',
         'js/base.js',
         'js/main.js',
     ];

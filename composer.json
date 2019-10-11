@@ -23,16 +23,14 @@
         "kartik-v/yii2-krajee-base": "@dev",
         "kartik-v/yii2-widget-colorinput": "*",
         "kartik-v/yii2-editable": "@dev",
-        "jpunanua/yii2-seotools": "*",
-        "linchpinstudios/yii2-filemanager": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
         "yiisoft/yii2-gii": "~2.1.0",
         "yiisoft/yii2-faker": "~2.0.0",
         "codeception/base": "^2.3.9",
-        "phpunit/phpunit": "~6.5.5",
-        "codeception/verify": "~1.0.0",
+        "phpunit/phpunit": "~5.3",
+        "codeception/verify": "~0.4.0",
         "symfony/browser-kit": ">=2.7 <=4.2.4"
     },
     "config": {

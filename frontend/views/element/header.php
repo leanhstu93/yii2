@@ -91,61 +91,33 @@
                     <nav class="main-menu navbar-expand-lg">
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="#">Home</a>
-                                    <ul>
-                                        <li><a href="index.html">Home Page 01</a></li>
-                                        <li><a href="index-2.html">Home Page 02</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">About</a>
-                                    <ul>
-                                        <li><a href="about.html">About Company</a></li>
-                                        <li><a href="clients.html">Our Clients</a></li>
-                                        <li><a href="faq.html">FAQ’s</a></li>
-                                        <li><a href="pricing.html">Pricing & Plans</a></li>
-                                        <li><a href="testimonial.html">Testimonials</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Services</a>
-                                    <ul>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="single-service.html">Advanced Anaytics</a></li>
-                                        <li><a href="single-service-2.html">Chase Management</a></li>
-                                        <li><a href="single-service-3.html">Corporate Finance</a></li>
-                                        <li><a href="single-service-4.html">Customer Marketing</a></li>
-                                        <li><a href="single-service-5.html">Information Technology</a></li>
-                                        <li><a href="single-service-6.html">Pricate Equity</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Projects</a>
-                                    <ul>
-                                        <li><a href="project.html">Modern - 2 Columns</a></li>
-                                        <li><a href="project-2.html">Modern - 3 Columns</a></li>
-                                        <li><a href="project-3.html">Classic - 3 Columns</a></li>
-                                        <li><a href="project-4.html">Classic - 4 Columns</a></li>
-                                        <li><a href="project-fullwidth.html">Projects Fullwidth</a></li>
-                                        <li><a href="project-masonry.html">Projects Masonry</a></li>
-                                        <li><a href="project-details.html">Single Project</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Blog</a>
-                                    <ul>
-                                        <li><a href="blog-grid-1.html">Blog Grid View 01</a></li>
-                                        <li><a href="blog-grid-2.html">Blog Grid View 02</a></li>
-                                        <li><a href="blog-large.html">Blog Large Image</a></li>
-                                        <li><a href="blog-details.html">Blog Single Post</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Shop</a>
-                                    <ul>
-                                        <li><a href="shop.html">Products</a></li>
-                                        <li><a href="single-shop.html">Single Product</a></li>
-                                        <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="account.html">My Account</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <?php
+                                foreach ($this->params['menu'] as $item) {
+                                    ?>
+                                    <li class=" current dropdown">
+                                        <a href="<?= $item['link'] ?>"><?= $item['name'] ?></a>
+                                        <?php
+                                        if (!empty($item['sub_menu'])) { ?>
+                                            <ul>
+                                                <?php foreach ($item['sub_menu'] as $item1) { ?>
+                                                    <li>
+                                                        <a href="<?= $item1['link'] ?>"><?= $item1['name'] ?></a>
+                                                        <?php
+                                                        if (!empty($item1['sub_menu'])) { ?>
+                                                            <ul>
+                                                                <?php foreach ($item1['sub_menu'] as $item2) { ?>
+                                                                    <li>
+                                                                        <a href="<?= $item2['link'] ?>"><?= $item2['name'] ?></a>
+                                                                    </li>
+                                                                <?php } ?>
+                                                            </ul>
+                                                        <?php } ?>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        <?php } ?>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </nav><!-- Main Menu End-->

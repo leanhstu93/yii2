@@ -19,25 +19,6 @@ return [
             'class' => 'jpunanua\seotools\Module',
             'roles' => ['@'], // For setting access levels to the seotools interface.
         ],
-        'filemanager' => [
-            'class' => 'pendalf89\filemanager\Module',
-            // Upload routes
-            'routes' => [
-                // Base absolute path to web directory
-                'baseUrl' => '',
-                // Base web directory url
-                'basePath' => '@frontend/web',
-                // Path for uploaded files in web directory
-                'uploadPath' => 'uploads',
-            ],
-            // Thumbnails info
-            'thumbs' => [
-                'small' => [
-                    'name' => 'Small',
-                    'size' => [400, 400],
-                ],
-            ],
-        ],
     ],
     'components' => [
         'i18n' => [

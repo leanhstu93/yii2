@@ -122,4 +122,46 @@ class News extends \yii\db\ActiveRecord
 
         return $dataProvider;
     }
+
+    public function getUrlAll()
+    {
+        $model = Router::find()->where(['type' => Router::TYPE_NEWS_PAGE])->one();
+        return Yii::$app->homeUrl .$model->seo_name;
+    }
+
+    public static function getDataByCustomSetting($key)
+    {
+        $custom = Custom::getSettingCustomTemplate();
+        $custom_news =  (object)$custom[Custom::KEY_NEWS_CATEGORY][$key];
+
+        $result = [
+            'data' => null,
+            'category' => null
+        ];
+
+        $result = (object) $result;
+        if(!empty($custom_news->data)) {
+            $result->category = NewsCategory::find()->where(['id' => $custom_news->data, 'active' => 1])->one();
+            if($custom_news->limit == 1) {
+                $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->one();
+            } elseif ($custom_news->limit == 0) {
+                $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->all();
+            } else {
+                $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->limit($custom_news->limit)->all();
+            }
+
+            return $result;
+        }
+    }
+    public function getSeoName()
+    {
+        $model = Router::find()->where(['id_object' => $this->id,'type' => Router::TYPE_NEWS])->one();
+        return $model->seo_name;
+    }
+
+    public function getUrl()
+    {
+        return Yii::$app->homeUrl .$this->getSeoName();
+    }
+
 }

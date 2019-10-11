@@ -11,7 +11,8 @@ IndexIgnore */*
     RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
 
     RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
-
+    RewriteRule ^ckfinder/(.*)$ ckfinder/$1 [L]
+    RewriteRule ^upload/(.*)$ upload/$1 [L]
     RewriteRule ^admin/js/(.*)$ backend/web/js/$1 [L]
     RewriteRule ^admin/images/(.*)$ backend/web/images/$1 [L]
     RewriteRule ^admin/app/(.*)$ backend/web/app/$1 [L]

@@ -135,6 +135,13 @@ return [
                 'note' => '',
                 'limit' => 0
             ],
+            'one_before_footer' =>[
+                'name' => 'Hình ảnh nằm trên footer',
+                'data' => 5,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 1
+            ],
 
         ],
         'CUSTOM_SINGLE_PAGE' => [
@@ -152,11 +159,11 @@ return [
             ],
         ],
         'CUSTOM_NEWS_CATEGORY' => [
-            'home_kien_thuc' =>[
-                'name' => 'Kiến thức nâng mũi đẹp',
+            'home_news' =>[
+                'name' => 'Danh sách tin tức trang chủ',
                 'data' => 1,
                 'note' => '',
-                'limit' => 4
+                'limit' => 3
             ],
         ],
     ],

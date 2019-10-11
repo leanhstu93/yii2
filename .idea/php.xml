@@ -95,7 +95,6 @@
       <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
       <path value="$PROJECT_DIR$/vendor/guzzle/guzzle" />
       <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
-      <path value="$PROJECT_DIR$/vendor/2amigos/yii2-file-upload-widget" />
       <path value="$PROJECT_DIR$/vendor/2amigos/yii2-gallery-widget" />
       <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-imagine" />
       <path value="$PROJECT_DIR$/vendor/bower-asset/blueimp-tmpl" />

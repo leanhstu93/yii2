@@ -15,4 +15,8 @@ echo $this->render("//element/news-letter-home");
 
 echo $this->render("//element/customer");
 
+echo $this->render("//element/news-home");
+
+echo $this->render("//element/banner-before-footer");
+
 ?>

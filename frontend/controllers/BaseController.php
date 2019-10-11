@@ -1,7 +1,9 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\ConfigPage;
 use frontend\models\Custom;
+use frontend\models\Router;
 use frontend\models\SinglePage;
 use Yii;
 use yii\helpers\Url;
@@ -10,6 +12,8 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use frontend\models\Company;
 use frontend\models\Menu;
+use frontend\models\Product;
+use frontend\models\News;
 use frontend\models\ProductCategory;
 use frontend\models\NewsCategory;
 
@@ -20,7 +24,7 @@ class BaseController extends Controller
     {
         $menu = Menu::find()->where(['id' => 1])->one();
         $res = [];
-//        debug(json_decode($menu->data,true));
+
 
         foreach (json_decode($menu->data,true) as $value) {
             extract($value);
@@ -47,9 +51,12 @@ class BaseController extends Controller
                         ];
                     }
 
+                    $config =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_PRODUCT])->one();
+                    $myProduct = new Product();
+
                     $res[] = [
-                        'name' => $item->name,
-                        'link' => $item->getSeoName(),
+                        'name' => $config->name,
+                        'link' => $myProduct->getUrlAll(),
                         'module' => $module,
                         'sub_menu' => $submenu
                         ];
@@ -82,16 +89,19 @@ class BaseController extends Controller
                                 'sub_menu' => $newsCate2
                             ];
                         }
+
                         $submenu[] = [
                             'name' => $item->name,
                             'link' => Url::base(true) . '/' . $item->name,
                             'sub_menu' => $submenu1,
                         ];
                     }
+                    $myNews = new News();
+                    $config =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_NEWS])->one();
 
                     $res[] = [
-                        'name' => $item->name,
-                        'link' => $item->getSeoName(),
+                        'name' => $config->name,
+                        'link' => $myNews->getUrlAll(),
                         'module' => $module,
                         'sub_menu' => $submenu
                     ];

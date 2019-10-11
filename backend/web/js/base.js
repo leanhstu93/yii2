@@ -24,7 +24,8 @@ Base.fn = Base.prototype = {
 		selectorBtnSubmit: '.js-submit',
 		selectorHasError: '.has-error',
 		classNavItem: 'js-nav-item',
-		selectorForm:'.js-form'
+		selectorForm:'.js-form',
+		selectorOpenFileManeger: '.js-open-file-manager'
     },
     init: function () {
         this.handleSelectImage();
@@ -37,6 +38,7 @@ Base.fn = Base.prototype = {
 		this.handleListLanguage();
 		this.initTabLang();
 		this.handleBtnSubmit();
+		this.handleSelectImage();
     },
 
 	initSelectMultiple: function() {
@@ -210,7 +212,51 @@ Base.fn = Base.prototype = {
 				$("." + self.config.classNavItem + "-" + code).addClass('active');
 			}
 		});
-	}
+	},
+
+	handleOpenFileManager: function() {
+    	var self =this;
+    	console.log(111);
+    	$(self.config.selectorOpenFileManeger).click(function(){
+    		var id = $(this).find('input').attr('id');
+			$.fancybox({
+				'href' : 'http://yii2dev.com:93/filemanager/dialog.php?type=1&field_id='+id+'&lang=vi&popup=0&crossdomain=0&relative_url=0',
+				'width'		: 900,
+				'height'	: 600,
+				'type'		: 'iframe',
+				'autoScale'    	: false
+			});
+		});
+	},
+
+	handleSelectImage : function () {
+		var self = this;
+		$(this.config.selectorSelectImage).click(function(e){
+			var self_click = $(this);
+			e.preventDefault();
+			CKFinder.popup({
+				basePath:"http://"+window.location.host+"/ckfinder",
+				chooseFiles: true,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var file = evt.data.files.first();
+						self_click.parent().find(self.config.selectorImageValue).val(file.getUrl());
+					} );
+
+					finder.on( 'file:choose:resizedImage', function( evt ) {
+						var output = document.getElementById( elementId );
+						output.value = evt.data.resizedUrl;
+						self_click.parent().find(self.config.selectorImageValue).val( evt.data.resizedUrl);
+					} );
+				}
+				// selectActionFunction:function (url) {
+				// 	console.log(111);
+				// 	self_click.parent().find(self.config.selectorImageValue).val(url);
+				// 	self_click.parent().find(self.config.selectImagePreview).attr('src',url);
+				// }
+			});
+		});
+	},
 };
 
 var base = new Base();

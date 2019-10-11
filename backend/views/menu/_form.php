@@ -5,7 +5,6 @@ use \frontend\models\SinglePage;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
-use iutbay\yii2kcfinder\KCFinderInputWidget;
 use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */
