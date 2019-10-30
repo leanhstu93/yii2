@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use frontend\models\ConfigPage;
 use Yii;
 use frontend\models\Menu;
 use yii\data\ActiveDataProvider;
@@ -75,6 +76,18 @@ class MenuController extends Controller
         ]);
     }
 
+    protected function buildMenu($data)
+    {
+        foreach ($data as $key => $value) {
+            if (!isset($value['type'])) continue;
+            $model = ConfigPage::find()->where(['type' => $value['type']])->one();
+            if ($model) {
+               $data[$key]['name'] = $model->name;
+            }
+        }
+        return $data;
+    }
+
     /**
      * Updates an existing Menu model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -86,10 +99,27 @@ class MenuController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['update']);
-        }
+        if ($model->load(Yii::$app->request->post())) {
+            $dataDecode = json_decode($model->data,true);
+            $menuDefault = Yii::$app->params['menuDefault'];
+            $dataMerge = array_merge(Yii::$app->params['menuDefault'],json_decode($model->data,true));
 
+            foreach ($dataDecode as $key => $value) {
+                foreach ($menuDefault as $key1 => $value1) {
+                    if ($value['module'] == $value1['module']) {
+                        $dataDecode[$key] = array_merge($menuDefault[$key1],$dataDecode[$key]);
+                    }
+                }
+            }
+            $model->data = json_encode($dataDecode);
+            if ($model->save()) {
+                return $this->redirect(['update']);
+            }
+
+        }
+        $model->data = json_decode($model->data,true);
+        $model->data = $this->buildMenu($model->data);
+        $model->data = json_encode($model->data);
         return $this->render('update', [
             'model' => $model,
         ]);

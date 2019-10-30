@@ -52,8 +52,14 @@ use dosamigos\ckeditor\CKEditor;
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
+            <?= $form->field($model, 'tags')->textInput([' data-plugin' => 'tokenfield','autocomplete' => 'off']) ?>
+        </div>
+
+        <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
+        <div class="panel-body container-fluid">
             <?= $form->field($model, 'status')->dropDownList(\frontend\models\ConfigPage::listStatus()) ?>
         </div>
+
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
 

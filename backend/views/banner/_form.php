@@ -25,7 +25,6 @@ use frontend\models\ProductCategory;
             <?= $form->field($model, 'link')->textInput(['class' => 'js__title form-control'])?>
 
             <?= $form->field($model, 'desc')->widget(CKEditor::className(), [
-                'kcfinder' => true,
             ]); ?>
 
             <?= $form->field($model, 'content')->widget(CKEditor::className(), [

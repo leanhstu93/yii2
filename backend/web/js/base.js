@@ -25,7 +25,12 @@ Base.fn = Base.prototype = {
 		selectorHasError: '.has-error',
 		classNavItem: 'js-nav-item',
 		selectorForm:'.js-form',
-		selectorOpenFileManeger: '.js-open-file-manager'
+		selectorOpenFileManeger: '.js-open-file-manager',
+		selectorMultiImages: '.js-select-image-muliti',
+		selectorContentHtmlMultipleImages: '.js-content-html-multiple-images',
+		selectorButtonDeleteImages: '.js-btn-delete-images',
+		selectorHtmlItemImage: '.js-item-image',
+		selectorCheckAllDeleteImages: '.js-check-select-all-delete'
     },
     init: function () {
         this.handleSelectImage();
@@ -39,6 +44,9 @@ Base.fn = Base.prototype = {
 		this.initTabLang();
 		this.handleBtnSubmit();
 		this.handleSelectImage();
+		this.handleSelectMulitiImages();
+		this.handleDeleteImages();
+		this.handleCheckAllImagesDelete();
     },
 
 	initSelectMultiple: function() {
@@ -249,14 +257,79 @@ Base.fn = Base.prototype = {
 						self_click.parent().find(self.config.selectorImageValue).val( evt.data.resizedUrl);
 					} );
 				}
-				// selectActionFunction:function (url) {
-				// 	console.log(111);
-				// 	self_click.parent().find(self.config.selectorImageValue).val(url);
-				// 	self_click.parent().find(self.config.selectImagePreview).attr('src',url);
-				// }
 			});
 		});
 	},
+
+	handleSelectMulitiImages: function()
+	{
+		var self = this;
+		$(this.config.selectorMultiImages).click(function(e){
+			var date_field = $(this).data('field-name');
+			console.log(date_field);
+			var self_click = $(this);
+			e.preventDefault();
+			CKFinder.popup({
+				basePath:"http://"+window.location.host+"/ckfinder",
+				chooseFiles: true,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var files = evt.data.files.models;
+						console.log(files);
+						$.each(files, function(key,value) {
+							console.log(key);
+							console.log(value.getUrl());
+							self.appendHtmlMultiImages(value.getUrl(),date_field);
+						});
+					} );
+				}
+			});
+		});
+	},
+
+	appendHtmlMultiImages: function(path,date_field)
+	{
+		var length = $(this.config.selectorContentHtmlMultipleImages).find('.full-box-img').length;
+		var html =  '<div class="full-box-img" title="'+path+'">';
+		html += '<span class="checkbox-custom checkbox-default">';
+		html += '<input type="checkbox" id="check-item-dele'+length+'" name="deleteImages[]" value="0" class="js-item-image">';
+		html += '<label class="iCheck" for="check-item-dele'+length+'"></label>';
+		html += '</span>';
+		html += '<a class="href-del-tin" ><div class="dv-img-del del-tin">';
+		var random_name = $(this.config.selectorContentHtmlMultipleImages).data('pic-name') + '[new-' + Date.now() + ']';
+		html += '<input type="hidden" name="'+date_field+'" value="'+path+'" />';
+		html += '<img class="img_show_ds red" src="/'+path.replace(/ /g, '%20')+'" alt="'+path+'" /></div></a></div>';
+		$(this.config.selectorContentHtmlMultipleImages).append(html);
+	},
+
+	handleDeleteImages: function () {
+		var self = this;
+
+		$(self.config.selectorButtonDeleteImages).click(function(){
+			var length = $(self.config.selectorHtmlItemImage+':checked').length;
+
+			if (length > 0 &&  confirm('Bạn chắc chắn muốn xóa hình ảnh này?')) {
+				$.each($(self.config.selectorHtmlItemImage+':checked'), function(key,$obj){
+					$($obj).closest('.full-box-img').fadeOut('slow', function () {
+						$(this).remove();
+					});
+				});
+			}
+		});
+	},
+
+	handleCheckAllImagesDelete: function()
+	{
+		var self = this;
+
+		$(self.config.selectorCheckAllDeleteImages).on('change',function(){
+			var isCheck = $(this).is(':checked');
+
+			$.each($(self.config.selectorHtmlItemImage), function (key, value) {
+				$(value).prop('checked',isCheck);
+			})
+		});
+	}
 };
 
 var base = new Base();

@@ -16,4 +16,17 @@ class MyHelpers
 
         return $linkFolder. '/'.$nameImage;
     }
+
+    public static function buildDeepPrefix(&$data,$parent_id = 0,$level = 0,$prefix = '↵')
+    {
+
+        foreach ($data as $key => $item) {
+            if ($item['parent_id'] == $parent_id) {
+                $data[$key]['name'] = str_repeat($prefix,$level).' '.$item['name'];
+                $level = $level + 1;
+                self::buildDeepPrefix($data,$item['id'] ,$level,$prefix = '↵');
+                $level = 0;
+            }
+        }
+    }
 }

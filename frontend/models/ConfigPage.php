@@ -19,14 +19,16 @@ use frontend\models\Base;
  * @property string $meta_keyword
  * @property int $status
  * @property string $image
+ * @property string $tags
  */
 class ConfigPage  extends Base
 {
 
+    const TYPE_HOME = 99;
     const TYPE_PRODUCT = 1;
-    const TYPE_PRODUCT_CATEGORY = 3;
-    const TYPE_NEWS_CATEGORY = 5;
     const TYPE_NEWS = 7;
+    const TYPE_GALLERY_IMAGE = 9;
+    const TYPE_CONTACT = 11;
     const STATUS_INACTIVE = 3;
     const STATUS_ACTIVE = 1;
     /**
@@ -46,7 +48,7 @@ class ConfigPage  extends Base
             [['name','seo_name', 'type'], 'required'],
             [['type', 'status'], 'integer'],
             [['desc', 'conten', 'meta_title', 'meta_desc', 'meta_keyword'], 'string'],
-            [['name', 'image','seo_name'], 'string', 'max' => 255],
+            [['name', 'tags' ,'image','seo_name'], 'string', 'max' => 255],
         ];
     }
 
@@ -67,6 +69,7 @@ class ConfigPage  extends Base
             'meta_keyword' => 'Meta Keyword',
             'status' => 'Trạng thái',
             'image' => 'Hình ảnh',
+            'tags' => 'Tags',
         ];
     }
 
@@ -89,4 +92,15 @@ class ConfigPage  extends Base
         return Yii::$app->homeUrl .$this->getSeoName();
     }
 
+    public function getPageConfig($type)
+    {
+        $model = self::find()->where(['type' => $type])->one();
+        return $model;
+    }
+
+    public function getTags()
+    {
+        $arrTags = explode(',', $this->tags);
+        return $arrTags;
+    }
 }

@@ -15,6 +15,34 @@ return [
     'bootstrap' => ['log','gii'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'cart' => [
+            'class' => 'devanych\cart\Cart',
+            'storageClass' => 'devanych\cart\storage\SessionStorage',
+            'calculatorClass' => 'devanych\cart\calculators\SimpleCalculator',
+            'params' => [
+                'key' => 'cart',
+                'expire' => 604800,
+                'productClass' => 'frontend\models\Product',
+                'productFieldId' => 'id',
+                'productFieldPrice' => 'price',
+            ],
+        ],
+        'favorite' => [
+            'class' => 'devanych\cart\Cart',
+            'storageClass' => 'devanych\cart\storage\DbSessionStorage',
+            'calculatorClass' => 'devanych\cart\calculators\SimpleCalculator',
+            'params' => [
+                'key' => 'favorite',
+                'expire' => 604800,
+                'productClass' => 'frontend\models\Product',
+                'productFieldId' => 'id',
+                'productFieldPrice' => 'price',
+            ],
+        ],
+        'formatter' => [
+            'thousandSeparator' => ',',
+            'currencyCode' => 'VND',
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'baseUrl' => $baseUrl,
@@ -42,14 +70,19 @@ return [
         ],
 
         'urlManager' => [
-            'baseUrl' => $baseUrl,
-            'class' => 'yii\web\UrlManager',
+           // 'baseUrl' => $baseUrl,
+            //'class' => 'yii\web\UrlManager',
             // Disable index.php
             'showScriptName' => false,
+
+            //'suffix' => '.html',
             // Disable r= routes
             'enablePrettyUrl' => true,
             'rules' => array(
-                'transaction/getrequestdetail/<id>' => 'transaction/getrequestdetail',
+                '<alias>' => 'site/rewrite-url',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ],
 

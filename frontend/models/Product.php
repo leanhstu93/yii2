@@ -183,6 +183,27 @@ class Product extends Base
         return $model->seo_name;
     }
 
+    public function getPriceDiscount()
+    {
+        $price_discount = $this->price - $this->price_sale;
+
+        if ($price_discount < 0) {
+            $price_discount = 0;
+        }
+
+        return number_format($price_discount);
+    }
+
+    public function getPriceFormat()
+    {
+        return number_format($this->price);
+    }
+
+    public function getPriceSaleFormat()
+    {
+        return number_format($this->price_sale);
+    }
+
     public function getUrl()
     {
         return Yii::$app->homeUrl .$this->getSeoName();

@@ -30,10 +30,10 @@ AppAsset::register($this);
     <!-- Preloader -->
     <div class="preloader"></div>
     <?php echo $this->render("//element/header"); ?>
-
         <?= Alert::widget() ?>
     <?php echo $this->render("//element/message"); ?>
         <?= $content ?>
+    <?php echo $this->render("//element/footer"); ?>
 </div>
 
 <footer class="footer">

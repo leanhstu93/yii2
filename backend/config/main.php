@@ -37,6 +37,10 @@ return [
                 ],
             ],
         ],
+        'formatter' => [
+            'thousandSeparator' => ',',
+            'currencyCode' => 'USD',
+        ],
         'user' => [
             'identityClass' => 'common\models\Member',
         ],

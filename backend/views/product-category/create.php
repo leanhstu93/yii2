@@ -3,6 +3,7 @@
 use frontend\models\ProductCategory;
 use yii\helpers\Html;
 use yii\web\View;
+use common\components\MyHelpers;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -32,15 +33,20 @@ $menu =  [
         'icon' =>'icon fa-google-plus'
     ],
     [
+        'name' => 'Mở rộng',
+        'link' => 'js__extend',
+        'icon' =>'icon wb-heart'
+    ],
+    [
         'name' => 'Xử lý',
         'link' => 'js__save',
         'icon' =>'fa fa-hand-grab-o'
     ],
 ];
-$listCate = ProductCategory::find()->select('id,name')->where(['active' => 1])->asArray()->all();
-$listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'name'));
-
-$listCate = array_merge([0 => 'Danh mục gốc'],$listCate);
+$listCate = ProductCategory::find()->select('id,name,parent_id')->where(['active' => 1])->asArray()->all();
+MyHelpers::buildDeepPrefix($listCate);
+$listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'name','id'));
+$listCate = [0 => 'Danh mục gốc'] + $listCate;
 
 ?>
 

@@ -26,6 +26,8 @@ class Router extends Base
     const TYPE_NEWS_PAGE = 17;
     const TYPE_BANNER_CATEGORY = 19;
     const TYPE_BANNER = 21;
+    const TYPE_GALLERY_IMAGE = 25;
+    const TYPE_GALLERY_IMAGE_PAGE = 23;
     /**
      * {@inheritdoc}
      */
@@ -67,6 +69,10 @@ class Router extends Base
          * @var $id_object
          * @var $type
          */
+        if ($router = self::find()->where(['id_object' => $id_object,'type' => $type])->one() && $exc != 'delete') {
+            $exc = 'update';
+        }
+
         switch ($exc) {
             case 'create':
                 $self = new Router;

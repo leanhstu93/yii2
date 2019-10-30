@@ -166,10 +166,17 @@ class NewsController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post(),'ConfigPage')) {
-            $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
+            $model->seo_name = News::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
                 #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_NEWS_PAGE],'update');
+                $router = Router::find()->where(['type' => Router::TYPE_NEWS_PAGE])->one();
+
+                if ($router) {
+                    Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_NEWS_PAGE],'update');
+                } else {
+                    Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_NEWS_PAGE],'create');
+                }
+
                 Yii::$app->session->setFlash('success', "Lưu thành công");
             } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
@@ -181,4 +188,6 @@ class NewsController extends Controller
             'model' => $model,
         ]);
     }
+
+
 }

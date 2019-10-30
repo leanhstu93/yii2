@@ -1,11 +1,9 @@
 <?php
 
+use dosamigos\ckeditor\CKEditor;
+use frontend\models\Product;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
-use iutbay\yii2kcfinder\KCFinderInputWidget;
-use frontend\models\Product;
-use frontend\models\DataLang;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -56,7 +54,7 @@ use frontend\models\DataLang;
                     <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
                     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                        'kcfinder' => true,
+
                     ]);
                     ?>
 
@@ -93,11 +91,45 @@ use frontend\models\DataLang;
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
-            <?= $form->field($model, 'images',['template' => '{input}',])->widget(KCFinderInputWidget::className(), [
-                'buttonLabel' => 'Chọn hình',
-                'multiple' => true,
-                'model' => $model,
-            ]) ?>
+            <div class="form-group field-product-image has-success">
+                <div class="group-images">
+                    <div class="image-item select-images">
+                        <div class="browserMultiImages js-select-image-muliti" data-field-name="Product[images][]">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="group-delete-images">
+                            <span class="checkbox-custom checkbox-default">
+                                <input type="checkbox" id="check-select-all" class="js-check-select-all-delete"/>
+                                    <label class="iCheck" for="check-select-all"> Chọn tất cả </label>
+                                </span>
+                            <button type="button" class="btn bg-maroon js-btn-delete-images"><i class="fa fa-trash"></i> Xóa</button>
+                        </div>
+                    </div>
+                    <div class="side-feature-img ui-sortable js-content-html-multiple-images">
+                        <?php
+                        if (!empty($model->images)) {
+                            $i = 0;
+                            foreach ($model->images as $image) { ?>
+                                <div class="full-box-img" title="<?= $image ?>">
+                                    <span class="checkbox-custom checkbox-default">
+                                        <input type="checkbox" id="check-item-dele<?= $i ?>" name="deleteImages[]"
+                                               value="0" class="js-item-image">
+                                        <label class="iCheck" for="check-item-dele<?= $i ?>"></label>
+                                    </span>
+                                    <a class="href-del-tin">
+                                        <div class="dv-img-del del-tin">
+                                            <input type="hidden" name="Product[images][]" value="<?= $image ?>">
+                                            <img class="img_show_ds red" src="/<?= $image ?>" alt="<?= $image ?>">
+                                        </div>
+                                    </a>
+                                </div>
+                                <?php $i++;
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">

@@ -48,7 +48,7 @@ class ProductCategory extends Base
             [['name'], 'unique','message'=>'Danh mục này đã thêm'],
             [['parent_id','active', 'display_order', 'option', 'user_id'], 'integer'],
             [['content', 'desc'], 'string'],
-            [['name','seo_name', 'image', 'tags', 'meta_title', 'meta_desc', 'meta_keyword'], 'string', 'max' => 255],
+            [['name','seo_name', 'image', 'tags', 'link_extend', 'meta_title', 'meta_desc', 'meta_keyword'], 'string', 'max' => 255],
         ];
     }
 
@@ -73,6 +73,7 @@ class ProductCategory extends Base
             'meta_title' => 'Meta Title',
             'meta_desc' => 'Meta Desc',
             'meta_keyword' => 'Meta Keyword',
+            'link_extend' => 'Đường dẫn mở rộng'
         ];
     }
 
@@ -143,5 +144,23 @@ class ProductCategory extends Base
     public function getUrl()
     {
         return Yii::$app->homeUrl .$this->getSeoName();
+    }
+
+    public static function getBreadCrumb($idParent,$res)
+    {
+        $model = self::find()->where(['id' => $idParent])->one();
+
+        if (!empty($model)) {
+            $res[] = [
+              'name' => $model->name,
+              'link' => $model->getUrl()
+            ];
+        }
+
+        if($model->parent_id > 0) {
+            self::getBreadCrumb($model->parent_id,$res);
+        } else {
+            return $res;
+        }
     }
 }

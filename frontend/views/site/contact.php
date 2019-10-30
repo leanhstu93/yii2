@@ -1,45 +1,126 @@
 <?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
-
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
-
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
+echo $this->render("//element/page-title",['name' => 'Liên hệ', 'bread' => $bread]);
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'subject') ?>
-
-                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+<section class="kc-elm kc-css-954278 kc_row">
+    <div class="kc-row-container  kc-container">
+        <div class="kc-wrap-columns">
+            <div class="kc-elm kc-css-1747748 kc_col-sm-12 kc_column kc_col-sm-12">
+                <div class="kc-col-container">
+                    <section class=" contact-info-section sp-two">
+                        <div class="container">
+                            <div class="welcome-title text-center">Hdesign đã xây dựng một quy trình chuyên nghiệp về sản xuất sản phẩm, <br>
+                            từ việc tư vấn giải pháp sales kit đến việc biên tập, viết nội dung, chụp hình ảnh và thiết kế sáng tạo, thiết kế lập trình website<br>
+                                Marketing. Chúng tôi đã triển khai nhiều dự án thành công và ngày càng được nhiều khách hàng tín nhiệm. </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="contact-info-block">
+                                        <div class="inner-box hvr-float-shadow">
+                                            <div class="icon"><img src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/icon-7.png" alt="Image"></div>
+                                            <div class="text">528 Huỳnh Tấn Phát,<br> P.Bình Thuận, Q7, TP.HCM</div>
+                                            <div class="read-more"><a href="https://goo.gl/maps/sujoVnGiHZPxzsXd9"><span class="icon-next"></span>Xem bản đồ</a></div>
+                                            </p></div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="col-lg-4">
+                                    <div class="contact-info-block">
+                                        <div class="inner-box hvr-float-shadow">
+                                            <div class="icon"><img src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/icon-8.png" alt="Image"></div>
+                                            <div class="text">Hãy đến với HDesign để được tư vấn <br />HDesign luôn sẵn sàn hổ trợ.</div>
+                                            <div class="read-more"><a href="tel:0909651650">Hotline: 0909 651 650 (24/7)</a></div>
+                                            </p></div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="col-lg-4">
+                                    <div class="contact-info-block">
+                                        <div class="inner-box hvr-float-shadow">
+                                            <div class="icon"><img src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/icon-9.png" alt="Image"></div>
+                                            <div class="text">Tiếp nhận thông tin đặc hàng<br> hỗ trợ tư vấn đặt hàng </div>
+                                            <div class="read-more"><a href="tel:0909651650">Hotline: 0909 651 650 (24/7)</a></div>
+                                            </p></div>
+                                        </p></div>
+                                    </p></div>
+                                </p></div>
+                            <div class="row">
+                                <div class="contact-info-block-two col-lg-6">
+                                    <h4>Hỗ trợ tư vấn</h4>
+                                    <div class="text"><a href="tel:0909651650">Hotline: 0909 651 650 (24/7)</a></div>
+                                    </p></div>
+                                <div class="contact-info-block-two col-lg-6">
+                                    <h4>Hỗ trợ kỹ thuật</h4>
+                                    <div class="text"><a href="tel:0909651650">Hotline: 0909 651 650 (24/7)</a></div>
+                                    </p></div>
+                                </p></div>
+                            </p></div>
+                    </section>
                 </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
+</section>
+<section data-kc-fullwidth="content" class="kc-elm kc-css-2751502 kc_row">
+    <div class="kc-row-container">
+        <div class="kc-wrap-columns">
+            <div class="kc-elm kc-css-3522831 kc_col-sm-12 kc_column kc_col-sm-12">
+                <div class="kc-col-container">
+                    <div class="kc-elm kc-css-2947868 kc_google_maps kc_shortcode">
+                        <div style="height: 480px" class="kc-google-maps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15679.783107550275!2d106.7294042!3d10.7386626!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8383c28b1a501b15!2sChung%20C%C6%B0%20Luxcity!5e0!3m2!1svi!2s!4v1570950660021!5m2!1svi!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="kc-elm kc-css-414092 kc_row">
+    <div class="kc-row-container  kc-container">
+        <div class="kc-wrap-columns">
+            <div class="kc-elm kc-css-2327615 kc_col-sm-12 kc_column kc_col-sm-12">
+                <div class="kc-col-container">
+                    <section class=" contact-form-section sp-two">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="contact-title">
+                                        <h1>Hdesign <br />
+                                            Mang đến giá trị bạn cần</h1>
+                                        </p></div>
+                                    <div class="text">Hãy liên hệ với chúng tôi
+                                    </div>
+                                    <div class="author-box-two mb-30">
+                                        <div class="author-image"><img src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/author-2.jpg" alt="Image"></div>
+                                        <div class="author-info">
+                                            <h4>Z. Gartrell Wright</h4>
+                                            <div class="designation">HR Department</div>
+                                            <ul class="contact-info">
+                                                <li><a href="#"><span class="icon-mail"></span>example@example.com</a></li>
+                                                <li><span class="icon-phone"></span>07520-664-45</li>
+                                            </ul>
+                                            <ul class="social-icon-five">
+                                                <li><a href="#"><i class="fab fab-facebook-f" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fab fab-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fab fab-skype" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                                            </ul></div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="col-lg-6">
+                                    <div class="default-form-area">
+                                        <div role="form" class="wpcf7" id="wpcf7-f568-o2" lang="en-US" dir="ltr">
+                                            <div class="screen-reader-response"></div>
+                                            <?php echo $this->render("//element/form-contact"); ?>
+                                        </div>
+                                    </div>
+                                    </p>
+                                </div>
+                                </p>
+                            </div>
+                            </p>
+                            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-</div>

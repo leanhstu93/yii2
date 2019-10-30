@@ -1,5 +1,6 @@
 <?php
 
+use common\components\MyHelpers;
 use frontend\models\ProductCategory;
 use yii\helpers\Html;
 use yii\web\View;
@@ -32,16 +33,23 @@ $menu = [
         'icon' =>'icon fa-google-plus'
     ],
     [
+        'name' => 'Mở rộng',
+        'link' => 'js__extend',
+        'icon' =>'icon wb-heart'
+    ],
+    [
         'name' => 'Xử lý',
         'link' => 'js__save',
         'icon' =>'fa fa-hand-grab-o'
     ],
 
 ];
-$listCate = ProductCategory::find()->select('id,name')->where( 'active = :active AND id != :id',['active' => 1,'id' => $model->id])->asArray()->all();
-$listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'name'));
+$listCate = ProductCategory::find()->select('id,name,parent_id')->where( 'active = :active AND id != :id',['active' => 1,'id' => $model->id])->asArray()->all();
+MyHelpers::buildDeepPrefix($listCate);
+$listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'name','id'));
 
-$listCate = array_merge([0 => 'Danh mục gốc'],$listCate);
+$listCateMerge = [0 => 'Danh mục gốc'] + $listCate;
+
 ?>
 
 <!-- Page -->
@@ -55,7 +63,7 @@ $listCate = array_merge([0 => 'Danh mục gốc'],$listCate);
                 <?= $this->render('_form', [
                     'model' => $model,
                     'menu' => array_reverse($menu),
-                    'listCate' => $listCate
+                    'listCate' => $listCateMerge
                 ]) ?>
             </div>
         </div>

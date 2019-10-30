@@ -20,6 +20,11 @@ $menu =   [
         'icon' =>'icon wb-image'
     ],
     [
+        'name' => 'Tags',
+        'link' => 'js__tags',
+        'icon' =>'icon wb-heart'
+    ],
+    [
         'name' => 'Trạng thái',
         'link' => 'js__status',
         'icon' =>'icon wb-heart'

@@ -38,9 +38,9 @@ $menu =  [
     ],
 ];
 $listCate = NewsCategory::find()->select('id,name')->where(['active' => 1])->asArray()->all();
-$listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'name'));
 
-$listCate = array_merge([0 => 'Danh mục gốc'],$listCate);
+$listCate = array_combine(array_column($listCate,'id'),array_column($listCate,'name'));
+$listCate = [0 => 'Danh mục gốc'] + $listCate;
 
 ?>
 

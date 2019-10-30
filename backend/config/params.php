@@ -1,4 +1,7 @@
 <?php
+use frontend\models\ConfigPage;
+
+
 return [
     'adminEmail' => 'admin@example.com',
     'menubarAdmin' => [
@@ -18,7 +21,7 @@ return [
                 'submenu_3' => [
                     'name' => 'Danh sách danh mục',
                     'link' => 'product-category/index'
-                ]
+                ],
             ]
         ],
         'mn_manager_news' => [
@@ -63,6 +66,21 @@ return [
                 'submenu_2' => [
                     'name' => 'Danh sách danh mục',
                     'link' => 'banner-category/index'
+                ],
+            ]
+        ],
+        'mn_manager_gallery_image' => [
+            'name' => 'Quản lý thư viện hình ảnh',
+            'link' => 'javascript:void(0)',
+            'icon' => '<i class="site-menu-icon wb-layout" aria-hidden="true"></i>',
+            'submenu' => [
+                'submenu_1' => [
+                    'name' => 'Thiết lập thư viện hình ảnh',
+                    'link' => 'gallery-image/config'
+                ],
+                'submenu_2' => [
+                    'name' => 'Danh sách',
+                    'link' => 'gallery-image/index'
                 ],
             ]
         ],
@@ -142,7 +160,34 @@ return [
                 'note' => '',
                 'limit' => 1
             ],
-
+            'list_image_project_footer' =>[
+                'name' => 'Danh sách hình ảnh dự án footer',
+                'data' => 6,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 8
+            ],
+            'one_page_title' =>[
+                'name' => 'Hình ảnh đầu trang con',
+                'data' => 6,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 1
+            ],
+            'list_instagram_feed' =>[
+                'name' => 'Hình ảnh Instagram Feed',
+                'data' => 7,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 6
+            ],
+            'list_banner_single_page_left' =>[
+                'name' => 'Danh sách banner trái trang đơn',
+                'data' => 8,
+                'type' => 'list',
+                'note' => '',
+                'limit' => 2
+            ],
         ],
         'CUSTOM_SINGLE_PAGE' => [
             'one_middle_home' =>[
@@ -156,6 +201,18 @@ return [
                 'data' => 2,
                 'note' => '',
                 'limit' => 3
+            ],
+            'footer_list_col_link_1' =>[
+                'name' => 'Danh sách trang đơn footer cột liên kết 1',
+                'data' => 3,
+                'note' => '',
+                'limit' => 5
+            ],
+            'footer_list_col_link_2' =>[
+                'name' => 'Danh sách trang đơn footer cột liên kết 2',
+                'data' => 4,
+                'note' => '',
+                'limit' => 5
             ],
         ],
         'CUSTOM_NEWS_CATEGORY' => [
@@ -175,18 +232,35 @@ return [
             'id' => 'mn_home',
             'module' => 'home',
             'link' => 'ourhome',
+            'type' => ConfigPage::TYPE_HOME,
         ],
         [
             'name' => 'Sản phẩm',
             'id' => 'mn_product',
             'module' => 'product',
             'link' => '/product/config',
+            'type' => ConfigPage::TYPE_PRODUCT
         ],
         [
             'name' => 'Tin tức',
             'id' => 'mn_news',
             'module' => 'news',
-            'link' => 'news/config'
+            'link' => 'news/config',
+            'type' => ConfigPage::TYPE_NEWS
+        ],
+        [
+            'name' => 'Liên hệ',
+            'id' => 'mn_contact',
+            'module' => 'contact',
+            'link' => 'javascrip:;',
+            'type' => ConfigPage::TYPE_CONTACT
+        ],
+        [
+            'name' => 'Thư viện hình ảnh',
+            'id' => 'mn_gallery-image',
+            'module' => 'gallery-image',
+            'link' => 'gallery-image/config',
+            'type' => ConfigPage::TYPE_GALLERY_IMAGE
         ],
     ],
 
@@ -195,13 +269,14 @@ return [
         'home' => 'Trang chủ',
         'phone' => 'Gửi',
         'newsletter_subscription' => 'Đăng ký nhận bản tin',
-        'enter_email' => 'Nhập địa chỉ email'
+        'enter_email' => 'Nhập địa chỉ email',
+        'add_to_cart' => 'Thêm vào giỏ hàng'
     ],
     'listLanguage' => [
         'vi' => [
             'default' => true,
             'icon' => 'images/vn.svg',
-            'name' => 'Tiếng việt'
+            'name' => 'Tiếng việt',
         ],
         'us' => [
             'default' => false,

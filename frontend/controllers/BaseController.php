@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use frontend\models\ConfigPage;
 use frontend\models\Custom;
+use frontend\models\GalleryImage;
 use frontend\models\Router;
 use frontend\models\SinglePage;
 use Yii;
@@ -25,7 +26,6 @@ class BaseController extends Controller
         $menu = Menu::find()->where(['id' => 1])->one();
         $res = [];
 
-
         foreach (json_decode($menu->data,true) as $value) {
             extract($value);
             /**
@@ -47,7 +47,7 @@ class BaseController extends Controller
                     foreach ($productCate as $item) {
                         $submenu[] = [
                             'name' => $item->name,
-                            'link' => Url::base(true) . '/' . $item->name
+                            'link' => $item->getUrl()
                         ];
                     }
 
@@ -80,19 +80,19 @@ class BaseController extends Controller
                             foreach ($newsCate2 as $item2) {
                                 $submenu2[] = [
                                     'name' => $item2->name,
-                                    'link' => Url::base(true) . '/' . $item2->name,
+                                    'link' => $item2->getUrl(),
                                 ];
                             }
                             $submenu1[] = [
                                 'name' => $item1->name,
-                                'link' => Url::base(true) . '/' . $item1->name,
+                                'link' => $item1->getUrl(),
                                 'sub_menu' => $newsCate2
                             ];
                         }
 
                         $submenu[] = [
                             'name' => $item->name,
-                            'link' => Url::base(true) . '/' . $item->name,
+                            'link' => $item->getUrl(),
                             'sub_menu' => $submenu1,
                         ];
                     }
@@ -112,10 +112,25 @@ class BaseController extends Controller
                     if (!empty($singlePage)) {
                         $res[] = [
                             'name' => $singlePage->name,
-                            'link' => Url::base(true) . '/' . $singlePage->getSeoName(),
+                            'link' => $singlePage->getUrl(),
                             'module' => $module,
                         ];
                     }
+                    break;
+                case 'contact':
+                    $res[] = [
+                        'name' => 'Liên hệ',
+                        'link' =>  Url::base(true) . '/lien-he',
+                        'module' => $module,
+                    ];
+                break;
+                case 'gallery-image':
+                    $myGallery = new GalleryImage();
+                    $res[] = [
+                        'name' => $name,
+                        'link' =>  $myGallery->getUrlAll(),
+                        'module' => $module,
+                    ];
                     break;
             }
         }
@@ -125,7 +140,7 @@ class BaseController extends Controller
     public function init()
     {
         parent::init();
-
+        $this->layout = 'main';
         $company = Company::find()->where(['id' => 1])->one();
         $custom = new Custom();
 

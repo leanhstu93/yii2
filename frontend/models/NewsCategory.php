@@ -147,4 +147,34 @@ class NewsCategory extends \yii\db\ActiveRecord
     {
         return Yii::$app->homeUrl .$this->getSeoName();
     }
+
+    static function getIdsChild($data,&$res)
+    {
+        if ($data) {
+            foreach ($data as $item) {
+                $res[] = $item->id;
+                $newsCategory = self::find()->where(['parent_id' => $item->id])->all();
+                 self::getIdsChild($newsCategory, $res);
+
+            }
+        }
+    }
+
+    public static function getBreadCrumb($idParent,$res)
+    {
+        $model = self::find()->where(['id' => $idParent])->one();
+
+        if (!empty($model)) {
+            $res[] = [
+                'name' => $model->name,
+                'link' => $model->getUrl()
+            ];
+        }
+
+        if($model->parent_id > 0) {
+            self::getBreadCrumb($model->parent_id,$res);
+        } else {
+            return $res;
+        }
+    }
 }

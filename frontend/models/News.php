@@ -28,7 +28,7 @@ use yii\data\ActiveDataProvider;
  * @property int $active
  * @property int $option
  */
-class News extends \yii\db\ActiveRecord
+class News extends Base
 {
     public $images;
     public $category_ids;

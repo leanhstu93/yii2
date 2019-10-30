@@ -12,15 +12,6 @@ return array (
       '@yii/bootstrap' => $vendorDir . '/yiisoft/yii2-bootstrap/src',
     ),
   ),
-  'yiisoft/yii2-swiftmailer' => 
-  array (
-    'name' => 'yiisoft/yii2-swiftmailer',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer/src',
-    ),
-  ),
   'yiisoft/yii2-faker' => 
   array (
     'name' => 'yiisoft/yii2-faker',
@@ -28,15 +19,6 @@ return array (
     'alias' => 
     array (
       '@yii/faker' => $vendorDir . '/yiisoft/yii2-faker/src',
-    ),
-  ),
-  '2amigos/yii2-ckeditor-widget' => 
-  array (
-    'name' => '2amigos/yii2-ckeditor-widget',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@dosamigos/ckeditor' => $vendorDir . '/2amigos/yii2-ckeditor-widget/src',
     ),
   ),
   'iutbay/yii2-fontawesome' => 
@@ -75,24 +57,6 @@ return array (
       '@kartik/dialog' => $vendorDir . '/kartik-v/yii2-dialog/src',
     ),
   ),
-  'kartik-v/yii2-widget-colorinput' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-colorinput',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@kartik/color' => $vendorDir . '/kartik-v/yii2-widget-colorinput/src',
-    ),
-  ),
-  'kartik-v/yii2-widget-activeform' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-activeform',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@kartik/form' => $vendorDir . '/kartik-v/yii2-widget-activeform/src',
-    ),
-  ),
   'kartik-v/yii2-popover-x' => 
   array (
     'name' => 'kartik-v/yii2-popover-x',
@@ -111,42 +75,6 @@ return array (
       '@kartik/editable' => $vendorDir . '/kartik-v/yii2-editable/src',
     ),
   ),
-  'mihaildev/yii2-ckeditor' => 
-  array (
-    'name' => 'mihaildev/yii2-ckeditor',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@mihaildev/ckeditor' => $vendorDir . '/mihaildev/yii2-ckeditor',
-    ),
-  ),
-  'jpunanua/yii2-seotools' => 
-  array (
-    'name' => 'jpunanua/yii2-seotools',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@jpunanua/seotools' => $vendorDir . '/jpunanua/yii2-seotools',
-    ),
-  ),
-  'yiisoft/yii2-debug' => 
-  array (
-    'name' => 'yiisoft/yii2-debug',
-    'version' => '2.1.8.0',
-    'alias' => 
-    array (
-      '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug/src',
-    ),
-  ),
-  'yiisoft/yii2-gii' => 
-  array (
-    'name' => 'yiisoft/yii2-gii',
-    'version' => '2.1.1.0',
-    'alias' => 
-    array (
-      '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
-    ),
-  ),
   'kartik-v/yii2-grid' => 
   array (
     'name' => 'kartik-v/yii2-grid',
@@ -154,24 +82,6 @@ return array (
     'alias' => 
     array (
       '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid/src',
-    ),
-  ),
-  'yiisoft/yii2-imagine' => 
-  array (
-    'name' => 'yiisoft/yii2-imagine',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@yii/imagine' => $vendorDir . '/yiisoft/yii2-imagine/src',
-    ),
-  ),
-  '2amigos/yii2-gallery-widget' => 
-  array (
-    'name' => '2amigos/yii2-gallery-widget',
-    'version' => '1.1.0.0',
-    'alias' => 
-    array (
-      '@dosamigos/gallery' => $vendorDir . '/2amigos/yii2-gallery-widget/src',
     ),
   ),
   '2amigos/yii2-file-upload-widget' => 
@@ -183,13 +93,67 @@ return array (
       '@dosamigos/fileupload' => $vendorDir . '/2amigos/yii2-file-upload-widget/src',
     ),
   ),
-  'linchpinstudios/yii2-filemanager' => 
+  'yiisoft/yii2-swiftmailer' => 
   array (
-    'name' => 'linchpinstudios/yii2-filemanager',
+    'name' => 'yiisoft/yii2-swiftmailer',
+    'version' => '2.0.7.0',
+    'alias' => 
+    array (
+      '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer',
+    ),
+  ),
+  'yiisoft/yii2-debug' => 
+  array (
+    'name' => 'yiisoft/yii2-debug',
+    'version' => '2.1.9.0',
+    'alias' => 
+    array (
+      '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug/src',
+    ),
+  ),
+  'yiisoft/yii2-gii' => 
+  array (
+    'name' => 'yiisoft/yii2-gii',
+    'version' => '2.1.2.0',
+    'alias' => 
+    array (
+      '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
+    ),
+  ),
+  'kartik-v/yii2-widget-activeform' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-activeform',
     'version' => '9999999-dev',
     'alias' => 
     array (
-      '@linchpinstudios/filemanager' => $vendorDir . '/linchpinstudios/yii2-filemanager',
+      '@kartik/form' => $vendorDir . '/kartik-v/yii2-widget-activeform/src',
+    ),
+  ),
+  'kartik-v/yii2-widget-colorinput' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-colorinput',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/color' => $vendorDir . '/kartik-v/yii2-widget-colorinput/src',
+    ),
+  ),
+  '2amigos/yii2-ckeditor-widget' => 
+  array (
+    'name' => '2amigos/yii2-ckeditor-widget',
+    'version' => '2.2.0.0',
+    'alias' => 
+    array (
+      '@dosamigos/ckeditor' => $vendorDir . '/2amigos/yii2-ckeditor-widget/src',
+    ),
+  ),
+  'devanych/yii2-cart' => 
+  array (
+    'name' => 'devanych/yii2-cart',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@devanych/cart' => $vendorDir . '/devanych/yii2-cart',
     ),
   ),
 );

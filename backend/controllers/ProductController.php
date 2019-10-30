@@ -171,6 +171,7 @@ class ProductController extends BaseController
             $model->load($formData);
             $model->date_update = time();
             $dataImage = array_filter($formData['Product']['images']);
+
             if (!empty($dataImage)) {
                 $model->image = array_shift($dataImage);
             }
@@ -178,7 +179,7 @@ class ProductController extends BaseController
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT],'update');
-                if (!empty($formData['product']['image'][0])) {
+                if (!empty($formData['Product']['images'][0])) {
                     $this->saveProductImage($dataImage, $model->id);
                 }
 
@@ -206,8 +207,8 @@ class ProductController extends BaseController
      */
     private function saveProductImage($data,$id)
     {
+        ProductImage::deleteAll(['product_id' => $id]);
         if (!empty($data)) {
-            ProductImage::deleteAll(['product_id' => $id]);
             foreach ($data as $value) {
                 $modelProductImage = new ProductImage();
                 $modelProductImage->product_id = $id;
@@ -247,7 +248,13 @@ class ProductController extends BaseController
             $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
                 #xu ly node
-                Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_PRODUCT_PAGE]);
+                $router = Router::find()->where(['type' => Router::TYPE_PRODUCT_PAGE])->one();
+                if ($router) {
+                    Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_PRODUCT_PAGE],'update');
+                } else {
+                    Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_PRODUCT_PAGE],'create');
+                }
+
                 Yii::$app->session->setFlash('success', "Lưu thành công");
              } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
