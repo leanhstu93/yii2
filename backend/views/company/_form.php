@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
-use iutbay\yii2kcfinder\KCFinderInputWidget;
-use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ProductCategory */
@@ -23,15 +20,25 @@ use frontend\models\ProductCategory;
 
             <?= $form->field($model, 'address')->textInput(['class' => 'form-control'])?>
 
-            <?= $form->field($model, 'favicon',['template' => '{label}{input}',])->widget(KCFinderInputWidget::className(), [
+            <?= $form->field($model, 'favicon',['template' => '<div class="input-group input-group-file js__select-image">{input}<span class="input-group-btn">
+                      <span class="btn btn-success btn-file">
+                        <i class="icon wb-upload" aria-hidden="true"></i>
+                       
+                      </span>
+                    </span></div>'], [
                 'buttonLabel' => 'Chọn hình',
                 'model' => $model,
-            ]) ?>
+            ])->textInput(['class' => 'js__image-value form-control']) ?>
 
-            <?= $form->field($model, 'logo',['template' => '{label}{input}',])->widget(KCFinderInputWidget::className(), [
+            <?= $form->field($model, 'logo',['template' => '<div class="input-group input-group-file js__select-image">{input}<span class="input-group-btn">
+                      <span class="btn btn-success btn-file">
+                        <i class="icon wb-upload" aria-hidden="true"></i>
+                       
+                      </span>
+                    </span></div>'], [
                 'buttonLabel' => 'Chọn hình',
                 'model' => $model,
-            ]) ?>
+            ])->textInput(['class' => 'js__image-value form-control']) ?>
 
             <?= $form->field($model, 'email')->textInput(['class' => 'form-control'])?>
 

@@ -6,6 +6,7 @@ use yii\web\View;
 use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
+/* @var $searchModel */
 /* @var $model frontend\models\BannerCategory */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -31,6 +32,19 @@ $scrollingTop = 10;
                         'attribute' => 'name',
                     ],
                     [
+                        'attribute' => 'Danh mục',
+                        'value' => 'bannerCategory.name',
+                    ],
+                    [
+                        'attribute' => 'image',
+                        'format'=>'raw',
+                        'filter' => false,
+                        'value' => function ($data) {
+                            return Html::img('/'.$data['image'],
+                                ['width' => '60px']);
+                        }
+                    ],
+                    [
                         'class'=>'kartik\grid\EnumColumn',
                         'attribute'=>'active',
                         'vAlign'=>'middle',
@@ -48,7 +62,7 @@ $scrollingTop = 10;
                 ];
                 ?>
                 <?= GridView::widget([
-                    'dataProvider' => $dataProvider,
+                    'dataProvider' => $searchModel->search(Yii::$app->request->queryParams),
                     'columns' =>$gridColumns,
                     'showPageSummary' => false,
                     'striped' => false,

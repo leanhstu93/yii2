@@ -19,12 +19,7 @@ if (!empty($categories)) {
 
 echo $this->render("//element/page-title",['name' => $page_title, 'bread' => $bread]);
 $product = Product::findOne(40);
-// Get component of the cart
-//$cart = \Yii::$app->cart;
-//// Add an item to the cart
-//$cart->add($product, 2);
-//debug($cart->getItems());
-//debug($cart);
+
 ?>
 <section class="kc-elm kc-css-356837 kc_row">
     <div class="kc-row-container  kc-container">

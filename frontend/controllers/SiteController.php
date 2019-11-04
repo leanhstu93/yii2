@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\Bill;
+use frontend\models\BillDetail;
 use frontend\models\GalleryImage;
 use frontend\models\News;
 use frontend\models\NewsCategory;
@@ -37,15 +39,23 @@ class SiteController extends BaseController
 
     public function actionRewriteUrl($alias)
     {
-        if($alias != 'lien-he' && $alias != 'gioi-thieu' & $alias != 'dich-vu') {
-            $model = Router::find()->where(['seo_name' => $alias])->one();
-            $type = $model->type;
-        } else if($alias == 'lien-he') {
+        if($alias == 'lien-he') {
             $type = 'contact';
         } else if($alias == 'gioi-thieu') {
             $type = 'about';
         } else if($alias == 'dich-vu') {
             $type = 'dich-vu';
+        } else if($alias == 'cart') {
+            $type = 'cart';
+        } else if($alias == 'checkout') {
+            $type = 'checkout';
+        } else if($alias == 'save-bill') {
+            $type = 'save-bill';
+        } else if($alias == 'save-bill-noti') {
+            $type = 'save-bill-noti';
+        } else {
+            $model = Router::find()->where(['seo_name' => $alias])->one();
+            $type = $model->type;
         }
         if (!empty($type)) {
 
@@ -88,9 +98,41 @@ class SiteController extends BaseController
                 case 'dich-vu':
                     $res = $this->getAllSecrvice();
                     break;
+                case 'save-bill':
+                    $res = $this->saveBill();
+                    break;
+                case 'cart':
+                    $res['data'] = [
+                        'data' => [],
+                        'bread' => [
+                            ['name' => 'Giỏ hàng', 'link' => 'javascrip:;'],
+                            ['name' => 'Trang chủ', 'link' => '/'],
+                        ]
+                    ];
+                    $res['file'] = 'cart';
+                    break;
+                case 'checkout':
+                    $res['data'] = [
+                        'data' => [],
+                        'bread' => [
+                            ['name' => 'Thanh toán', 'link' => 'javascrip:;'],
+                            ['name' => 'Trang chủ', 'link' => '/'],
+                        ]
+                    ];
+                    $res['file'] = 'checkout';
+                    break;
+                case 'save-bill-noti':
+                    $res['data'] = [
+                        'data' => [],
+                        'bread' => [
+                            ['name' => 'Thanh toán', 'link' => 'javascrip:;'],
+                            ['name' => 'Trang chủ', 'link' => '/'],
+                        ]
+                    ];
+                    $res['file'] = 'noti-save-bill-success';
+                    break;
             }
             return $this->render($res['file'],$res['data']);
-            exit('ok');
         }
     }
 
@@ -116,7 +158,15 @@ class SiteController extends BaseController
             ];
         } else {
             # get all
-            $data = Product::find();
+            #query
+            $dataQuery = [];
+            $dataGet = Yii::$app->request->get();
+            if (!empty($dataGet['keyword'])) {
+                $dataQuery = [
+                    'like', 'name', $dataGet['keyword']
+                ];
+            }
+            $data = Product::find()->where($dataQuery)->andWhere(['active' => 1]);
             $countQuery = clone $data;
             $categories = [];
             // set breadcrumb
@@ -304,6 +354,71 @@ class SiteController extends BaseController
             'data' => [
                 'data' => '',
                 'bread' => array_reverse($bread),
+            ]
+        ];
+    }
+
+    public function actionAddCart()
+    {
+        $cart = Yii::$app->cart;
+        $dataGet = Yii::$app->request->get();
+
+        if (!empty($dataGet)) {
+            switch ($dataGet['action']) {
+                case 'add':
+                    $product = Product::findOne($dataGet['product_id']);
+                    Yii::$app->session->setFlash('success', "Thêm vào giỏ hàng thành công");
+                    $cart->add($product, $dataGet['quantity']);
+                    break;
+                case 'update-all':
+                    Yii::$app->session->setFlash('success', "Cập nhật giỏ hàng thành công");
+                    foreach ($dataGet['products'] as $item) {
+                        $product = Product::findOne($item['product_id']);
+                        $cart->change($product->id, $item['quantity']);
+                    }
+                    break;
+                case 'delete':
+
+                break;
+            }
+        }
+        $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+    }
+
+    public function saveBill ()
+    {
+        $cart = Yii::$app->cart;
+        $cartItems = $cart->getItems();
+        $modelBill = new Bill();
+
+        $dataGet = Yii::$app->request->get();
+
+        if (!empty($cartItems) && !empty($dataGet)) {
+            $modelBill->date_create = time();
+            $modelBill->load($dataGet);
+            $modelBill->status = Bill::STATUS_ACTIVE;
+            if ($modelBill->save()) {
+                foreach ($cart->getItems() as $item) {
+                    $modelBillDetail = new BillDetail();
+                    $product = $item->getProduct();
+                    $modelBillDetail->bill_id = $modelBill->id;
+                    $modelBillDetail->product_id = $product->id;
+                    $modelBillDetail->name = $product->name;
+                    $modelBillDetail->image = $product->image;
+                    $modelBillDetail->quantity = $product->quantity;
+                    $modelBillDetail->price = $product->price;
+                    $modelBillDetail->save();
+                }
+                Yii::$app->session->setFlash('success', "Chúc mừng quý khách đặt hàng thành công, chúng tôi sẽ liên hệ quý khách sớm nhất!");
+                $this->redirect(Yii::$app->homeUrl.'noti-save-bill-success');
+            }
+        }
+        $this->redirect(Yii::$app->homeUrl);
+        return [
+            'file' => 'index',
+            'data' => [
+                'data' => '',
+                'bread' => [],
             ]
         ];
     }

@@ -15,7 +15,7 @@ $banner = Banner::getDataByCustomSetting('one_before_footer');
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="contact-title">
-                                        <h1><?= $banner->images->name ?></h1>
+                                        <h1>Hdesign <br><?= $banner->images->name ?></h1>
                                     </div>
                                     <div class="text">
                                         <?= $banner->images->desc ?>

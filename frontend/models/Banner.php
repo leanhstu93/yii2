@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use frontend\models\Base;
+use frontend\models\BannerCategory;
 use yii\data\ActiveDataProvider;
 
 /**
@@ -64,24 +65,32 @@ class Banner extends Base
         ];
     }
 
-    public function search($params) {
-        $query = self::find();
+//    public function relations()
+//    {
+//        // NOTE: you may need to adjust the relation name and the related
+//        // class name for the relations automatically generated below.
+//        return array(
+//            'banner_category' => array(self::BELONGS_TO,'Ba nnerCategory',array('category_id'=>'id')),
+//        );
+//    }
+
+    public function getBannerCategory()
+    {
+        return $this->hasOne(BannerCategory::className(), ['id' => 'category_id']);
+    }
+
+    public function search($params = []) {
+        $query = self::find()->joinWith(['bannerCategory']);
 
         $dataProvider = new ActiveDataProvider([
             'query'=>$query,
+            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]]
         ]);
-
         /**
          * Setup your sorting attributes
          * Note: This is setup before the $this->load($params)
          * statement below
          */
-        $dataProvider->setSort([
-            'attributes'=>[
-                'id',
-                'name',
-            ]
-        ]);
 
         if (!($this->load($params))) {
 

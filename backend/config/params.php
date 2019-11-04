@@ -132,12 +132,19 @@ return [
                 'note' => '',
                 'limit' => 0
             ],
-            'bottom_slide' =>[
-                'name' => '3 banner dưới banner slide',
-                'data' => 2,
+            'list_banner_service' =>[
+                'name' => 'Danh sách banner dịch vụ',
+                'data' => 9,
                 'type' => 'list',
                 'note' => '',
-                'limit' => 3
+                'limit' => 6
+            ],
+            'one_banner_logo_footer' =>[
+                'name' => 'Logo footer',
+                'data' => 10,
+                'type' => 'one',
+                'note' => '',
+                'limit' => 1
             ],
             'background_middle_one' =>[
                 'name' => 'Background giữa trang chủ',

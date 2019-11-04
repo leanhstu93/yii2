@@ -8,8 +8,8 @@ $data = News::getDataByCustomSetting('home_news');
     <div class="container">
 
         <div class="sec-title centered">
-            <a href="#" class="theme-btn"><?= $data->category->name ?></a>
-            <h1><?= $data->category->desc ?></h1>
+            <a href="#" class="theme-btn">Tin tức</a>
+            <h1>Mới nhất</h1>
         </div>
 
         <div class="row">
@@ -27,7 +27,7 @@ $data = News::getDataByCustomSetting('home_news');
                     <div class="lower-content">
                         <ul class="post-info">
                             <li class="category">
-                                <a href="<?= $item->getUrl()?>" rel="category tag">\
+                                <a href="<?= $item->getUrl()?>" rel="category tag" style="color: white">
                                     <?= $data->category->name ?>
                                 </a>
                             </li>

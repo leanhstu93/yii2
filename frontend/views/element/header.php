@@ -13,17 +13,22 @@
                     <div class="social-links clearfix">
                         <a href="<?=  $this->params['company']->facebook ?>"><span class="fab fa-facebook-f"></span></a>
                         <a href="<?=  $this->params['company']->twitter ?>"><span class="fab fa-twitter"></span></a>
-                        <a href="<?=  $this->params['company']->youtube ?>"><span class="icon fa-youtube"></span></a>
+                        <a href="<?=  $this->params['company']->youtube ?>"><span class="fab fa-youtube"></span></a>
                     </div>
                 </div>
 
                 <!--Top Right-->
                 <div class="top-right float-sm-right">
                     <div class="language-info">
-                        <i class="icon-global"></i>
+<!--                        <i class="icon-global"></i>-->
                         <ul>
-                            <li>VN</li>
-                            <li>EN</li>
+<!--                            <li>VN</li>-->
+<!--                            <li>EN</li>-->
+                            <li>
+                                <a href="/cart">
+                                   Giỏ hàng  <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="phone-info"><i class="icon-support"></i><a href="#">HOTLINE: </a> 0909 651 650</div>
@@ -38,7 +43,7 @@
         <div class="container clearfix">
 
             <div class="float-left logo-outer">
-                <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+                <div class="logo"><a href="/"><img width="203px" src="/<?=  $this->params['company']->logo ?>" alt="" title=""></a></div>
             </div>
 
             <div class="float-right upper-right clearfix">
@@ -55,9 +60,13 @@
                                 <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
                                     <li class="panel-outer">
                                         <div class="form-container">
-                                            <form method="post" action="blog.html">
+                                            <?php
+                                            $modelProduct = new \frontend\models\Product();
+                                            $urlAllProduct = $modelProduct->getUrlAll();
+                                            ?>
+                                            <form method="get" action="<?= $urlAllProduct ?>">
                                                 <div class="form-group">
-                                                    <input type="search" name="field-name" value="" placeholder="Search...." required="">
+                                                    <input type="search" name="keyword" value="" placeholder="Từ khóa...." required="">
                                                     <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
                                                 </div>
                                             </form>

@@ -44,10 +44,14 @@ echo $this->render("//element/page-title",['name' => $data->name, 'bread' => $br
                                     </div>
 
                                     <div class="addto-cart-box">
-                                        <input class="quantity-spinner" type="text" value="2" name="quantity">
-                                        <button class="btn-one thm-bg-clr addtocart" type="submit">
-                                            Thêm vào giỏ hàng
-                                        </button>
+                                        <form action="/site/add-cart" method="get">
+                                        <input class="quantity-spinner" type="text" value="1" name="quantity">
+                                            <input name="product_id" value="<?= $data->id ?>">
+                                            <input name="action" value="add" type="hidden">
+                                            <button class="btn-one thm-bg-clr addtocart" type="submit">
+                                                Thêm vào giỏ hàng
+                                            </button>
+                                        </form>
                                     </div>
                                     <div class="share-products">
                                         <h5>Chia sẻ ngay</h5>

@@ -77,7 +77,10 @@ use frontend\models\SinglePage;
     <div class="footer-bottom">
         <div class="container">
             <div class="container-wrapper">
-                <div class="logo"><a href="index.html"><img src="images/footer-logo.png" alt=""></a></div>
+                <?php
+                $banner = Banner::getDataByCustomSetting('one_banner_logo_footer');
+                ?>
+                <div class="logo"><a href="/"><img src="/<?=  $banner->images->image ?>" width="50px" alt=""></a></div>
                 <div class="copyright-text">
                     Copyright © 2012-2019 @ <a href="#">thietkecuaban.com</a>
                 </div>

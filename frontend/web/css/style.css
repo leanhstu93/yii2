@@ -3845,6 +3845,7 @@ btn Style One
 	position: relative;
 	display: inline-block;
 	max-width: 100%;
+	margin-top: 5px;
 }
 
 .main-menu {
@@ -13154,7 +13155,6 @@ btn Style One
     margin-top: -2px;
 }
 .cart-area .cart-table tbody tr .qty .bootstrap-touchspin .input-group-btn-vertical > .btn.bootstrap-touchspin-up:before {
-    content: "\f0d8";
     font-family: FontAwesome;
     color: #848484;
     font-size: 14px;
@@ -13166,7 +13166,6 @@ btn Style One
     padding: 5px 5px 5px;
 }
 .cart-area .cart-table tbody tr .qty .bootstrap-touchspin .input-group-btn-vertical > .btn.bootstrap-touchspin-down:before {
-    content: "\f0d7";
     font-family: FontAwesome;
     color: #848484;
     font-size: 14px;
@@ -13274,7 +13273,7 @@ btn Style One
     background-color: #f13729;
     color: #fff;
 }
-.cart-middle .update-cart button {
+.cart-middle .update-cart button,.cart-middle .apply-coupon-button a {
     color: #ffffff;
     background: #f13729;
     padding: 11px 30px;
@@ -13285,6 +13284,9 @@ btn Style One
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     transition: .5s ease;
+}
+.cart-middle .apply-coupon-button a{
+	margin-left: 20px ;
 }
 .cart-middle .update-cart button:hover{
     background: #222;
@@ -13472,14 +13474,14 @@ btn Style One
     display: inline-block;
     padding-left: 15px;  
 }
-.checkout-area .form form .field-label {
+.checkout-area .form .field-label {
     color: #7e8597;
     font-size: 16px;
     font-weight: 500;
     margin: 0 0 3px;
     text-transform: capitalize;
 }
-.checkout-area .form form .field-input input[type="text"] {
+.checkout-area .field-input input[type="text"] {
     border: 1px solid #f0eef9;
     color: #848484;
     display: block;
@@ -13491,7 +13493,7 @@ btn Style One
     border-radius: 0;
     transition: all 500ms ease;
 }
-.checkout-area .form form .field-input input[type="text"]:focus{
+.checkout-area .field-input input[type="text"]:focus{
     border: 1px solid #f13729;
 }
 .checkout-area .create-acc .checkbox {
@@ -13644,8 +13646,11 @@ btn Style One
     border-radius: 0;
     margin-top: -2px;
 }
+.checkout-area .table .cart-table tbody tr .qty .bootstrap-touchspin .input-group-btn-vertical {
+	display: none;
+}
 .checkout-area .table .cart-table tbody tr .qty .bootstrap-touchspin .input-group-btn-vertical > .btn.bootstrap-touchspin-up:before {
-    content: "\f0d8";
+
     font-family: FontAwesome;
     color: #848484;
     font-size: 14px;
@@ -13657,7 +13662,6 @@ btn Style One
     padding: 5px 5px 5px;
 }
 .checkout-area .table .cart-table tbody tr .qty .bootstrap-touchspin .input-group-btn-vertical > .btn.bootstrap-touchspin-down:before {
-    content: "\f0d7";
     font-family: FontAwesome;
     color: #848484;
     font-size: 14px;

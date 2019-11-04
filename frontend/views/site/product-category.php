@@ -24,7 +24,7 @@ $product = Product::findOne(40);
 //// Add an item to the cart
 //$cart->add($product, 2);
 //debug($cart->getItems());
-//debug($cart);
+//debug( Yii::$app->session);
 ?>
 
 <!-- Services Single -->
