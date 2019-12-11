@@ -93,4 +93,13 @@ class GalleryImage  extends Base
     {
         return Yii::$app->homeUrl .$this->getSeoName();
     }
+
+    public function listMapLanguage()
+    {
+        return [
+            'name' => 'name',
+            'desc' => 'desc',
+            'content' => 'content'
+        ];
+    }
 }

@@ -55,7 +55,7 @@ return [
             ]
         ],
         'mn_manager_banner' => [
-            'name' => 'Quản lý baner',
+            'name' => 'Quản lý banner',
             'link' => 'javascript:void(0)',
             'icon' => '<i class="site-menu-icon wb-layout" aria-hidden="true"></i>',
             'submenu' => [
@@ -66,6 +66,17 @@ return [
                 'submenu_2' => [
                     'name' => 'Danh sách danh mục',
                     'link' => 'banner-category/index'
+                ],
+            ]
+        ],
+        'mn_manager_order' => [
+            'name' => 'Quản lý đơn hàng',
+            'link' => 'javascript:void(0)',
+            'icon' => '<i class="site-menu-icon wb-layout" aria-hidden="true"></i>',
+            'submenu' => [
+                'submenu_1' => [
+                    'name' => 'Danh sách',
+                    'link' => 'bill/index'
                 ],
             ]
         ],
@@ -138,6 +149,13 @@ return [
                 'type' => 'list',
                 'note' => '',
                 'limit' => 6
+            ],
+            'one_banner_top_service' =>[
+                'name' => 'Banner top dịch vụ',
+                'data' => 11,
+                'type' => 'one',
+                'note' => '',
+                'limit' => 1
             ],
             'one_banner_logo_footer' =>[
                 'name' => 'Logo footer',
@@ -221,6 +239,12 @@ return [
                 'note' => '',
                 'limit' => 5
             ],
+            'one_page_about' =>[
+                'name' => 'Trang giới thiệu',
+                'data' => 1,
+                'note' => '',
+                'limit' => 1
+            ],
         ],
         'CUSTOM_NEWS_CATEGORY' => [
             'home_news' =>[
@@ -277,18 +301,35 @@ return [
         'phone' => 'Gửi',
         'newsletter_subscription' => 'Đăng ký nhận bản tin',
         'enter_email' => 'Nhập địa chỉ email',
-        'add_to_cart' => 'Thêm vào giỏ hàng'
+        'add_to_cart' => 'Thêm vào giỏ hàng',
+        'cart' => 'Giỏ hàng',
+        'contact' => 'Liên hệ',
+        'news' => 'Tin tức',
+        'latest' => 'Mới nhất',
+        'see_more_projects' => 'Xem thêm dự án',
+        'all' => 'Tất cả',
+        'creation' => 'Sáng tạo',
+        'professional_design' => 'Thiết kế chuyên nghiệp',
+        'extend_1' => 'Các chi nhánh hoat động của Hdesign',
+        'extend_2' => 'Mở rộng 2',
+        'extend_3' => 'Mở rộng 3',
+        'extend_4' => 'Mở rộng 4',
+        'extend_5' => 'Mở rộng 5',
+        'extend_6' => 'Mở rộng 6',
+        'extend_7' => 'Mở rộng 7',
+        'extend_8' => 'Mở rộng 8',
+
     ],
     'listLanguage' => [
         'vi' => [
             'default' => true,
             'icon' => 'images/vn.svg',
-            'name' => 'Tiếng việt',
+            'name' => 'VN',
         ],
-        'us' => [
+        'en' => [
             'default' => false,
             'icon' => 'images/uk.svg',
-            'name' => 'Tiếng anh'
+            'name' => 'EN'
         ]
     ],
 

@@ -15,24 +15,58 @@ use dosamigos\ckeditor\CKEditor;
     <div class="panel">
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
-            <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
-            <div class="form-group">
-                <label>
-                    Đường dẫn
-                </label>
-                <div class="input-group input-group-icon">
-                    <?= Html::textInput('ConfigPage[seo_name]',$model->seo_name,array('class'=>'js__alias form-control')) ?>
-                    <span class="input-group-addon">
-                      <span class="checkbox-custom checkbox-default">
-                        <input type="checkbox" id="inputCheckbox" class="js__toggle-auto-get-alias" name="inputCheckbox" checked="">
-                        <label for="inputCheckbox"></label>
-                          Lấy đường dẫn tự động
-                      </span>
-                    </span>
+            <div class="css-tab-language js-tab-language js-tab-language-vi" data-code="vi">
+                <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
+                <div class="form-group">
+                    <label>
+                        Đường dẫn
+                    </label>
+                    <div class="input-group input-group-icon">
+                        <?= Html::textInput('ConfigPage[seo_name]',$model->seo_name,array('class'=>'js__alias form-control')) ?>
+                        <span class="input-group-addon">
+                          <span class="checkbox-custom checkbox-default">
+                            <input type="checkbox" id="inputCheckbox" class="js__toggle-auto-get-alias" name="inputCheckbox" checked="">
+                            <label for="inputCheckbox"></label>
+                              Lấy đường dẫn tự động
+                          </span>
+                        </span>
+                    </div>
                 </div>
-            </div>
 
-            <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
+                <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
+
+                <?= $form->field($model, 'content')->widget(CKEditor::className(), [
+                    'kcfinder' => true,
+                ]);
+                ?>
+
+            </div>
+            <!-- tab vn -->
+            <!-- tab en -->
+            <?php
+            $dataFieldLang = [
+                [
+                    'type' => 'text',
+                    'name' => 'name',
+                    'required' => 'required',
+                    'class' => 'required'
+                ],
+                [
+                    'type' => 'textarea',
+                    'name' => 'desc',
+                    'required' => '',
+                    'class' => ''
+                ],
+                [
+                    'type' => 'textarea',
+                    'name' => 'content',
+                    'required' => '',
+                    'class' => ''
+                ],
+            ] ;
+            ?>
+            <?= $this->render('_form-lang',['model' => $dataLang,'dataFieldLang' => $dataFieldLang,'form' => $form])  ?>
+            <!-- end tab en -->
         </div>
             <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
             <div class="panel-body container-fluid">
@@ -45,10 +79,6 @@ use dosamigos\ckeditor\CKEditor;
                     'buttonLabel' => 'Chọn hình',
                     'model' => $model,
                 ]) ?>
-            <?= $form->field($model, 'conten')->widget(CKEditor::className(), [
-                    'kcfinder' => true,
-                ]);
-            ?>
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
@@ -56,13 +86,36 @@ use dosamigos\ckeditor\CKEditor;
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
+            <div class="css-tab-language js-tab-language js-tab-language-vi" data-code="vi">
+                <?= $form->field($model, 'meta_title')->textarea(['rows' => 6]) ?>
 
-            <?= $form->field($model, 'meta_title')->textarea(['rows' => 6]) ?>
+                <?= $form->field($model, 'meta_desc')->textarea(['rows' => 6]) ?>
 
-            <?= $form->field($model, 'meta_desc')->textarea(['rows' => 6]) ?>
-
-            <?= $form->field($model, 'meta_keyword')->textarea(['rows' => 6]) ?>
-
+                <?= $form->field($model, 'meta_keyword')->textarea(['rows' => 6]) ?>
+            </div>
+            <?php
+            $dataFieldLang = [
+                [
+                    'type' => 'text',
+                    'name' => 'meta_title',
+                    'required' => '',
+                    'class' => ''
+                ],
+                [
+                    'type' => 'text',
+                    'name' => 'meta_desc',
+                    'required' => '',
+                    'class' => ''
+                ],
+                [
+                    'type' => 'text',
+                    'name' => 'meta_keyword',
+                    'required' => '',
+                    'class' => ''
+                ],
+            ] ;
+            ?>
+            <?= $this->render('_form-lang',['model' => $dataLang,'dataFieldLang' => $dataFieldLang,'form' => $form])  ?>
             <div class="form-group">
                 <?= Html::submitButton('Lưu', [ 'name' => 'aa' , 'class' => 'btn btn-primary']) ?>
             </div>

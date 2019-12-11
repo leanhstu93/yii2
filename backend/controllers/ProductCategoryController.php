@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use frontend\models\DataLang;
 use frontend\models\Router;
 use Yii;
 use frontend\models\ProductCategory;
@@ -13,7 +14,7 @@ use yii\filters\VerbFilter;
 /**
  * ProductCategoryController implements the CRUD actions for ProductCategory model.
  */
-class ProductCategoryController extends Controller
+class ProductCategoryController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -68,6 +69,17 @@ class ProductCategoryController extends Controller
     public function actionCreate()
     {
         $model = new ProductCategory();
+        # language
+        $dataLang = [];
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_PRODUCT_CATEGORY, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
@@ -75,6 +87,13 @@ class ProductCategoryController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY]);
+
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id, DataLang::TYPE_PRODUCT_CATEGORY);
+                }
+                #end save data lang
+
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -84,6 +103,7 @@ class ProductCategoryController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -96,6 +116,16 @@ class ProductCategoryController extends Controller
      */
     public function actionUpdate($id)
     {
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_PRODUCT_CATEGORY,'id_object' => $id, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         $model = $this->findModel($id);
 
@@ -104,12 +134,18 @@ class ProductCategoryController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_PRODUCT_CATEGORY],'update');
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id ,DataLang::TYPE_PRODUCT_CATEGORY);
+                }
+                #end save data lang
                 return $this->redirect(['index']);
             }
         }
 
         return $this->render('update', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 

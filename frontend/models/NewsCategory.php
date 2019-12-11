@@ -177,4 +177,16 @@ class NewsCategory extends \yii\db\ActiveRecord
             return $res;
         }
     }
+
+    public function listMapLanguage()
+    {
+        return [
+            'name' => 'name',
+            'desc' => 'desc',
+            'content' => 'content',
+            'meta_title' => 'meta_title',
+            'meta_desc' => 'meta_desc',
+            'meta_keyword' => 'meta_keyword',
+        ];
+    }
 }

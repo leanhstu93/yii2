@@ -22,7 +22,32 @@ echo $this->render("//element/page-title",['name' => $data->name, 'bread' => $br
 
                             <div class="col-lg-6">
                                 <div class="img-holder">
-                                    <img src="<?= $data->image ?>" alt="Awesome Product Image">
+                                    <div class="swiper-container gallery-top js__slider-top">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="<?= $data->image ?>" alt="<?=  $data->name ?>">
+                                            </div>
+                                            <?php
+                                            foreach ($dataImages as $item) { ?>
+                                                <div class="swiper-slide">
+                                                    <img src="<?= $item->image ?>" alt="<?=  $data->name ?>">
+                                                </div>
+                                         <?php   }                                           ?>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-container gallery-thumbs js__gallery-thumbs">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="<?= $data->image ?>" alt="<?=  $data->name ?>">
+                                            </div>
+                                            <?php
+                                            foreach ($dataImages as $item) { ?>
+                                                <div class="swiper-slide">
+                                                    <img src="<?= $item->image ?>" alt="<?=  $data->name ?>">
+                                                </div>
+                                            <?php   }                                           ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

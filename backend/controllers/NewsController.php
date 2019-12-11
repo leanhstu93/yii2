@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use frontend\models\DataLang;
 use frontend\models\NewsCategory;
 use frontend\models\Product;
 use Yii;
@@ -16,7 +17,7 @@ use yii\filters\VerbFilter;
 /**
  * NewsController implements the CRUD actions for News model.
  */
-class NewsController extends Controller
+class NewsController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -71,6 +72,14 @@ class NewsController extends Controller
     public function actionCreate()
     {
         $model = new News();
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->user_id = Yii::$app->user->identity->id;
@@ -82,16 +91,21 @@ class NewsController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_NEWS]);
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_NEWS);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
-
         }
 
         return $this->render('create', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -104,6 +118,16 @@ class NewsController extends Controller
      */
     public function actionUpdate($id)
     {
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_NEWS,'id_object' => $id, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
@@ -112,6 +136,11 @@ class NewsController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_NEWS],'update');
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id ,DataLang::TYPE_NEWS);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -121,6 +150,7 @@ class NewsController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -136,6 +166,8 @@ class NewsController extends Controller
         $this->findModel($id)->delete();
         #xu ly node
         Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_NEWS],'delete');
+        #XU LY DATA LANG
+        DataLang::deleteAll(['type' => DataLang::TYPE_NEWS, 'id_object' => $id]);
         Yii::$app->session->setFlash('success', "Xóa thành công");
         return $this->redirect(['index']);
     }
@@ -164,6 +196,16 @@ class NewsController extends Controller
         } else {
             $model =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_NEWS])->one();
         }
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_PAGE_NEWS, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         if ($model->load(Yii::$app->request->post(),'ConfigPage')) {
             $model->seo_name = News::processSeoName($model->seo_name,$model->id);
@@ -177,6 +219,12 @@ class NewsController extends Controller
                     Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_NEWS_PAGE],'create');
                 }
 
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_PAGE_NEWS );
+                }
+                #end save data lang
+
                 Yii::$app->session->setFlash('success', "Lưu thành công");
             } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
@@ -186,6 +234,7 @@ class NewsController extends Controller
 
         return $this->render('config', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 

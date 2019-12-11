@@ -8,6 +8,7 @@ use frontend\models\News;
 use frontend\models\NewsCategory;
 use frontend\models\Product;
 use frontend\models\ProductCategory;
+use frontend\models\ProductImage;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\SinglePage;
 use frontend\models\VerifyEmailForm;
@@ -58,7 +59,6 @@ class SiteController extends BaseController
             $type = $model->type;
         }
         if (!empty($type)) {
-
             switch ($type){
                 case Router::TYPE_PRODUCT:
                     $res =  $this->getProductDetail($model->id_object);
@@ -70,9 +70,7 @@ class SiteController extends BaseController
                     $res =  $this->actionGetProductCategory(0);
                     break;
                 case Router::TYPE_NEWS_CATEGORY :
-
                     $res = $this->actionGetNewsCategory($model->id_object);
-
                     break;
                 case Router::TYPE_SINGLE_PAGE:
                     $res = $this->getSinglePage($model->id_object);
@@ -132,8 +130,36 @@ class SiteController extends BaseController
                     $res['file'] = 'noti-save-bill-success';
                     break;
             }
+
+
             return $this->render($res['file'],$res['data']);
         }
+    }
+
+    public function actionSaveBillNoti()
+    {
+        $res['data'] = [
+            'data' => [],
+            'bread' => [
+                ['name' => 'Thanh toán', 'link' => 'javascrip:;'],
+                ['name' => 'Trang chủ', 'link' => '/'],
+            ]
+        ];
+        $res['file'] = 'noti-save-bill-success';
+        return $this->render($res['file'],$res['data']);
+    }
+
+    /**
+     * change ngon ngu
+     */
+    public function actionChangeLanguage($param) {
+        $listLanguage = Yii::$app->params['listLanguage'];
+        $session = Yii::$app->session;
+
+        if (!empty($listLanguage[$param])) {
+            $session->set('language', $param);
+        }
+        $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
     }
 
     /**
@@ -156,6 +182,9 @@ class SiteController extends BaseController
                 'name' => 'Trang chủ',
                 'link' => Yii::$app->homeUrl
             ];
+
+            # lấy danh mục con
+            $categoryChild = ProductCategory::find()->where(['active'=>1,'parent_id' => $id_object])->all();
         } else {
             # get all
             #query
@@ -174,12 +203,15 @@ class SiteController extends BaseController
                 'name' => 'Trang chủ',
                 'link' => Yii::$app->homeUrl
             ];
+            //end set breadcrumb
+            # lấy danh mục con
+            $categoryChild = ProductCategory::find()->where(['active'=>1])->all();
         }
-        //end set breadcrumb
+
 
         # phan trang
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
-        $pages->defaultPageSize = 18;
+        $pages->defaultPageSize = 15;
         $models = $data->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
@@ -190,6 +222,7 @@ class SiteController extends BaseController
             'data' => [
                 'data' => $models,
                 'categories' => $categories,
+                'categoryChild' => $categoryChild,
                 'bread' => $bread,
                 'pages' =>$pages
             ]
@@ -268,8 +301,8 @@ class SiteController extends BaseController
         # sp lien quan
         $idsRL = $myRlProductCategory->getProductIdsRL($id_object);
         $dataRL = Product::find()->where(['in','id', $idsRL])->limit(3)->all();
-
         #end sp lien quan
+        $dataImages = ProductImage::find()->where(['product_id' => $id_object])->all();
         $bread = [
             [
                 'name' => 'Trang chủ',
@@ -288,6 +321,7 @@ class SiteController extends BaseController
                 'data' => $model,
                 'dataRL' => $dataRL,
                 'bread' => $bread,
+                'dataImages' => $dataImages
             ]
         ];
     }
@@ -392,25 +426,27 @@ class SiteController extends BaseController
         $modelBill = new Bill();
 
         $dataGet = Yii::$app->request->get();
-
         if (!empty($cartItems) && !empty($dataGet)) {
             $modelBill->date_create = time();
             $modelBill->load($dataGet);
             $modelBill->status = Bill::STATUS_ACTIVE;
+            $modelBill->total_cost = $cart->getTotalCost();
             if ($modelBill->save()) {
                 foreach ($cart->getItems() as $item) {
-                    $modelBillDetail = new BillDetail();
                     $product = $item->getProduct();
+                    $modelBillDetail = new BillDetail();
                     $modelBillDetail->bill_id = $modelBill->id;
                     $modelBillDetail->product_id = $product->id;
                     $modelBillDetail->name = $product->name;
                     $modelBillDetail->image = $product->image;
-                    $modelBillDetail->quantity = $product->quantity;
+                    $modelBillDetail->quantity = $item->getQuantity();
                     $modelBillDetail->price = $product->price;
                     $modelBillDetail->save();
                 }
+                $cart->clear();
                 Yii::$app->session->setFlash('success', "Chúc mừng quý khách đặt hàng thành công, chúng tôi sẽ liên hệ quý khách sớm nhất!");
-                $this->redirect(Yii::$app->homeUrl.'noti-save-bill-success');
+                Yii::$app->response->redirect(['/site/save-bill-noti'])->send();
+                exit;
             }
         }
         $this->redirect(Yii::$app->homeUrl);

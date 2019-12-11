@@ -8,13 +8,13 @@ $data = News::getDataByCustomSetting('home_news');
     <div class="container">
 
         <div class="sec-title centered">
-            <a href="#" class="theme-btn">Tin tức</a>
-            <h1>Mới nhất</h1>
+            <a href="#" class="theme-btn"><?= Yii::$app->view->params['lang']->news ?></a>
+            <h1><?= Yii::$app->view->params['lang']->latest ?></h1>
         </div>
 
         <div class="row">
             <?php foreach ($data->data as $item) {
-
+                $item->setTranslate();
                 ?>
             <div class="news-block col-lg-4">
                 <div class="inner-box">

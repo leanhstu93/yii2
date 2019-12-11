@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use frontend\models\BannerCategory;
+use frontend\models\DataLang;
 use frontend\models\Router;
 use Yii;
 use frontend\models\Banner;
@@ -14,7 +15,7 @@ use yii\filters\VerbFilter;
 /**
  * BannerController implements the CRUD actions for Banner model.
  */
-class BannerController extends Controller
+class BannerController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -64,12 +65,26 @@ class BannerController extends Controller
     public function actionCreate()
     {
         $model = new Banner();
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
             $model->date_create = time();
             if ($model->save()) {
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_NEWS);
+                }
+                #end save data lang
+
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -93,10 +108,25 @@ class BannerController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_BANNER,'id_object' => $id, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->date_update = time();
             if ($model->save()) {
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id ,DataLang::TYPE_BANNER);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -105,6 +135,7 @@ class BannerController extends Controller
         }
         return $this->render('update', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -118,6 +149,8 @@ class BannerController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+        #XU LY DATA LANG
+        DataLang::deleteAll(['type' => DataLang::TYPE_BANNER, 'id_object' => $id]);
         Yii::$app->session->setFlash('success', "Xóa thành công");
         return $this->redirect(['index']);
     }

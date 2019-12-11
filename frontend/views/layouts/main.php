@@ -37,14 +37,8 @@ AppAsset::register($this);
     <?php echo $this->render("//element/footer"); ?>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
+<?php echo  \Yii::$app->view->render('@app/views/modal/form-advisory'); ?>
 <?php $this->endBody() ?>
 </body>
 </html>

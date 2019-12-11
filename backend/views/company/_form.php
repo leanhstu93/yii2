@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'address')->textInput(['class' => 'form-control'])?>
 
-            <?= $form->field($model, 'favicon',['template' => '<div class="input-group input-group-file js__select-image">{input}<span class="input-group-btn">
+            <?= $form->field($model, 'favicon',['template' => '<label class="control-label" for="company-address">{label}</label><div class="input-group input-group-file js__select-image">{input}<span class="input-group-btn">
                       <span class="btn btn-success btn-file">
                         <i class="icon wb-upload" aria-hidden="true"></i>
                        
@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
                 'model' => $model,
             ])->textInput(['class' => 'js__image-value form-control']) ?>
 
-            <?= $form->field($model, 'logo',['template' => '<div class="input-group input-group-file js__select-image">{input}<span class="input-group-btn">
+            <?= $form->field($model, 'logo',['template' => '<label class="control-label" for="company-address">{label}</label><div class="input-group input-group-file js__select-image">{input}<span class="input-group-btn">
                       <span class="btn btn-success btn-file">
                         <i class="icon wb-upload" aria-hidden="true"></i>
                        

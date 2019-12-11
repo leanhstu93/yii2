@@ -14,8 +14,8 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/bootstrap.css',
         'css/style.css',
+        'css/swiper.min.css',
         'css/responsive.css',
-
     ];
     public $js = [
         'js/jquery.js',
@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'js/bootstrap.min.js',
         'js/wow.js',
         'js/owl.js',
+        'js/swiper.min.js',
         'js/validate.js',
         'js/mixitup.js',
         'js/isotope.js',
@@ -32,6 +33,7 @@ class AppAsset extends AssetBundle
         'js/jquery.mCustomScrollbar.min.js',
         'js/jquery.bootstrap-touchspin.js',
         'js/script.js',
+        'js/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

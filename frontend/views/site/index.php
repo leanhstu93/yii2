@@ -11,12 +11,11 @@ echo $this->render("//element/service-home");
 
 echo $this->render("//element/product-home");
 
-echo $this->render("//element/news-letter-home");
-
 echo $this->render("//element/customer");
 
 echo $this->render("//element/news-home");
 
 echo $this->render("//element/banner-before-footer");
+echo $this->render("//element/news-letter-home");
 
-?>
+

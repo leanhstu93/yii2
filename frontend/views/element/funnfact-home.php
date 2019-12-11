@@ -8,7 +8,7 @@ use frontend\models\ConfigPage;
 <?php
 $banner = Banner::getDataByCustomSetting('background_middle_one');
 ?>
-<section class="funfact-section sp-two" style="background-image:url(<?= $banner->images->getImageDecode() ?>)">
+<section class="funfact-section sp-two" style="background-image:url('<?= $banner->images->image ?>')">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 fact-counter">
@@ -25,7 +25,7 @@ $banner = Banner::getDataByCustomSetting('background_middle_one');
                             <div class="item">
                                 <div class="inner-box">
                                     <div class="count-outer count-box">
-                                        <span class="count-text" data-speed="2000" data-stop="7">0</span>
+                                        <span class="count-text" data-speed="2000" data-stop="9">0</span>
                                         <p>Năm cho <br>sự chuẩn bị</p>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@ $banner = Banner::getDataByCustomSetting('background_middle_one');
                             <div class="item">
                                 <div class="inner-box">
                                     <div class="count-outer count-box">
-                                        <span class="count-text" data-speed="2000" data-stop="966">0</span>
+                                        <span class="count-text" data-speed="2000" data-stop="1001">0</span>
                                         <p>khách hàng <br>Hài Lòng</p>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@ $banner = Banner::getDataByCustomSetting('background_middle_one');
                             <div class="item">
                                 <div class="inner-box">
                                     <div class="count-outer count-box">
-                                        <span class="count-text" data-speed="2000" data-stop="765">0</span>
+                                        <span class="count-text" data-speed="2000" data-stop="999">0</span>
                                         <p>Dự Án <br>Hoàn Thành</p>
                                     </div>
                                 </div>

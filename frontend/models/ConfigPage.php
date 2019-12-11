@@ -13,7 +13,7 @@ use frontend\models\Base;
  * @property string $seo_name
  * @property int $type
  * @property string $desc
- * @property string $conten
+ * @property string $content
  * @property string $meta_title
  * @property string $meta_desc
  * @property string $meta_keyword
@@ -47,8 +47,17 @@ class ConfigPage  extends Base
         return [
             [['name','seo_name', 'type'], 'required'],
             [['type', 'status'], 'integer'],
-            [['desc', 'conten', 'meta_title', 'meta_desc', 'meta_keyword'], 'string'],
+            [['desc', 'content', 'meta_title', 'meta_desc', 'meta_keyword'], 'string'],
             [['name', 'tags' ,'image','seo_name'], 'string', 'max' => 255],
+        ];
+    }
+
+    public function listMapLanguage()
+    {
+        return [
+          'name' => 'name',
+          'desc' => 'desc',
+          'content' => 'content'
         ];
     }
 
@@ -63,7 +72,7 @@ class ConfigPage  extends Base
             'seo_name' => 'Seo Name',
             'type' => 'Type',
             'desc' => 'Mô tả',
-            'conten' => 'Nội dung',
+            'content' => 'Nội dung',
             'meta_title' => 'Meta Title',
             'meta_desc' => 'Meta Desc',
             'meta_keyword' => 'Meta Keyword',

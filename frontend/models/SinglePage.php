@@ -41,7 +41,7 @@ class SinglePage extends Base
     {
         return [
             [['name', 'seo_name' ,'date_create', 'date_update', 'user_id'], 'required'],
-            [['date_create', 'date_update', 'active', 'user_id', 'count_view'], 'integer'],
+            [['date_create', 'date_update', 'active','order', 'user_id', 'count_view'], 'integer'],
             [['desc', 'content'], 'string'],
             [['name', 'seo_name','tags','image'], 'string', 'max' => 255],
         ];
@@ -63,6 +63,7 @@ class SinglePage extends Base
             'desc' => 'Mô tả',
             'content' => 'Nội dung',
             'active' => 'Active',
+            'order' =>'Sắp xếp',
             'count_view' => 'Lượt xem',
             'user_id' => 'User ID',
         ];
@@ -73,19 +74,9 @@ class SinglePage extends Base
 
         $dataProvider = new ActiveDataProvider([
             'query'=>$query,
+            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]]
         ]);
 
-        /**
-         * Setup your sorting attributes
-         * Note: This is setup before the $this->load($params)
-         * statement below
-         */
-        $dataProvider->setSort([
-            'attributes'=>[
-                'id',
-                'name',
-            ]
-        ]);
 
         if (!($this->load($params))) {
 
@@ -157,4 +148,14 @@ class SinglePage extends Base
     {
         return Yii::$app->homeUrl .$this->getSeoName();
     }
+
+    public function listMapLanguage()
+    {
+        return [
+            'name' => 'name',
+            'desc' => 'desc',
+            'content' => 'content'
+        ];
+    }
+
 }

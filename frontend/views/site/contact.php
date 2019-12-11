@@ -90,17 +90,16 @@ echo $this->render("//element/page-title",['name' => 'Liên hệ', 'bread' => $b
                                     <div class="author-box-two mb-30">
                                         <div class="author-image"><img src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/author-2.jpg" alt="Image"></div>
                                         <div class="author-info">
-                                            <h4>Z. Gartrell Wright</h4>
+                                            <h4><?=  $this->params['company']->name ?></h4>
                                             <div class="designation">HR Department</div>
                                             <ul class="contact-info">
-                                                <li><a href="#"><span class="icon-mail"></span>example@example.com</a></li>
-                                                <li><span class="icon-phone"></span>07520-664-45</li>
+                                                <li><a href="#"><span class="icon-mail"></span><?=  $this->params['company']->email ?></a></li>
+                                                <li><span class="icon-phone"></span><?=  $this->params['company']->phone ?></li>
                                             </ul>
                                             <ul class="social-icon-five">
-                                                <li><a href="#"><i class="fab fab-facebook-f" aria-hidden="true"></i></a></li>
-                                                <li><a href="#"><i class="fab fab-twitter" aria-hidden="true"></i></a></li>
-                                                <li><a href="#"><i class="fab fab-skype" aria-hidden="true"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                                                <li><a href="<?=  $this->params['company']->facebook ?>"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                                <li><a href="<?=  $this->params['company']->twitter ?>"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="<?=  $this->params['company']->youtube ?>"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
                                             </ul></div>
                                         </p></div>
                                     </p></div>
@@ -117,6 +116,103 @@ echo $this->render("//element/page-title",['name' => 'Liên hệ', 'bread' => $b
                             </div>
                             </p>
                             </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section data-kc-fullwidth="content" class="kc-elm kc-css-2035904 kc_row">
+    <div class="kc-row-container">
+        <div class="kc-wrap-columns">
+            <div class="kc-elm kc-css-4253365 kc_col-sm-12 kc_column kc_col-sm-12">
+                <div class="kc-col-container">
+                    <section class="sm our-branches-section sp-one">
+                        <div class="container">
+                            <div class="four-item-carousel owl-carousel owl-theme owl-nav-style-four owl-dots-none">
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Sanfransico</h4>
+                                        <ul>
+                                            <li>(625) 07520-6644</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">24/7, Global Factory Street, <br />2nd Cross, SF 94112.</div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Los Angeles</h4>
+                                        <ul>
+                                            <li>+888-520-6644</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">PO Box 515381, Los Angeles <br />CA 90051-6681, US</div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Las Vegas</h4>
+                                        <ul>
+                                            <li>07520-664-45</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">7220 Dean Martin Drive <br />Suite, LV 89044</div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Cleveland</h4>
+                                        <ul>
+                                            <li>+321.45.67890</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">148, Global Factory Street <br />Cleveland 44113.</div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Sanfransico</h4>
+                                        <ul>
+                                            <li>(625) 07520-6644</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">24/7, Global Factory Street, <br />2nd Cross, SF 94112.</div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Los Angeles</h4>
+                                        <ul>
+                                            <li>+888-520-6644</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">PO Box 515381, Los Angeles <br />CA 90051-6681, US</div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Las Vegas</h4>
+                                        <ul>
+                                            <li>07520-664-45</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">7220 Dean Martin Drive <br />Suite, LV 89044</div>
+                                        </p></div>
+                                    </p></div>
+                                <div class="branch-block">
+                                    <div class="inner-box">
+                                        <h4>Cleveland</h4>
+                                        <ul>
+                                            <li>+321.45.67890</li>
+                                            <li>mailus@example.com</li>
+                                        </ul>
+                                        <div class="text">148, Global Factory Street <br />Cleveland 44113.</div>
+                                        </p></div>
+                                    </p></div>
+                                </p></div>
+                            <div class="text text-center"><?= Yii::$app->view->params['lang']->extend_1 ?></div>
+                            </p></div>
                     </section>
                 </div>
             </div>

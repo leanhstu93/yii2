@@ -5,7 +5,7 @@
     <div class="news-block-three">
         <div class="inner-box">
             <div class="image">
-                <img width="1920" height="1024" src="<?= $data->image ?>"
+                <img src="<?= $data->image ?>"
                      class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""/>
                 <a href="<?= $data->getUrl() ?>"
                         class="overlay-link"><span class="icon-blogger"></span></a>

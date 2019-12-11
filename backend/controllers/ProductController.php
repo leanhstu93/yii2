@@ -51,32 +51,6 @@ class ProductController extends BaseController
         ]);
     }
 
-    protected function saveDataLang($data, $id_object = 0,$is_update = 0)
-    {
-        if (empty($data)) {
-            return false;
-        }
-
-        foreach ($data as $key => $item) {
-            if (empty($is_update)) {
-                $dataLang = new DataLang();
-                $dataLang->code_lang = $key;
-                $dataLang->id_object = $id_object;
-                $dataLang->type = DataLang::TYPE_PRODUCT;
-            } else {
-                $dataLang = DataLang::find()->where(['id_object' => $id_object,'code_lang' => $key, 'type' => DataLang::TYPE_PRODUCT])->one();
-            }
-
-            $dataLang->name = $item['name'];
-            $dataLang->desc = $item['desc'];
-            $dataLang->content = $item['content'];
-            if (!$dataLang->save()) {
-                debug($dataLang->errors);
-            }
-        }
-        return true;
-    }
-
     /**
      * Creates a new Product model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -85,19 +59,14 @@ class ProductController extends BaseController
     public function actionCreate()
     {
         $model = new Product();
-        $dataLang = new DataLang();
         $formData = Yii::$app->request->post();
-        $dataLangUpdate = [];
-        $dataLangUpdate['vn'] =  $model;
-        $listLanguage =  \Yii::$app->params['listLanguage'];
-
-        if (!empty($listLanguage)) {
-            foreach ($listLanguage as $key => $item) {
-                if($item['default']) continue;
-
-                $dataLangUpdate[$key] = $dataLang;
-            }
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = new DataLang();
         }
+
         if (!empty($formData)) {
             $model->load($formData);
             $model->user_id = Yii::$app->user->identity->id;
@@ -134,7 +103,7 @@ class ProductController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
-            'dataLang' => $dataLangUpdate
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -147,18 +116,20 @@ class ProductController extends BaseController
      */
     public function actionUpdate($id)
     {
-        $dataLang = DataLang::find()->where(['id_object' => $id, 'type' => DataLang::TYPE_PRODUCT])->all();
-        $dataLangUpdate = [];
-        if (!empty($dataLang)) {
-            foreach ($dataLang as $item) {
-                $dataLangUpdate[$item->code_lang] = $item;
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_PRODUCT,'id_object' => $id, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
             }
         }
         /**
          * @var Product $model
          */
         $model = $this->findModel($id);
-        $dataLangUpdate['vn'] = $model;
         # lay danh sach hinh anh
         $modelProductImage = ProductImage::find()->select('image')->where(['product_id' => $id])->asArray()->all();
         $model->images = array_merge([$model->image],array_column($modelProductImage,'image'));
@@ -198,7 +169,7 @@ class ProductController extends BaseController
 
         return $this->render('update', [
             'model' => $model,
-            'dataLang' => $dataLangUpdate
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -244,6 +215,18 @@ class ProductController extends BaseController
             $model =  ConfigPage::find()->where(['id' => ConfigPage::TYPE_PRODUCT])->one();
         }
 
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_PAGE_PRODUCT, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
+
         if ($model->load(Yii::$app->request->post(),'ConfigPage')) {
             $model->seo_name = Product::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
@@ -254,6 +237,11 @@ class ProductController extends BaseController
                 } else {
                     Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_PRODUCT_PAGE],'create');
                 }
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_PAGE_PRODUCT );
+                }
+                #end save data lang
 
                 Yii::$app->session->setFlash('success', "Lưu thành công");
              } else {
@@ -264,6 +252,7 @@ class ProductController extends BaseController
 
         return $this->render('config', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 

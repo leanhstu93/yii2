@@ -1,4 +1,6 @@
 <?php
+
+use frontend\models\Banner;
 use yii\widgets\LinkPager;
 use frontend\models\Product;
 
@@ -18,15 +20,14 @@ if (!empty($categories)) {
 }
 
 echo $this->render("//element/page-title",['name' => $page_title, 'bread' => $bread]);
-$product = Product::findOne(40);
-// Get component of the cart
-//$cart = \Yii::$app->cart;
-//// Add an item to the cart
-//$cart->add($product, 2);
-//debug($cart->getItems());
-//debug( Yii::$app->session);
-?>
+$banner_top = Banner::getDataByCustomSetting('one_banner_top_service');
 
+?>
+<div class="banner-top-product-category w100">
+    <div class="container">
+        <img width="100%" src="<?= $banner_top->images->image ?>" />
+    </div>
+</div>
 <!-- Services Single -->
 <div class="single-service sp-two">
     <div class="container">
@@ -63,7 +64,7 @@ $product = Product::findOne(40);
             </div>
 
             <!--Content Column-->
-            <?php echo $this->render("//element/product-category/left",['id_category' => $category_id]); ?>
+            <?php echo $this->render("//element/product-category/left",['data' => $categoryChild]); ?>
 
         </div>
     </div>

@@ -17,19 +17,44 @@ use frontend\models\ProductCategory;
     <div class="panel">
         <?= $this->render('//element/panel-heading', array_pop($menu)) ?>
         <div class="panel-body container-fluid">
-            <?= $form->field($model, 'category_id')->dropDownList($listCate,[
-                'class' => 'form-control',
-            ])->label('Danh mục') ?>
-            <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
+            <div class="css-tab-language js-tab-language js-tab-language-vi" data-code="vi">
+                <?= $form->field($model, 'category_id')->dropDownList($listCate,[
+                    'class' => 'form-control',
+                ])->label('Danh mục') ?>
+                <?= $form->field($model, 'name')->textInput(['class' => 'js__title form-control'])->label('Tiêu đề') ?>
 
-            <?= $form->field($model, 'link')->textInput(['class' => 'js__title form-control'])?>
+                <?= $form->field($model, 'link')->textInput(['class' => 'js__title form-control'])?>
 
-            <?= $form->field($model, 'desc')->widget(CKEditor::className(), [
-            ]); ?>
+                <?= $form->field($model, 'desc')->widget(CKEditor::className(), [
+                ]); ?>
 
-            <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-            ]);
+                <?= $form->field($model, 'content')->widget(CKEditor::className(), [
+                ]);
+                ?>
+            </div>
+            <?php
+            $dataFieldLang = [
+                [
+                    'type' => 'text',
+                    'name' => 'name',
+                    'required' => 'required',
+                    'class' => 'required'
+                ],
+                [
+                    'type' => 'textarea',
+                    'name' => 'desc',
+                    'required' => '',
+                    'class' => ''
+                ],
+                [
+                    'type' => 'textarea',
+                    'name' => 'content',
+                    'required' => '',
+                    'class' => ''
+                ],
+            ] ;
             ?>
+            <?= $this->render('_form-lang',['model' => $dataLang,'dataFieldLang' => $dataFieldLang,'form' => $form])  ?>
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
@@ -48,7 +73,7 @@ use frontend\models\ProductCategory;
 
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
-
+            <?= $form->field($model, 'order')->textInput() ?>
             <?= $form->field($model, 'active')->dropDownList(ProductCategory::listActive()) ?>
 
         </div>

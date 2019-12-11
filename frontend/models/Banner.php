@@ -40,7 +40,7 @@ class Banner extends Base
         return [
             [['name', 'date_update', 'user_id', 'date_create'], 'required'],
             [['desc', 'content'], 'string'],
-            [['category_id', 'date_update', 'active','user_id', 'date_create'], 'integer'],
+            [['category_id', 'date_update', 'active','user_id', 'date_create', 'order'], 'integer'],
             [['name', 'image','link'], 'string', 'max' => 255],
         ];
     }
@@ -61,7 +61,8 @@ class Banner extends Base
             'date_update' => 'Ngày cập nhật',
             'user_id' => 'user_id',
             'image' => 'image',
-            'link' => 'Đường dẫn'
+            'link' => 'Đường dẫn',
+            'order' =>'Sắp xếp',
         ];
     }
 
@@ -125,11 +126,21 @@ class Banner extends Base
             } elseif ($custom_image->limit == 0) {
                 $result->images = self::find()->where(['category_id' => $custom_image->data, 'active' => 1])->all();
             } else {
-                $result->images = self::find()->where(['category_id' => $custom_image->data, 'active' => 1])->limit($custom_image->limit)->all();
+                $result->images = self::find()->where(['category_id' => $custom_image->data, 'active' => 1])
+                    ->orderBy(['order' => SORT_DESC,'id' => SORT_DESC])->limit($custom_image->limit)->all();
             }
 
             return $result;
         }
 
+    }
+
+    public function listMapLanguage()
+    {
+        return [
+            'name' => 'name',
+            'desc' => 'desc',
+            'content' => 'content'
+        ];
     }
 }

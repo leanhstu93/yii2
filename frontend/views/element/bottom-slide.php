@@ -14,6 +14,7 @@ if(!empty($categories)) {
              * @var NewsCategory $newsCate
              */
             foreach ($categories as $item) {
+                $item->setTranslate();
             ?>
             <div class="col-lg-4">
                 <div class="service-block">

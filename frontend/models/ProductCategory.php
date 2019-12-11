@@ -76,6 +76,15 @@ class ProductCategory extends Base
             'link_extend' => 'Đường dẫn mở rộng'
         ];
     }
+    public function listMapLanguage()
+    {
+        return [
+            'name' => 'name',
+            'desc' => 'desc',
+            'content' => 'content'
+        ];
+    }
+
 
     public function search($params) {
         $query = self::find();

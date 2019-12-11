@@ -3,11 +3,67 @@
 namespace frontend\models;
 
 use Yii;
-use yii\data\ActiveDataProvider;
-use frontend\models\Router;
 
 class Base extends \yii\db\ActiveRecord
 {
+
+    public function setTranslate()
+    {
+        $type = 0;
+        if(method_exists($this,'listMapLanguage')) {
+            switch ($this->tableName()) {
+                case 'product_category':
+                    $type = DataLang::TYPE_PRODUCT_CATEGORY;
+                    break;
+                case 'product':
+                    $type = DataLang::TYPE_PRODUCT;
+                    break;
+                case 'news':
+                    $type = DataLang::TYPE_NEWS;
+                    break;
+                case 'banner':
+                    $type = DataLang::TYPE_BANNER;
+                    break;
+                case 'single_page':
+                    $type = DataLang::TYPE_SINGLE_PAGE;
+                    break;
+                case 'config_page':
+                    if ($this->type === ConfigPage::TYPE_PRODUCT) {
+                        $type = DataLang::TYPE_PAGE_PRODUCT;
+                    } else if($this->type === ConfigPage::TYPE_NEWS) {
+                        $type = DataLang::TYPE_PAGE_NEWS;
+                    } else if($this->type === ConfigPage::TYPE_GALLERY_IMAGE) {
+                        $type = DataLang::TYPE_PAGE_GALLERY_IMAGE;
+                    }
+                    break;
+            }
+        }
+
+        if ($type == 0) {
+            return $this;
+        }
+
+            #xu ly ngon ngu
+        $session = Yii::$app->session;
+        $code_lang = $session->get('language');
+
+        $listLanguage = Yii::$app->params['listLanguage'];
+
+        if($listLanguage[$code_lang]['default']) {
+            return $this;
+        }
+
+        if (!empty($this->id)) {
+            $dataLang = DataLang::find()->where(['id_object' => $this->id,'code_lang' => $code_lang,'type' => $type])->one();
+            if ($dataLang) {
+                foreach ($this->listMapLanguage() as $key => $value) {
+                    $this->$key = $dataLang->$value;
+                }
+            }
+        }
+        return $this;
+    }
+
     public static function processSeoName($seo_name,$id = null)
     {
         if (empty($id)) {
@@ -49,7 +105,8 @@ class Base extends \yii\db\ActiveRecord
 
         $imageEx = explode('/',$this->image);
         $nameImage = array_pop($imageEx);
-        $nameImage = urlencode($nameImage);
+        $nameImage = urldecode($nameImage);
+
         $linkFolder =implode("/",$imageEx);
 
         return $linkFolder. '/'.$nameImage;

@@ -6,6 +6,7 @@ use frontend\models\Banner;
         <?php
         $slide = Banner::getDataByCustomSetting('slide');
         foreach ($slide->images as $slide) {
+            $slide->setTranslate();
         ?>
         <div class="slide" style="background-image:url(<?= $slide->image ?>)">
             <div class="container">
@@ -13,7 +14,6 @@ use frontend\models\Banner;
                     <h4><?= $slide->desc ?></h4>
                     <h1><?= $slide->name ?></h1>
                     <div class="text">
-                        <?= $slide->name ?>
                     </div>
                     <div class="link-box">
                         <a href="<?= $slide->link ?>" class="theme-btn btn-style-three">Xem tiếp </a>

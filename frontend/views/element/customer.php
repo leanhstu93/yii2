@@ -14,10 +14,11 @@ $data  = Banner::getDataByCustomSetting('list_customer');
         <div class="testimonial-carousel-two owl-carousel owl-theme owl-nav-none owl-dots-none">
             <?php
             foreach ($data->images as $slide) {
+                $slide->setTranslate();
             ?>
             <div class="testimonial-block-three">
                 <div class="inner-box">
-                    <div class="text">&#8220;<?= $slide->desc ?></div>
+                    <div class="text"><?= $slide->desc ?></div>
                     <div class="author">
                         <h4><?= $slide->name ?></h4>
                         <div class="designation"></div>

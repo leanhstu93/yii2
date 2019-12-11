@@ -103,11 +103,12 @@ class Product extends Base
         ];
     }
 
-    public function search($params) {
+    public function search($params = []) {
         $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
             'query'=>$query,
+            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]]
         ]);
 
         /**
@@ -115,12 +116,6 @@ class Product extends Base
          * Note: This is setup before the $this->load($params)
          * statement below
          */
-        $dataProvider->setSort([
-            'attributes'=>[
-                'id',
-                'name',
-            ]
-        ]);
 
         if (!($this->load($params))) {
 
@@ -196,12 +191,17 @@ class Product extends Base
 
     public function getPriceFormat()
     {
-        return number_format($this->price);
+        $res = Yii::$app->view->params['lang']->contact;
+
+        if($this->price > 0) {
+            $res = number_format($this->price) .'đ';
+        }
+        return $res;
     }
 
     public function getPriceSaleFormat()
     {
-        return number_format($this->price_sale);
+        return number_format($this->price_sale).'đ';
     }
 
     public function getUrl()
@@ -213,5 +213,22 @@ class Product extends Base
     {
         $model = Router::find()->where(['type' => Router::TYPE_PRODUCT_PAGE])->one();
         return Yii::$app->homeUrl .$model->seo_name;
+    }
+
+    /**
+     * @return array
+     * key la product
+     * value la DataLang
+     */
+    public function listMapLanguage()
+    {
+        return [
+            'name' => 'name',
+            'desc' => 'desc',
+            'content' => 'content',
+            'meta_title' => 'meta_title',
+            'meta_desc' => 'meta_desc',
+            'meta_keyword' => 'meta_keyword',
+        ];
     }
 }

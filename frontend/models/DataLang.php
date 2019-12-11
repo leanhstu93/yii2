@@ -21,7 +21,17 @@ use Yii;
  */
 class DataLang extends Base
 {
-    const TYPE_PRODUCT=1;
+    const TYPE_PRODUCT= 1;
+    const TYPE_PAGE_PRODUCT= 3;
+    const TYPE_PRODUCT_CATEGORY= 5;
+    const TYPE_NEWS= 7;
+    const TYPE_PAGE_NEWS= 9;
+    const TYPE_PAGE_GALLERY_IMAGE= 11;
+    const TYPE_GALLERY_IMAGE= 13;
+    const TYPE_SINGLE_PAGE= 15;
+    const TYPE_NEWS_CATEGORY= 17;
+    const TYPE_BANNER= 19;
+
     /**
      * {@inheritdoc}
      */

@@ -50,6 +50,7 @@ $menu = [
                 <?= $this->render('_form', [
                     'model' => $model,
                     'menu' => array_reverse($menu),
+                    'dataLang' => $dataLang
                 ]) ?>
             </div>
         </div>

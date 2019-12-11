@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
+/* @var $dataLang app\models\DataLang */
 
 $this->title = 'Cấu hình trang sản phẩm';
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
@@ -43,7 +44,8 @@ $menu =   [
                 <?php echo $this->render("//element/breadcrumb"); ?>
                 <?= $this->render('_form-config', [
                     'model' => $model,
-                    'menu' => array_reverse($menu)
+                    'menu' => array_reverse($menu),
+                    'dataLang' => $dataLang
                 ]) ?>
             </div>
         </div>

@@ -43,7 +43,8 @@ $menu =   [
                 <?php echo $this->render("//element/breadcrumb"); ?>
                 <?= $this->render('_form-config', [
                     'model' => $model,
-                    'menu' => array_reverse($menu)
+                    'menu' => array_reverse($menu),
+                    'dataLang' => $dataLang
                 ]) ?>
             </div>
         </div>

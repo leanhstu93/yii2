@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use frontend\models\Banner;
+use frontend\models\BillDetail;
 use Yii;
 use frontend\models\Bill;
 use yii\data\ActiveDataProvider;
@@ -35,12 +37,10 @@ class BillController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Bill::find(),
-        ]);
+        $searchModel =  new Bill();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -52,8 +52,10 @@ class BillController extends Controller
      */
     public function actionView($id)
     {
+        $billDetail = BillDetail::findOne(['bill_id' => $id]);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'billDetail' => $billDetail
         ]);
     }
 

@@ -16,6 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' =>['class' => 'js-form']]); ?>
     <div class="panel">
+        <!--  Tong quan -->
         <?= $this->render('//element/panel-heading', array_pop($menu)) ?>
         <div class="panel-body container-fluid">
             <div class="css-tab-language js-tab-language js-tab-language-vi" data-code="vi">
@@ -66,12 +67,12 @@ use yii\widgets\ActiveForm;
             </div>
         <?php
             $dataFieldLang = [
-               [
+                [
                    'type' => 'text',
                    'name' => 'name',
                    'required' => 'required',
                    'class' => 'required'
-               ],
+                ],
                 [
                     'type' => 'textarea',
                     'name' => 'desc',
@@ -85,8 +86,8 @@ use yii\widgets\ActiveForm;
                     'class' => ''
                 ],
             ] ;
-            ?>
-            <?= $this->render('_form-lang',['model' => $dataLang,'dataFieldLang' => $dataFieldLang,'form' => $form])  ?>
+        ?>
+        <?= $this->render('_form-lang',['model' => $dataLang,'dataFieldLang' => $dataFieldLang,'form' => $form])  ?>
 
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
@@ -131,14 +132,16 @@ use yii\widgets\ActiveForm;
                 </div>
             </div>
         </div>
+        <!--  Trang thai-->
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">
+            <div class="css-tab-language js-tab-language js-tab-language-vi">
+                <?= $form->field($model, 'option')->dropDownList(Product::listOption()) ?>
 
-            <?= $form->field($model, 'option')->dropDownList(Product::listOption()) ?>
-
-            <?= $form->field($model, 'active')->dropDownList(Product::listActive()) ?>
-
+                <?= $form->field($model, 'active')->dropDownList(Product::listActive()) ?>
+            </div>
         </div>
+        <!--  SEO -->
         <?= $this->render('//element/panel-heading', array_pop($menu)) ?>
         <div class="panel-body container-fluid">
             <div class="css-tab-language js-tab-language js-tab-language-vi">

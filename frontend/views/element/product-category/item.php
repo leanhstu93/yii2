@@ -15,17 +15,17 @@
             <div class="rate-review-box">
                 <div class="rate-box float-left">
                     <?php if (!empty($data->price_sale)) { ?>
-                        <del><?= $data->getPriceSaleFormat() ?>đ</del>
+                        <del><?= $data->getPriceSaleFormat() ?></del>
                     <?php } ?>
-                    <strong><?= $data->getPriceFormat() ?>đ</strong>
+                    <strong><?= $data->getPriceFormat() ?></strong>
                 </div>
                 <div class="review-box float-right">
                     <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star active"></i></li>
+                        <li><i class="fa fa-star active"></i></li>
+                        <li><i class="fa fa-star active"></i></li>
+                        <li><i class="fa fa-star active"></i></li>
+                        <li><i class="fa fa-star active"></i></li>
                     </ul>
                 </div>
             </div>

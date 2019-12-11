@@ -23,29 +23,29 @@ $cart = Yii::$app->cart;
                         <h3>NGƯỜI MUA HÀNG</h3>
                     </div>
 
-                        <div class="row">
+                        <div class="row js__info-register">
                             <div class="col-md-12">
                                 <div class="field-label">Họ và tên</div>
                                 <div class="field-input">
-                                    <input type="text" name="fullname" placeholder="Nguyễn Văn A" required/>
+                                    <input type="text" name="Bill[fullname]" placeholder="Nguyễn Văn A" required/>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="field-label">Email</div>
                                 <div class="field-input">
-                                    <input type="text" name="email" placeholder=aaa@gmail.com" required>
+                                    <input type="text" name="Bill[email]" placeholder=aaa@gmail.com" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="field-label">Điện thoại</div>
                                 <div class="field-input">
-                                    <input type="text" name="phone" placeholder="0900 999 000" required>
+                                    <input type="text" name="Bill[phone]" placeholder="0900 999 000" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="field-label">Địa chỉ *</div>
                                 <div class="field-input">
-                                    <input type="text" name="address" placeholder="222 Pham B, P.4, Q.8, TP.HCM" required>
+                                    <input type="text" name="Bill[address]" placeholder="222 Pham B, P.4, Q.8, TP.HCM" required>
                                 </div>
                             </div>
 
@@ -58,32 +58,32 @@ $cart = Yii::$app->cart;
                     <div class="shop-title-box">
                         <h3>NGƯỜI NHẬN HÀNG</h3>
                     </div>
-                        <div class="row">
+                        <div class="row row js__info-receive">
                             <div class="col-md-12">
                                 <div class="field-label">Họ và tên</div>
                                 <div class="field-input">
-                                    <input type="text" name="fullname" placeholder="Nguyễn Văn A" required>
+                                    <input type="text" name="Bill[receive_fullname]" placeholder="Nguyễn Văn A" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="field-label">Email</div>
                                 <div class="field-input">
-                                    <input type="text" name="email" placeholder=aaa@gmail.com" required>
+                                    <input type="text" name="Bill[receive_email]" placeholder=aaa@gmail.com" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="field-label">Điện thoại</div>
                                 <div class="field-input">
-                                    <input type="text" name="phone" placeholder="0900 999 000" required>
+                                    <input type="text" name="Bill[receive_phone]" placeholder="0900 999 000" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="field-label">Địa chỉ *</div>
                                 <div class="field-input">
-                                    <input type="text" name="address" placeholder="222 Pham B, P.4, Q.8, TP.HCM" required>
+                                    <input type="text" name="Bill[receive_address]" placeholder="222 Pham B, P.4, Q.8, TP.HCM" required>
                                 </div>
                             </div>
-                            <a href="#" class="w30s-copy-receive">
+                            <a href="#" class="js__copy-receive">
                                 <i class="fa fa-copy"></i>
                                 Sử dụng thông tin người mua hàng
                             </a>

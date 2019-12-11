@@ -1,5 +1,10 @@
 <?php
+
+use frontend\models\SinglePage;
+
 echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' => $bread]);
+$data = SinglePage::getDataByCustomSetting('one_middle_home');
+$data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
 ?>
 
 <div class="kc_clfw"></div>
@@ -13,7 +18,7 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
 
                             <div class="sec-title centered">
                                 <a href="#" class="theme-btn">HDESIGN</a>
-                                <h1>Thiết kế chuyên nghiệp - Digital Marketing</h1>
+                                <h1><?= Yii::$app->view->params['lang']->professional_design ?> - Digital Marketing</h1>
                             </div>
 
                             <div class="row mb-50">
@@ -31,12 +36,8 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
                                             </div>
                                         </div>
                                         <div class="lower-content">
-                                            <h4>Implementing high technology solutions to transform your business.
-                                            </h4>
-                                            <div class="text">Know how to pursue pleasure rationally encounter
-                                                consequences that are extremely painful. Nor again is there anyone who
-                                                loves or pursues or desires to obtain pain of it is pain some great
-                                                pleasure.
+                                            <h4><?= $data->desc ?></h4>
+                                            <div class="text"><?= $data->content ?>
                                             </div>
                                             <div class="author-info border-none">
                                                 <div class="inner-box">
@@ -44,7 +45,7 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
                                                             src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/sign-1.png"
                                                             alt="Image"></div>
                                                     <div class="author-content">
-                                                        <div class="name">Carl Aliaser</div>
+                                                        <div class="name">CEO – Hdesign</div>
                                                         <div class="designation">Founder Partner</div>
                                                     </div>
                                                 </div>
@@ -54,104 +55,51 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-
-
                                     <div class="feature-block-one">
                                         <div class="inner-box">
                                             <div class="icon"><span class="icon-patent"></span></div>
-                                            <h4>Hdesign sự lựa chọn của bạn</h4>
-                                            <div class="text">We denounce with righteous indignation and dislike men who
-                                                are so beguiled and demoralized by the charms.
-                                            </div>
+                                            <h4><?= Yii::$app->view->params['lang']->extend_2 ?></h4>
+                                            <div class="text"><?= Yii::$app->view->params['lang']->extend_3 ?></div>
                                         </div>
                                     </div>
-
-
                                     <div class="feature-block-one">
                                         <div class="inner-box">
                                             <div class="icon"><span class="icon-passion"></span></div>
-                                            <h4>Hdesign uy tín và chuyên nghiệp</h4>
-                                            <div class="text">The same as saying through shrinking from toil and pain.
-                                                perfectly simple and easy to distinguish.
-                                            </div>
+                                            <h4><?= Yii::$app->view->params['lang']->extend_4 ?></h4>
+                                            <div class="text"><?= Yii::$app->view->params['lang']->extend_5 ?></div>
                                         </div>
                                     </div>
-
-
                                     <div class="feature-block-one">
                                         <div class="inner-box">
                                             <div class="icon"><span class="icon-brain"></span></div>
-                                            <h4>Hdesign chất lượng & cam kết</h4>
-                                            <div class="text">Through shrinking from toil and pain. These cases are
-                                                perfectly simple and easy to in untrammelled.
-                                            </div>
+                                            <h4><?= Yii::$app->view->params['lang']->extend_6 ?></h4>
+                                            <div class="text"><?= Yii::$app->view->params['lang']->extend_7 ?></div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row">
 
 
-                                <div class="feature-block-two col-lg-4">
-                                    <div class="inner-box">
-                                        <div class="image"><img
-                                                src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/feature-1.jpg"
-                                                alt="Image">
-                                            <div class="caption-title">Sứ mệnh</div>
-                                            <div class="overlay-content">
-                                                <div class="overlay-inner">
-                                                    <div class="icon"><span class="icon-trust"></span></div>
-                                                    <div class="text">Expound the actual teachings the
-                                                        great explorers the truth the master of
-                                                        the human happiness.
+                                <?php
+                                foreach ($data_tree as $item) {
+                                    ?>
+                                    <!-- Feature block -->
+                                    <div class="feature-block-two col-lg-4">
+                                        <div class="inner-box">
+                                            <div class="image"><img src="<?= $item->image ?>" alt="<?= $item->name ?>">
+                                                <div class="caption-title"><?= $item->name ?></div>
+                                                <div class="overlay-content">
+                                                    <div class="overlay-inner">
+                                                        <div class="icon"><span class="icon-trust"></span></div>
+                                                        <div class="text"><?= $item->desc ?></div>
+                                                        <div class="shape-icon">M</div>
                                                     </div>
-                                                    <div class="shape-icon">M</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-                                <div class="feature-block-two col-lg-4">
-                                    <div class="inner-box">
-                                        <div class="image"><img
-                                                src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/feature-2.jpg"
-                                                alt="Image">
-                                            <div class="caption-title">Tầm nhìn</div>
-                                            <div class="overlay-content">
-                                                <div class="overlay-inner">
-                                                    <div class="icon"><span class="icon-trust"></span></div>
-                                                    <div class="text">Expound the actual teachings the great explorers
-                                                        the truth the master of the human happiness.
-                                                    </div>
-                                                    <div class="shape-icon">V</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="feature-block-two col-lg-4">
-                                    <div class="inner-box">
-                                        <div class="image"><img
-                                                src="http://seje.tonatheme.com/zuberia/wp-content/uploads/2019/02/feature-3.jpg"
-                                                alt="Image">
-                                            <div class="caption-title">Giá trị</div>
-                                            <div class="overlay-content">
-                                                <div class="overlay-inner">
-                                                    <div class="icon"><span class="icon-trust"></span></div>
-                                                    <div class="text">Expound the actual teachings the great explorers
-                                                        the truth the master of the human happiness.
-                                                    </div>
-                                                    <div class="shape-icon">V</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php } ?>
 
                             </div>
                         </div>
@@ -275,13 +223,12 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
 
                                 <div class="success-block col-md-3">
                                     <div class="inner-box">
-                                        <h4>tư vấn giải pháp thiết kế</h4>
+                                        <h4>Tư vấn giải pháp thiết kế</h4>
                                         <div class="icon">
                                             <span class="icon-contact"></span>
                                         </div>
                                         <div class="step">Bước 1</div>
-                                        <div class="text">Desires to obtain pain of itself, because it is pain but occur
-                                            in procure.
+                                        <div class="text"Tiếp nhận thông tin, triển khai thông tin, tư vấn giải pháp <br> Tổng hợp biên tập nội dung
                                         </div>
                                     </div>
                                 </div>
@@ -294,8 +241,9 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
                                             <span class="icon-target"></span>
                                         </div>
                                         <div class="step">Bước 2</div>
-                                        <div class="text">Who has right to find fault with a man who chooses too enjoy a
-                                            pleasure.
+                                        <div class="text">Tổng hợp nội dung và lên ý tưởng, triển khai giải pháp<br>
+                                            Lên thiết kế
+
                                         </div>
                                     </div>
                                 </div>
@@ -308,8 +256,9 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
                                             <span class="icon-barrier"></span>
                                         </div>
                                         <div class="step">Bước 3</div>
-                                        <div class="text">One who avoids pain that produces resultant pleasure Itaque
-                                            earu rerum.
+                                        <div class="text">Tổng hợp và lên thiết kế, triển khai giải pháp cho thương hiệu
+                                            chỉnh sữa hoàn thiện
+
                                         </div>
                                     </div>
                                 </div>
@@ -322,8 +271,7 @@ echo $this->render("//element/page-title",['name' => 'Giới thiệu', 'bread' =
                                             <span class="icon-goal"></span>
                                         </div>
                                         <div class="step">Bước 4</div>
-                                        <div class="text">Great explorer of the truth, the master-builder of human
-                                            happiness.
+                                        <div class="text">Gửi file và lấy thông tin chỉnh sửa, tư vấn thiết kế, hoàn thiện file
                                         </div>
                                     </div>
                                 </div>

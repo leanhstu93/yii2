@@ -61,7 +61,8 @@ $listCate = [0 => 'Danh mục gốc'] + $listCate;
                 <?= $this->render('_form', [
                     'model' => $model,
                     'menu' => array_reverse($menu),
-                    'listCate' => $listCate
+                    'listCate' => $listCate,
+                    'dataLang' => $dataLang
                 ]) ?>
             </div>
         </div>

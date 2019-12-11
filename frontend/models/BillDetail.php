@@ -31,7 +31,7 @@ class BillDetail extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'quantity', 'price'], 'required'],
+            [['product_id'], 'required'],
             [['product_id', 'quantity', 'price', 'bill_id'], 'integer'],
             [['name', 'image'], 'string', 'max' => 255],
         ];

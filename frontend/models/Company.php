@@ -50,7 +50,7 @@ class Company extends Base
         return [
             'id' => 'ID',
             'name' => 'Tên công ty',
-            'address' => 'địa chỉ',
+            'address' => 'Địa chỉ',
             'favicon' => 'Favicon',
             'logo' => 'Logo',
             'email' => 'Email',

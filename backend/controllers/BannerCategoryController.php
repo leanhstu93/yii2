@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\base\Event;
 use frontend\models\Router;
 use frontend\models\BannerCategory;
 use yii\data\ActiveDataProvider;
@@ -40,6 +41,10 @@ class BannerCategoryController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => BannerCategory::find(),
         ]);
+        Event::on('*', '*', function ($event) {
+            // triggered for any event at any class
+            Yii::debug('trigger event: ' . $event->name);
+        });
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,

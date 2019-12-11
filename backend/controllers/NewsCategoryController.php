@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use frontend\models\DataLang;
 use frontend\models\ProductCategory;
 use frontend\models\Router;
 use Yii;
@@ -14,7 +15,7 @@ use yii\filters\VerbFilter;
 /**
  * NewsCategoryController implements the CRUD actions for NewsCategory model.
  */
-class NewsCategoryController extends Controller
+class NewsCategoryController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -69,6 +70,14 @@ class NewsCategoryController extends Controller
     public function actionCreate()
     {
         $model = new NewsCategory();
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
@@ -78,6 +87,11 @@ class NewsCategoryController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_NEWS_CATEGORY]);
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_NEWS_CATEGORY);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -87,6 +101,7 @@ class NewsCategoryController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -100,6 +115,16 @@ class NewsCategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_NEWS_CATEGORY,'id_object' => $id, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
@@ -108,6 +133,11 @@ class NewsCategoryController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_NEWS_CATEGORY],'update');
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id ,DataLang::TYPE_NEWS_CATEGORY);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -117,6 +147,7 @@ class NewsCategoryController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -132,6 +163,8 @@ class NewsCategoryController extends Controller
         $this->findModel($id)->delete();
         #xu ly node
         Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_NEWS_CATEGORY],'delete');
+        #XU LY DATA LANG
+        DataLang::deleteAll(['type' => DataLang::TYPE_NEWS_CATEGORY, 'id_object' => $id]);
         return $this->redirect(['index']);
     }
 

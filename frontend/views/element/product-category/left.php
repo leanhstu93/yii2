@@ -17,11 +17,10 @@ use frontend\models\ProductCategory;
                 </div>
                 <ul>
                     <?php
-                    $category = ProductCategory::find()->where(['active'=>1])->all();
-                    foreach ($category as $item) {
+                    foreach ($data as $item) {
                         if ($item['parent_id'] == 0) {
                     ?>
-                        <li <?php echo $item['id'] == $id_category ? 'class="active"' : '' ?> >
+                        <li>
                             <a href="<?php echo $item->getUrl() ?>"><?php echo $item['name'] ?></a>
                         </li>
                         <?php } ?>

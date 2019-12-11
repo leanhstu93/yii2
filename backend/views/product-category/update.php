@@ -63,7 +63,8 @@ $listCateMerge = [0 => 'Danh mục gốc'] + $listCate;
                 <?= $this->render('_form', [
                     'model' => $model,
                     'menu' => array_reverse($menu),
-                    'listCate' => $listCateMerge
+                    'listCate' => $listCateMerge,
+                    'dataLang' => $dataLang
                 ]) ?>
             </div>
         </div>

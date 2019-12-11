@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use frontend\models\ConfigPage;
+use frontend\models\DataLang;
 use frontend\models\ProductImage;
 use frontend\models\Router;
 use Yii;
@@ -15,7 +16,7 @@ use yii\filters\VerbFilter;
 /**
  * GalleryImageController implements the CRUD actions for GalleryImage model.
  */
-class GalleryImageController extends Controller
+class GalleryImageController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -70,6 +71,12 @@ class GalleryImageController extends Controller
     public function actionCreate()
     {
         $model = new GalleryImage();
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = new DataLang();
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
@@ -78,8 +85,14 @@ class GalleryImageController extends Controller
             $model->date_create = time();
             if ($model->save()) {
                 #xu ly node
-
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_GALLERY_IMAGE]);
+
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_GALLERY_IMAGE);
+                }
+                #end save data lang
+
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -90,6 +103,7 @@ class GalleryImageController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -103,6 +117,17 @@ class GalleryImageController extends Controller
      */
     public function actionUpdate($id)
     {
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_GALLERY_IMAGE,'id_object' => $id, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
@@ -111,6 +136,13 @@ class GalleryImageController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_GALLERY_IMAGE],'update');
+
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id ,DataLang::TYPE_GALLERY_IMAGE);
+                }
+                #end save data lang
+
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -134,6 +166,8 @@ class GalleryImageController extends Controller
         $this->findModel($id)->delete();
         #xu ly node
         Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_GALLERY_IMAGE],'delete');
+        #XU LY DATA LANG
+        DataLang::deleteAll(['type' => DataLang::TYPE_PAGE_GALLERY_IMAGE, 'id_object' => $id]);
         return $this->redirect(['index']);
     }
 
@@ -162,6 +196,17 @@ class GalleryImageController extends Controller
             $model =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_GALLERY_IMAGE])->one();
         }
 
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_PAGE_GALLERY_IMAGE, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
+
         if ($model->load(Yii::$app->request->post(),'ConfigPage')) {
             $model->seo_name = GalleryImage::processSeoName($model->seo_name,$model->id);
             if ($model->save()) {
@@ -173,15 +218,21 @@ class GalleryImageController extends Controller
                 } else {
                     Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' => Router::TYPE_GALLERY_IMAGE_PAGE], 'create');
                 }
+
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_PAGE_GALLERY_IMAGE );
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
             } else {
                 Yii::$app->session->setFlash('danger', "Lưu thất bại");
             }
             return $this->redirect(['config']);
         }
-
         return $this->render('config', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 }

@@ -4,7 +4,8 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-
+ob_start();
+ob_flush();
 function debug($data,$continue = false) {
     if($continue == true) {
         echo '==========================';

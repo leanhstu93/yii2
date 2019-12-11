@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use frontend\models\DataLang;
 use frontend\models\Router;
 use frontend\models\SinglePage;
 use Yii;
@@ -13,7 +14,7 @@ use yii\filters\VerbFilter;
 /**
  * SinglePageController implements the CRUD actions for SinglePage model.
  */
-class SinglePageController extends Controller
+class SinglePageController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -68,7 +69,12 @@ class SinglePageController extends Controller
     public function actionCreate()
     {
         $model = new SinglePage();
-
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = new DataLang();
+        }
         if ($model->load(Yii::$app->request->post())) {
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
@@ -78,6 +84,12 @@ class SinglePageController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_SINGLE_PAGE]);
+
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id,DataLang::TYPE_SINGLE_PAGE);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -87,6 +99,7 @@ class SinglePageController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -99,6 +112,17 @@ class SinglePageController extends Controller
      */
     public function actionUpdate($id)
     {
+        # language
+        $listLanguage = Yii::$app->params['listLanguage'];
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            $dataLang[$key] = DataLang::find()->where(['type' => DataLang::TYPE_SINGLE_PAGE,'id_object' => $id, 'code_lang' => $key])->one();
+
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
@@ -107,6 +131,11 @@ class SinglePageController extends Controller
             if ($model->save()) {
                 #xu ly node
                 Router::processRouter(['seo_name' => $model->seo_name, 'id_object' => $model->id, 'type' =>Router::TYPE_SINGLE_PAGE],'update');
+                #save Data Lang
+                if (!empty($_POST['DataLang'])) {
+                    $this->saveDataLang($_POST['DataLang'],$model->id ,DataLang::TYPE_SINGLE_PAGE);
+                }
+                #end save data lang
                 Yii::$app->session->setFlash('success', "Lưu thành công");
                 return $this->redirect(['index']);
             } else {
@@ -117,6 +146,7 @@ class SinglePageController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 
@@ -132,6 +162,8 @@ class SinglePageController extends Controller
         $this->findModel($id)->delete();
         #xu ly node
         Router::processRouter([ 'id_object' => $id, 'type' =>Router::TYPE_SINGLE_PAGE],'delete');
+        #XU LY DATA LANG
+        DataLang::deleteAll(['type' => DataLang::TYPE_SINGLE_PAGE, 'id_object' => $id]);
         Yii::$app->session->setFlash('success', "Xóa thành công");
 
         return $this->redirect(['index']);

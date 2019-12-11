@@ -18,7 +18,7 @@ $cart = Yii::$app->cart;
         ?>
         <h1> <?= Yii::$app->session->getFlash('success') ?></h1>
         <?php } else {
-            $this->redirect(Yii::$app->homeUrl);
+            Yii::$app->response->redirect(['/']);
         } ?>
     </div>
 </section>

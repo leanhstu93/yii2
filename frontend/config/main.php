@@ -15,6 +15,18 @@ return [
     'bootstrap' => ['log','gii'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'leanh.stu93@gmail.com',
+                'password' => 'ijzbdkdgtxcibnxo',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+        ],
         'cart' => [
             'class' => 'devanych\cart\Cart',
             'storageClass' => 'devanych\cart\storage\SessionStorage',
@@ -80,9 +92,9 @@ return [
             'enablePrettyUrl' => true,
             'rules' => array(
                 '<alias>' => 'site/rewrite-url',
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller>/<action>/<param>' => '<controller>/<action>',
+//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ],
 

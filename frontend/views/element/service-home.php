@@ -5,7 +5,7 @@ use frontend\models\ConfigPage;
 use frontend\models\ProductCategory;
 
 $pageProduct = ConfigPage::find()->where(['id' => ConfigPage::TYPE_PRODUCT])->one();
-$productCategory = ProductCategory::find()->where(['active' => 1 ])->all();
+//$productCategory = ProductCategory::find()->where(['active' => 1 ])->all();
 ?>
 <!-- Services section -->
 <section class="services-section-two sp-two grey-bg" style="background-image:url(<?= $pageProduct->getImageDecode() ?>)">
@@ -13,12 +13,13 @@ $productCategory = ProductCategory::find()->where(['active' => 1 ])->all();
         <div class="sec-title centered">
             <a href="#" class="theme-btn"><?= $pageProduct->name ?></a>
             <h1><?= $pageProduct->desc ?></h1>
-            <div class="text"><?= $pageProduct->conten ?></div>
+            <div class="text"><?= $pageProduct->content ?></div>
         </div>
         <div class="row">
             <?php
             $slides = Banner::getDataByCustomSetting('list_banner_service');
             foreach ($slides->images as $item) {
+                $item->setTranslate();
                 ?>
             <div class="service-block-two col-lg-4 col-md-6">
                 <div class="inner-box">

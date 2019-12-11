@@ -27,6 +27,7 @@ echo $this->render("//element/page-title",['name' => $page_title, 'bread' => $br
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
                 <!-- blog post item -->
                 <?php foreach ($data as $item) {
+                    $item->setTranslate();
                     echo $this->render("//element/news-category/item", ['data' => $item,'page_title' => $page_title]);
                 ?>
 

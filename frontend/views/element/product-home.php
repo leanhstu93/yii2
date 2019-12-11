@@ -1,7 +1,9 @@
 <?php
 
+use frontend\models\ConfigPage;
 use frontend\models\GalleryImage;
 $model = new GalleryImage();
+$configGall =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_GALLERY_IMAGE])->one()->setTranslate();
 ?>
 
 <!--Case Section-->
@@ -9,10 +11,12 @@ $model = new GalleryImage();
     <div class="container">
         <div class="row m-0 justify-content-md-between align-items-center">
             <div class="sec-title">
-                <a href="#" class="theme-btn">Dự án</a>
-                <h1>Chia sẽ kiến thức miễn phí</h1>
+                <a href="#" class="theme-btn"><?= $configGall->name ?></a>
+                <h1><?= $configGall->desc ?></h1>
             </div>
-            <div class="link-btn ml-15 mb-30"><a href="<?= $model->getUrlAll() ?>" class="theme-btn btn-style-eleven">Xem thêm dự án</a></div>
+            <div class="link-btn ml-15 mb-30"><a href="<?= $model->getUrlAll() ?>" class="theme-btn btn-style-eleven">
+                    <?= Yii::$app->view->params['lang']->see_more_projects ?>
+                </a></div>
         </div>
 
         <div class="outer-container">
@@ -24,7 +28,7 @@ $model = new GalleryImage();
                     <!--Tabs Header-->
                     <div class="tabs-header">
                         <ul class="cases-tab-btns clearfix">
-                            <li class="p-tab-btn active-btn" data-tab="#p-tab-all"> Tất cả  </li>
+                            <li class="p-tab-btn active-btn" data-tab="#p-tab-all"> <?= Yii::$app->view->params['lang']->all ?>  </li>
                         </ul>
                     </div>
                 </div>

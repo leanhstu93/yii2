@@ -39,19 +39,46 @@ class BaseController extends Controller
             if (strpos($module,'single-page')) {
                $module = 'single-page';
             }
+
             switch ($module) {
                 case 'product':
-                    $productCate = ProductCategory::find()->where(['active' => 1])->all();
+                    $productCate = ProductCategory::find()->where(['active' => 1, 'parent_id' => 0])->all();
                     $submenu = [];
 
                     foreach ($productCate as $item) {
+                        $item->setTranslate();
+                        $productCateSub1 = ProductCategory::find()->where(['active' => 1, 'parent_id' => $item->id])->all();
+                        $submenu1 = [];
+                        if (!empty($productCateSub1)) {
+                            foreach ($productCateSub1 as $item1) {
+                                $productCateSub2 = ProductCategory::find()->where(['active' => 1, 'parent_id' => $item1->id])->all();
+                                $submenu2 = [];
+
+                                if (!empty($productCateSub2)) {
+                                    foreach ($productCateSub2 as $item2) {
+                                        $submenu2[] = [
+                                            'name' => $item2->name,
+                                            'link' => $item2->getUrl()
+                                        ];
+                                    }
+                                }
+
+                                $submenu1[] = [
+                                    'name' => $item1->name,
+                                    'link' => $item1->getUrl(),
+                                    'sub_menu' => $submenu2
+                                ];
+                            }
+                        }
+
                         $submenu[] = [
                             'name' => $item->name,
-                            'link' => $item->getUrl()
+                            'link' => $item->getUrl(),
+                            'sub_menu' => $submenu1
                         ];
                     }
 
-                    $config =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_PRODUCT])->one();
+                    $config =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_PRODUCT])->one()->setTranslate();
                     $myProduct = new Product();
 
                     $res[] = [
@@ -63,7 +90,7 @@ class BaseController extends Controller
                     break;
                 case 'home':
                     $res[] = [
-                        'name' => $name,
+                        'name' => Yii::$app->view->params['lang']->home,
                         'module' => $module,
                         'link' => Url::base(true) . '/'
                     ];
@@ -73,6 +100,7 @@ class BaseController extends Controller
                     $submenu = [];
 
                     foreach ($newsCate as $item) {
+                        #$item->setTranslate();
                         $newsCate1 = NewsCategory::find()->where(['active' => 1,'parent_id' => $item->id])->all();
                         $submenu1 = [];
                         foreach ($newsCate1 as $item1) {
@@ -97,7 +125,7 @@ class BaseController extends Controller
                         ];
                     }
                     $myNews = new News();
-                    $config =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_NEWS])->one();
+                    $config =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_NEWS])->one()->setTranslate();
 
                     $res[] = [
                         'name' => $config->name,
@@ -108,7 +136,8 @@ class BaseController extends Controller
                     break;
                 case 'single-page':
                     $idSinglePage = preg_replace('/mn_single_page_/','',$id);
-                    $singlePage = SinglePage::find()->where(['active' => 1,'id' =>$idSinglePage ])->one();
+                    $singlePage = SinglePage::find()->where(['active' => 1,'id' =>$idSinglePage ])->one()->setTranslate();
+
                     if (!empty($singlePage)) {
                         $res[] = [
                             'name' => $singlePage->name,
@@ -119,15 +148,16 @@ class BaseController extends Controller
                     break;
                 case 'contact':
                     $res[] = [
-                        'name' => 'Liên hệ',
+                        'name' => Yii::$app->view->params['lang']->contact,
                         'link' =>  Url::base(true) . '/lien-he',
                         'module' => $module,
                     ];
                 break;
                 case 'gallery-image':
                     $myGallery = new GalleryImage();
+                    $config =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_GALLERY_IMAGE])->one()->setTranslate();
                     $res[] = [
-                        'name' => $name,
+                        'name' => $config->name,
                         'link' =>  $myGallery->getUrlAll(),
                         'module' => $module,
                     ];
@@ -140,15 +170,28 @@ class BaseController extends Controller
     public function init()
     {
         parent::init();
+
+        #xu ly ngon ngu
+        $session = Yii::$app->session;
+        $code_lang = $session->get('language');
+
+        if (empty($code_lang)) {
+        $listLanguage = Yii::$app->params['listLanguage'];
+            foreach ($listLanguage as $key => $lang) {
+                if ($lang['default'] === true) {
+                    $session->set('language',$key);
+                    break;
+                }
+            }
+        }
         $this->layout = 'main';
         $company = Company::find()->where(['id' => 1])->one();
         $custom = new Custom();
 
-        Yii::$app->view->params['menu'] =  $this->buildMenu();
         Yii::$app->view->params['company'] =  $company;
         $dataLang = $custom->getSettingCustomLanguage();
-
-        Yii::$app->view->params['lang'] = (object) $dataLang['vi'];
+        Yii::$app->view->params['lang'] = (object) $dataLang[$code_lang];
+        Yii::$app->view->params['menu'] =  $this->buildMenu();
         $this->view->title = $company->name;
         $this->view->registerMetaTag([
             'name' => 'keywords',
