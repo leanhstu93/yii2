@@ -30,7 +30,8 @@ Base.fn = Base.prototype = {
 		selectorContentHtmlMultipleImages: '.js-content-html-multiple-images',
 		selectorButtonDeleteImages: '.js-btn-delete-images',
 		selectorHtmlItemImage: '.js-item-image',
-		selectorCheckAllDeleteImages: '.js-check-select-all-delete'
+		selectorCheckAllDeleteImages: '.js-check-select-all-delete',
+		selectorEditor: '.js-editor'
     },
     init: function () {
         this.handleSelectImage();
@@ -47,7 +48,26 @@ Base.fn = Base.prototype = {
 		this.handleSelectMulitiImages();
 		this.handleDeleteImages();
 		this.handleCheckAllImagesDelete();
+		this.initCkeditor();
     },
+
+	initCkeditor: function() {
+    	let self = this;
+
+		$(self.config.selectorEditor).each(function(){
+			var e = CKEDITOR.replace($(this).attr('name'), {
+				skin: 'office2013',
+				allowedContent: true,
+				filebrowserBrowseUrl : '/ckfinder/ckfinder.html',
+				filebrowserImageBrowseUrl : '/ckfinder/ckfinder.html',
+				filebrowserFlashBrowseUrl : '/ckfinder/ckfinder.html',
+				filebrowserUploadUrl : '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=files',
+				filebrowserImageUploadUrl : '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=images',
+				filebrowserFlashUploadUrl : '/ckfinder/core/connector/php/connector.php?command=QuickUpload'
+			});
+			CKFinder.setupCKEditor(e, '/ckfinder4/');
+		});
+	},
 
 	initSelectMultiple: function() {
 		$(this.config.selectorSelectMultiple).selectpicker('show');

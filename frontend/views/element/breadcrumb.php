@@ -1,7 +1,8 @@
 
 <ul class="page-breadcrumb bread-crumb">
     <?php
-    $dataLast = array_shift($data);
+    $dataLast = array_pop($data);
+
     foreach ($data as $value) {
     ?>
         <li>

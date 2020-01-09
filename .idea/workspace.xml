@@ -2,102 +2,344 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68abf6b2-167d-4882-b0aa-ab0345cea4f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/views/banner/_form-lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/_form-config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/_form-lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/_form.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/bill/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/gallery-image/_form-lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/news-category/_form-lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/news/_form-lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/product-category/_form-lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/single-page/_form-lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/mail/send-us.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/views/modal/form-advisory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/web/css/swiper.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/web/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/web/js/swiper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/CHANGES.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/adapters/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/build-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/ckeditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/contents.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/bn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/en-au.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/en-ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/en-gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/fo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/fr-ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/gu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ka.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/mn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/no.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/sr-latn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/tt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/lang/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/a11yhelp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/en-gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/fo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/fr-ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/gu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/mn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/no.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/sr-latn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/tt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/a11yhelp/dialogs/lang/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/about/dialogs/about.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/about/dialogs/hidpi/logo_ckeditor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/about/dialogs/logo_ckeditor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/clipboard/dialogs/paste.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/dialog/dialogDefinition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/icons_hidpi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/image/dialogs/image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/image/images/noimage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/link/dialogs/anchor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/link/dialogs/link.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/link/images/anchor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/link/images/hidpi/anchor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/magicline/images/hidpi/icon-rtl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/magicline/images/hidpi/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/magicline/images/icon-rtl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/magicline/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/pastefromword/filter/default.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/scayt/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/scayt/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/scayt/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/scayt/dialogs/options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/scayt/dialogs/toolbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/en-gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/fr-ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/no.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/tt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/lang/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/specialchar/dialogs/specialchar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/table/dialogs/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/tabletools/dialogs/tableCell.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/wsc/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/wsc/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/wsc/dialogs/ciframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/wsc/dialogs/tmpFrameset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/wsc/dialogs/wsc.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/wsc/dialogs/wsc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/plugins/wsc/dialogs/wsc_ie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/css/samples.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/img/github-top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/img/header-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/img/header-separator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/img/navigation-tip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/js/sample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/js/sf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/ajax.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/api.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/appendto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/assets/inlineall/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/assets/outputxhtml/outputxhtml.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/assets/posteddata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/assets/sample.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/assets/uilanguages/languages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/datafiltering.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/dialog/assets/my_dialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/dialog/dialog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/divreplace.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/enterkey/enterkey.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/htmlwriter/assets/outputforflash/outputforflash.fla" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/htmlwriter/assets/outputforflash/outputforflash.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/htmlwriter/assets/outputforflash/swfobject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/htmlwriter/outputforflash.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/htmlwriter/outputhtml.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/inlineall.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/inlinebycode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/inlinetextarea.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/jquery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/magicline/magicline.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/readonly.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/replacebyclass.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/replacebycode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/sample.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/sample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/sample_posteddata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/tabindex.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/toolbar/toolbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/uicolor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/uilanguages.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/wysiwygarea/fullpage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/old/xhtmlstyle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/css/fontello.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/font/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/font/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/font/fontello.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/font/fontello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/font/fontello.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/font/fontello.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/js/abstracttoolbarmodifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/js/fulltoolbareditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/js/toolbarmodifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/js/toolbartextmodifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/lib/codemirror/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/lib/codemirror/codemirror.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/lib/codemirror/codemirror.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/lib/codemirror/javascript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/lib/codemirror/neo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/lib/codemirror/show-hint.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/samples/toolbarconfigurator/lib/codemirror/show-hint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/dialog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/dialog_ie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/dialog_ie7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/dialog_ie8.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/dialog_iequirks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/editor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/editor_gecko.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/editor_ie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/editor_ie7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/editor_ie8.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/editor_iequirks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/icons_hidpi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/hidpi/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/hidpi/lock-open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/hidpi/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/hidpi/refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/lock-open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/images/spinner.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/moono/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/dialog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/editor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/icons_hidpi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/hidpi/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/hidpi/lock-open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/hidpi/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/hidpi/refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/lock-open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/images/refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/skins/office2013/skin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/web/ckeditor4/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/views/site/news-detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/params.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/params.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/BannerCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/BannerCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/BannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/BannerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/BillController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/GalleryImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/GalleryImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/NewsCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/NewsCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/ProductCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/ProductCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/AppAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/AppAsset.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/SinglePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/SinglePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/banner/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/banner/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/banner/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/banner/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/banner/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/banner/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/company/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/company/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/gallery-image/_form-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/gallery-image/_form-config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/gallery-image/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/gallery-image/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/news-category/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news-category/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/news-category/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news-category/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/news-category/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news-category/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/news/_form-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news/_form-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views/news/_form-lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news/_form-lang.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/views/news/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/news/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/news/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/news/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/news/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/product-category/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/product-category/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/product-category/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/product-category/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/product-category/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/product-category/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/product/_form-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/product/_form-config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/product/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/product/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/product/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/product/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/product/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/product/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/single-page/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/single-page/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/single-page/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/single-page/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/single-page/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/single-page/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/AppAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/AppAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/config/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/web/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/web/js/base.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/controllers/BaseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/Banner.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/Banner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/Base.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/Base.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/Bill.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/BillDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/BillDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/Company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/ConfigPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/ConfigPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/DataLang.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/DataLang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/GalleryImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/GalleryImage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/NewsCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/NewsCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/ProductCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/ProductCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/models/SinglePage.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/models/SinglePage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/bottom-slide.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/bottom-slide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/funnfact-home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/funnfact-home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/news-category/item.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/news-category/item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/news-home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/news-home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/product-category/item.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/product-category/item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/product-category/left.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/product-category/left.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/product-home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/product-home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/service-home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/service-home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/element/breadcrumb.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/breadcrumb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/element/page-title.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/page-title.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/element/single-page-middle.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/single-page-middle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/element/slide.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/element/slide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/news-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/news-category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/noti-save-bill-success.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/noti-save-bill-success.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/product-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/product-category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/site/product-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/site/product-detail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/web/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/web/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/ckeditor/ckeditor" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/ckeditor/ckeditor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/codeception/phpunit-wrapper/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/codeception/phpunit-wrapper/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/codeception/phpunit-wrapper/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/codeception/phpunit-wrapper/.travis.yml" afterDir="false" />
@@ -1386,105 +1628,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/controllers/SiteController.php">
+        <entry file="file://$PROJECT_DIR$/backend/web/ckeditor4/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="435" column="50" selection-start-line="435" selection-start-column="50" selection-end-line="435" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/views/site/cart.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="53" column="109" selection-start-line="53" selection-start-column="98" selection-end-line="53" selection-end-column="109" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/controllers/BillController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="54" column="62" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
-              <folding>
-                <element signature="e#39#66#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/models/Bill.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
-              <folding>
-                <element signature="e#35#43#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="63" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/views/bill/view.php">
+        <entry file="file://$PROJECT_DIR$/backend/web/js/base.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="112" column="83" selection-start-line="112" selection-start-column="83" selection-end-line="112" selection-end-column="83" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#style#0;n#span#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#13;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#14;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#17;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#19;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#19;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#small#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#19;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#25;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#25;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#25;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#26;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="54" column="67" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="67" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/controllers/BannerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="149" column="5" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/banner/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="64" column="92" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="92" />
+            <state relative-caret-position="439">
+              <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -1493,21 +1649,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.fab</find>
-      <find>.fa-twitter:before</find>
-      <find>-twitter</find>
-      <find>ame) ?&gt;</find>
-      <find>one_middle_home</find>
-      <find>extend_8</find>
-      <find>Sáng tạo</find>
-      <find>Expound the actual te</find>
-      <find>Tư vấn giải pháp thiết</find>
-      <find>$cart</find>
-      <find>w30s-copy-receive</find>
-      <find>cart</find>
-      <find>save</find>
-      <find>yii\web\Response</find>
-      <find>response</find>
       <find>noti-</find>
       <find>print</find>
       <find>baner</find>
@@ -1521,8 +1662,23 @@
       <find>-&gt;a</find>
       <find>mergeHeader</find>
       <find>attribute</find>
-      <find>date_create</find>
       <find>$dataProvide</find>
+      <find>date_create</find>
+      <find>andWhere</find>
+      <find>.blog-single-post .lower-content ul li:before</find>
+      <find>actionGetNewsDetail</find>
+      <find>getBreadCrumb</find>
+      <find>$bread</find>
+      <find>Banj5</find>
+      <find>igos\ckeditor\CKEdito</find>
+      <find>Bạn không có quyền truy cậ</find>
+      <find>Tran Van Quyet</find>
+      <find>You don't have permissions to browse serve</find>
+      <find>js__select-image</find>
+      <find>action</find>
+      <find>selectorSelectImage</find>
+      <find>admin_lang</find>
+      <find>token</find>
     </findStrings>
     <replaceStrings>
       <replace>seo_name</replace>
@@ -1543,19 +1699,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/views/element/slide.php" />
-        <option value="$PROJECT_DIR$/frontend/views/element/bottom-slide.php" />
-        <option value="$PROJECT_DIR$/frontend/views/element/customer.php" />
-        <option value="$PROJECT_DIR$/frontend/views/element/news-home.php" />
-        <option value="$PROJECT_DIR$/frontend/models/News.php" />
-        <option value="$PROJECT_DIR$/frontend/models/NewsCategory.php" />
-        <option value="$PROJECT_DIR$/frontend/views/element/funnfact-home.php" />
-        <option value="$PROJECT_DIR$/backend/views/news-category/create.php" />
-        <option value="$PROJECT_DIR$/backend/views/news-category/update.php" />
-        <option value="$PROJECT_DIR$/backend/views/news-category/_form.php" />
-        <option value="$PROJECT_DIR$/frontend/models/SinglePage.php" />
-        <option value="$PROJECT_DIR$/backend/views/single-page/_form.php" />
-        <option value="$PROJECT_DIR$/backend/views/news/_form.php" />
         <option value="$PROJECT_DIR$/backend/views/banner/_form.php" />
         <option value="$PROJECT_DIR$/frontend/views/element/service-home.php" />
         <option value="$PROJECT_DIR$/frontend/models/Banner.php" />
@@ -1578,7 +1721,6 @@
         <option value="$PROJECT_DIR$/frontend/views/element/product-category/left.php" />
         <option value="$PROJECT_DIR$/frontend/web/js/swiper.js" />
         <option value="$PROJECT_DIR$/frontend/assets/AppAsset.php" />
-        <option value="$PROJECT_DIR$/frontend/web/css/style.css" />
         <option value="$PROJECT_DIR$/frontend/views/site/product-detail.php" />
         <option value="$PROJECT_DIR$/frontend/views/element/header.php" />
         <option value="$PROJECT_DIR$/frontend/views/site/checkout.php" />
@@ -1590,10 +1732,24 @@
         <option value="$PROJECT_DIR$/backend/config/params.php" />
         <option value="$PROJECT_DIR$/frontend/models/Bill.php" />
         <option value="$PROJECT_DIR$/backend/views/bill/index.php" />
-        <option value="$PROJECT_DIR$/frontend/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/frontend/models/BillDetail.php" />
         <option value="$PROJECT_DIR$/backend/controllers/BillController.php" />
         <option value="$PROJECT_DIR$/backend/views/bill/view.php" />
+        <option value="$PROJECT_DIR$/backend/controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/frontend/controllers/BaseController.php" />
+        <option value="$PROJECT_DIR$/frontend/web/css/style.css" />
+        <option value="$PROJECT_DIR$/frontend/models/News.php" />
+        <option value="$PROJECT_DIR$/frontend/views/element/page-title.php" />
+        <option value="$PROJECT_DIR$/frontend/views/element/breadcrumb.php" />
+        <option value="$PROJECT_DIR$/frontend/controllers/SiteController.php" />
+        <option value="$PROJECT_DIR$/frontend/views/site/news-detail.php" />
+        <option value="$PROJECT_DIR$/backend/web/assets/1fee6975/core/class/browser.php" />
+        <option value="$PROJECT_DIR$/backend/web/assets/8de95271/core/class/browser.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/backend/views/news/_form-lang.php" />
+        <option value="$PROJECT_DIR$/backend/views/news/_form.php" />
+        <option value="$PROJECT_DIR$/backend/assets/AppAsset.php" />
+        <option value="$PROJECT_DIR$/backend/web/js/base.js" />
       </list>
     </option>
   </component>
@@ -1719,14 +1875,22 @@
               <item name="yii2" type="b2602c69:ProjectViewProjectNode" />
               <item name="yii2" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yii2" type="b2602c69:ProjectViewProjectNode" />
               <item name="yii2" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="bill" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="ckeditor4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yii2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yii2" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="ckeditor4" type="462c0819:PsiDirectoryNode" />
+              <item name="skins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yii2" type="b2602c69:ProjectViewProjectNode" />
@@ -1737,14 +1901,7 @@
               <item name="yii2" type="b2602c69:ProjectViewProjectNode" />
               <item name="yii2" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yii2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yii2" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1757,7 +1914,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/web/ckeditor4/skins" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -1767,19 +1924,19 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\yii2\backend\web\ckeditor4\skins" />
+      <recent name="C:\xampp\htdocs\yii2\backend\web\ckeditor4" />
+      <recent name="C:\xampp\htdocs\yii2\backend\views" />
+      <recent name="C:\xampp\htdocs\yii2\frontend\web\js" />
+      <recent name="C:\xampp\htdocs\yii2\frontend\web\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\yii2\common\mail" />
       <recent name="C:\xampp\htdocs\yii2\frontend\views\mail" />
       <recent name="C:\xampp\htdocs\yii2\backend\views" />
       <recent name="C:\xampp\htdocs\yii2\frontend\views\element" />
       <recent name="C:\xampp\htdocs\yii2\backend\views\element" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\yii2\backend\views" />
-      <recent name="C:\xampp\htdocs\yii2\frontend\web\js" />
-      <recent name="C:\xampp\htdocs\yii2\frontend\web\css" />
-      <recent name="C:\xampp\htdocs\yii2\frontend\web" />
-      <recent name="C:\xampp\htdocs\yii2\backend\views\news-category" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1872,7 +2029,10 @@
       <workItem from="1574520615648" duration="6782000" />
       <workItem from="1575695933106" duration="4806000" />
       <workItem from="1575909137905" duration="1155000" />
-      <workItem from="1576059336725" duration="13234000" />
+      <workItem from="1576059336725" duration="13481000" />
+      <workItem from="1576998032820" duration="1198000" />
+      <workItem from="1577114962679" duration="366000" />
+      <workItem from="1578495796659" duration="8766000" />
     </task>
     <task id="LOCAL-00001" summary="push first">
       <created>1562426627378</created>
@@ -1944,17 +2104,45 @@
       <option name="project" value="LOCAL" />
       <updated>1572885925081</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="push first">
+      <created>1576086018880</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1576086018880</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="439282000" />
+    <option name="totallyTimeSpent" value="449859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25192803" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25835475" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49421594" weight="0.8815612" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49678662" weight="0.32974428" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50321335" side_tool="true" weight="0.04037685" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25835475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1973,7 +2161,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -2094,319 +2282,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/frontend/controllers/SiteController.php</url>
-          <line>371</line>
+          <line>403</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/SiteController.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/send-us.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/lienhe.php" />
-    <entry file="file://$PROJECT_DIR$/frontend/views/element/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="60" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/mail/send-us.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/models/ProductCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-281">
-          <caret line="48" column="24" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/site/product-category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="66" column="77" selection-start-line="66" selection-start-column="77" selection-end-line="66" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/element/single-page-middle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="18" selection-start-line="43" selection-start-column="11" selection-end-line="65" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/site/about.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4641">
-          <caret line="273" column="127" selection-start-line="273" selection-start-column="127" selection-end-line="273" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/element/product-category/left.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/web/libs/ckfinder/core/connector/php/vendor/microsoft/azure-storage/src/Table/Internal/JsonODataReaderWriter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/css/swiper.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/js/swiper.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/web/js/swiper.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="180" column="44" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="44" />
-          <folding>
-            <element signature="e#6843#8903#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241400">
-          <caret line="14200" selection-start-line="14200" selection-end-line="14200" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/swiper-master/swiper-master/demos/010-default.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/assets/AppAsset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/site/product-detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="24" column="91" selection-start-line="24" selection-start-column="91" selection-end-line="24" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/element/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/site/checkout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="29" column="65" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#609#1362#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="203" column="46" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/web/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="864" column="40" selection-start-line="864" selection-start-column="30" selection-end-line="864" selection-end-column="40" />
-          <folding>
-            <element signature="e#35526#36166#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/base/View.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="152" column="20" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/site/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/base/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="384" column="5" selection-start-line="384" selection-start-column="5" selection-end-line="384" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/site/noti-save-bill-success.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#66#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-933" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/config/params.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/models/Banner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="110" column="5" selection-start-line="82" selection-start-column="3" selection-end-line="110" selection-end-column="5" />
-          <folding>
-            <element signature="e#2057#2794#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/banner/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="64" column="92" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/BaseYii.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="353" column="47" selection-start-line="353" selection-start-column="47" selection-end-line="353" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/base/Widget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="136" column="36" lean-forward="true" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/kartik-v/yii2-grid/src/CheckboxColumn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/kartik-v/yii2-grid/src/GridView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="1240" column="16" selection-start-line="1240" selection-start-column="9" selection-end-line="1240" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/kartik-v/yii2-grid/src/ColumnTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1180">
-          <caret line="245" column="47" selection-start-line="245" selection-start-column="38" selection-end-line="245" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/grid/DataColumn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="83" column="18" selection-start-line="83" selection-start-column="11" selection-end-line="83" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/kartik-v/yii2-grid/src/DataColumn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="129" column="23" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="23" />
-          <folding>
-            <element signature="e#213#225#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/models/Bill.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
-          <folding>
-            <element signature="e#35#43#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/bill/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="36" selection-start-line="25" selection-start-column="6" selection-end-line="26" selection-end-column="36" />
-          <folding>
-            <element signature="e#7#39#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="54" column="67" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/controllers/BannerController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -2416,60 +2298,388 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/site/cart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="53" column="109" selection-start-line="53" selection-start-column="98" selection-end-line="53" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/models/BillDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="435" column="50" selection-start-line="435" selection-start-column="50" selection-end-line="435" selection-end-column="50" />
+        <state relative-caret-position="1649">
+          <caret line="98" column="85" selection-start-line="98" selection-start-column="64" selection-end-line="98" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/controllers/BillController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="54" column="62" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
+        <state relative-caret-position="1955">
+          <caret line="122" column="23" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
           <folding>
             <element signature="e#39#66#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/BillDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/Bill.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="71" column="23" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="23" />
+          <folding>
+            <element signature="e#35#43#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views/bill/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="112" column="83" selection-start-line="112" selection-start-column="83" selection-end-line="112" selection-end-column="83" />
+        <state relative-caret-position="1887">
+          <caret line="112" column="95" selection-start-line="112" selection-start-column="95" selection-end-line="112" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="88" column="80" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/web/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="627" column="20" selection-start-line="627" selection-start-column="20" selection-end-line="627" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/controllers/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="183" column="11" selection-start-line="183" selection-start-column="11" selection-end-line="183" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/db/Query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="827" column="20" selection-start-line="827" selection-start-column="20" selection-end-line="827" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="71" column="124" selection-start-line="71" selection-start-column="80" selection-end-line="71" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="14228" column="1" selection-start-line="14228" selection-start-column="1" selection-end-line="14228" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/element/product-category/item.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/components/Member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/models/Member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="168" column="106" selection-start-line="168" selection-start-column="69" selection-end-line="168" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/element/news-category/item.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="31" column="65" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/News.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="183" column="98" selection-start-line="183" selection-start-column="98" selection-end-line="183" selection-end-column="98" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#span#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#13;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#14;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#17;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#19;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#19;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#small#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#19;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#25;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#25;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#25;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#26;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#35#43#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/NewsCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="162" column="40" selection-start-line="162" selection-start-column="27" selection-end-line="162" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/element/page-title.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/element/breadcrumb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/site/product-category.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/site/news-category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="67" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="67" />
+          <folding>
+            <element signature="e#6#32#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="320" column="23" selection-start-line="320" selection-start-column="17" selection-end-line="320" selection-end-column="23" />
+          <folding>
+            <element signature="e#39#64#0#PHP" expanded="true" />
+            <element signature="e#954#1034#0#PHP" />
+            <element signature="e#4983#5361#0#PHP" />
+            <element signature="e#5367#5401#0#PHP" />
+            <element signature="e#5406#5736#0#PHP" />
+            <element signature="e#5742#5789#0#PHP" />
+            <element signature="e#5794#7949#0#PHP" />
+            <element signature="e#7955#8002#0#PHP" />
+            <element signature="e#8007#9994#0#PHP" />
+            <element signature="e#10971#11951#0#PHP" />
+            <element signature="e#11956#12513#0#PHP" />
+            <element signature="e#13438#14461#0#PHP" />
+            <element signature="e#14467#16095#0#PHP" />
+            <element signature="e#16100#16162#0#PHP" />
+            <element signature="e#16167#16599#0#PHP" />
+            <element signature="e#16605#16678#0#PHP" />
+            <element signature="e#16683#16793#0#PHP" />
+            <element signature="e#16799#16868#0#PHP" />
+            <element signature="e#16873#17529#0#PHP" />
+            <element signature="e#17535#17602#0#PHP" />
+            <element signature="e#17693#17754#0#PHP" />
+            <element signature="e#17759#18175#0#PHP" />
+            <element signature="e#18181#18252#0#PHP" />
+            <element signature="e#18257#18901#0#PHP" />
+            <element signature="e#18907#19037#0#PHP" />
+            <element signature="e#19042#19607#0#PHP" />
+            <element signature="e#19613#19758#0#PHP" />
+            <element signature="e#19763#20400#0#PHP" />
+            <element signature="e#20406#20478#0#PHP" />
+            <element signature="e#20483#21115#0#PHP" />
+            <element signature="e#21121#21650#0#PHP" />
+            <element signature="e#21656#22665#0#PHP" />
+            <element signature="e#22671#23355#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/site/product-detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1428" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/site/news-detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="44" column="44" lean-forward="true" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+          <folding>
+            <element signature="e#6#32#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/config/main.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/8de95271/lang/vi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="e#7#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/2amigos/yii2-ckeditor-widget/src/CKEditorTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="54" column="17" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/1fee6975/browse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/1fee6975/conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1224" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/1fee6975/core/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/2amigos/yii2-ckeditor-widget/src/CKEditor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/1fee6975/core/class/browser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="87" column="37" lean-forward="true" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/8de95271/core/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/8de95271/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/8de95271/browse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#7#400#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/assets/8de95271/core/class/browser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="87" column="37" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/news/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/web/.htacccess">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="223" column="36" selection-start-line="223" selection-start-column="36" selection-end-line="223" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/news/_form-lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="42" column="153" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="153" />
+          <folding>
+            <element signature="e#48#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/news/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/assets/AppAsset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/ckeditor4/ckeditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/ckeditor4/LICENSE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-2244" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/ckeditor4/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="543">
+            <caret line="38" column="34" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="34" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/ckeditor4/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/web/js/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
         </state>
       </provider>
     </entry>

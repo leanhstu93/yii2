@@ -180,6 +180,7 @@ class BaseController extends Controller
             foreach ($listLanguage as $key => $lang) {
                 if ($lang['default'] === true) {
                     $session->set('language',$key);
+                    $code_lang = $key;
                     break;
                 }
             }

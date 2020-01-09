@@ -10,6 +10,7 @@ IndexIgnore */*
     RewriteRule ^admin/upload/(.*)$ backend/web/upload/$1 [L]
     RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
 
+    RewriteRule ^admin/ckeditor4/(.*)$ backend/web/ckeditor4/$1 [L]
     RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
     RewriteRule ^ckfinder/(.*)$ ckfinder/$1 [L]
     RewriteRule ^upload/(.*)$ upload/$1 [L]

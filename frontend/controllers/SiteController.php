@@ -72,6 +72,9 @@ class SiteController extends BaseController
                 case Router::TYPE_NEWS_CATEGORY :
                     $res = $this->actionGetNewsCategory($model->id_object);
                     break;
+                case Router::TYPE_NEWS:
+                    $res = $this->actionGetNewsDetail($model->id_object);
+                    break;
                 case Router::TYPE_SINGLE_PAGE:
                     $res = $this->getSinglePage($model->id_object);
                     break;
@@ -131,7 +134,6 @@ class SiteController extends BaseController
                     break;
             }
 
-
             return $this->render($res['file'],$res['data']);
         }
     }
@@ -177,12 +179,11 @@ class SiteController extends BaseController
 
             $categories = ProductCategory::find()->where(['id' => $id_object])->one();
             // set breadcrumb
-            $bread = ProductCategory::getBreadCrumb($categories, []);
             $bread[] = [
                 'name' => 'Trang chủ',
                 'link' => Yii::$app->homeUrl
             ];
-
+            $bread = array_merge($bread, ProductCategory::getBreadCrumb($categories, []));
             # lấy danh mục con
             $categoryChild = ProductCategory::find()->where(['active'=>1,'parent_id' => $id_object])->all();
         } else {
@@ -292,6 +293,37 @@ class SiteController extends BaseController
         ];
     }
 
+    public function actionGetNewsDetail($id_object)
+    {
+        $model = News::find()->where(['id'=>$id_object])->one();
+        $newsCategory = NewsCategory::find()->where(['id' => $model->category_id])->all();
+        # news lien quan
+        $dataRL = News::find()->where(['category_id' => $model->category_id ])
+            ->andWhere('id != :id',['id'=>$id_object])->limit(3)->all();
+        #end news lien quan
+        $bread[] = [
+            'name' => 'Trang chủ',
+            'link' => Yii::$app->homeUrl
+        ];
+        $bread = array_merge(
+            $bread,
+            NewsCategory::getBreadCrumb($newsCategory, [])
+        );
+        $bread[] = [
+            'name' => $model->name,
+            'link' => $model->getUrl()
+        ];
+
+        return [
+            'file' => 'news-detail',
+            'data' => [
+                'data' => $model,
+                'dataRL' => $dataRL,
+                'bread' => $bread,
+            ]
+        ];
+    }
+
     public function getProductDetail($id_object)
     {
         $myRlProductCategory = new RlProductCategory();
@@ -365,7 +397,7 @@ class SiteController extends BaseController
         return [
             'file' => 'contact',
             'data' => [
-                'bread' => array_reverse($bread),
+                'bread' => $bread,
             ]
         ];
     }
@@ -387,7 +419,7 @@ class SiteController extends BaseController
             'file' => 'about',
             'data' => [
                 'data' => '',
-                'bread' => array_reverse($bread),
+                'bread' => $bread,
             ]
         ];
     }
@@ -426,12 +458,14 @@ class SiteController extends BaseController
         $modelBill = new Bill();
 
         $dataGet = Yii::$app->request->get();
+
         if (!empty($cartItems) && !empty($dataGet)) {
             $modelBill->date_create = time();
             $modelBill->load($dataGet);
             $modelBill->status = Bill::STATUS_ACTIVE;
-            $modelBill->total_cost = $cart->getTotalCost();
+            $modelBill->total_cost = (string)$cart->getTotalCost();
             if ($modelBill->save()) {
+              
                 foreach ($cart->getItems() as $item) {
                     $product = $item->getProduct();
                     $modelBillDetail = new BillDetail();
@@ -448,6 +482,7 @@ class SiteController extends BaseController
                 Yii::$app->response->redirect(['/site/save-bill-noti'])->send();
                 exit;
             }
+
         }
         $this->redirect(Yii::$app->homeUrl);
         return [
@@ -642,14 +677,14 @@ class SiteController extends BaseController
     public function getAllSecrvice()
     {
         $categories = ProductCategory::find()->where(['parent_id' => 0])->all();
-        $bread[] = [
-            'name' => 'Dịch vụ',
-            'link' => 'javascrip:;'
-        ];
 
         $bread[] = [
             'name' => 'Trang chủ',
             'link' => Yii::$app->homeUrl
+        ];
+        $bread[] = [
+            'name' => 'Dịch vụ',
+            'link' => 'javascrip:;'
         ];
 
         return [

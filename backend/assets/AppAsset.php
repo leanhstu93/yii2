@@ -89,6 +89,7 @@ class AppAsset extends AssetBundle
         'js/jquery.multi-select.js',
         'js/panel-actions.min.js',
         'libs/jquery.fancybox-2.1.7/jquery.fancybox.js',
+        'ckeditor4/ckeditor.js',
         '/ckfinder/ckfinder.js',
         'js/base.js',
         'js/main.js',

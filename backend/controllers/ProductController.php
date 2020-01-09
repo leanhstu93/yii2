@@ -72,7 +72,7 @@ class ProductController extends BaseController
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
             $model->count_view = 1;
-            $dataImage = array_filter($formData['Product']['images']);
+            $dataImage =  empty($formData['Product']['images']) ? [] : array_filter($formData['Product']['images']);
             if (count($dataImage) > 0) {
                 $model->image = array_shift($dataImage);
             }

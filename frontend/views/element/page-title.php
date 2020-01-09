@@ -3,6 +3,7 @@
 use frontend\models\Banner;
 
 $banner = Banner::getDataByCustomSetting('one_page_title');
+
 ?>
 <section class="page-title" style="background-image:url(<?= $banner->images->image ?>)">
     <div class="container">

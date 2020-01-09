@@ -45,9 +45,9 @@ use frontend\models\Product;
 
                 <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
-                <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                    'kcfinder' => true,
-                ]);
+                <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
+                    'rows' => 3,'name' => 'content']);
+
                 ?>
                 <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
             </div>

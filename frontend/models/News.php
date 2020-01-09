@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+use common\models\Member;
 
 /**
  * This is the model class for table "news".
@@ -173,5 +174,13 @@ class News extends Base
             'meta_desc' => 'meta_desc',
             'meta_keyword' => 'meta_keyword',
         ];
+    }
+
+    public function getUser() {
+        return $this->hasMany(Member::className(), ['id' => 'user_id'])->select('username')->one();
+    }
+
+    public function getCategory() {
+        return $this->hasMany(NewsCategory::className(), ['id' => 'category_id'])->select('name,id')->one();
     }
 }

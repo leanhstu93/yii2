@@ -9260,17 +9260,6 @@ btn Style One
 	padding-left: 25px;
 }
 
-.blog-single-post .lower-content ul li:before {
-	position: absolute;
-	content: '';
-	height: 7px;
-	width: 7px;
-	left: 0;
-	top: 12px;
-	background: #f13729;
-	border-radius: 50%;
-}
-
 .blog-single-post .bottom-content {
 	position: relative;
 }
@@ -14199,4 +14188,42 @@ label.discount:before {
 }
 .gallery-thumbs .swiper-slide-thumb-active {
 	opacity: 1;
+}
+.post_meta {
+	padding: 8px;
+	margin-bottom: 20px;
+	background: #f2f2f2;
+}
+.blog-single-post .inner-box .post-info li {
+	position: relative;
+	font-size: 16px;
+	font-weight: 600;
+	display: inline-block;
+	margin-right: 8px;
+	color: #242424;
+	padding: 0 15px;
+}
+.blog-single-post .inner-box .post-info {
+	position: relative;
+	margin-bottom: 0px;
+	z-index: 9;
+	text-align: left;
+}
+.blog-single-post .inner-box .post-info li.category {
+	background: #f13729;
+}
+
+.blog-single-post .inner-box .icon-user:before {
+	color: #f13729;
+}
+.blog-single-post .inner-box .fa-comments:before {
+	color: #f13729;
+}
+.post-info .fa {
+	color: #848484;
+	margin-right: 10px;
+}
+
+.lower-content .post-info li.category a {
+	color: #fff!important;
 }

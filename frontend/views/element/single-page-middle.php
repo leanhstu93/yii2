@@ -30,14 +30,14 @@ $data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
                         </div>
                         <div class="author-info border-none">
                             <div class="inner-box">
-                                <div class="image"><img src="images/resource/sign.png" alt=""></div>
+                                <div class="image"><img src="/images/hai.png" alt=""></div>
                                 <div class="author-content">
-                                    <div class="name">Carl Aliaser</div>
-                                    <div class="designation">Founder Partner</div>
+                                    <div class="name">Sáng lập</div>
+                                    <div class="designation">CEO Nguyen Hai</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="year-of-service">Serve Since 1964</div>
+                        <div class="year-of-service">Sáng lập 2019</div>
                     </div>
                 </div>
             </div>
