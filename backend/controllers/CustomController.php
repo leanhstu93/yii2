@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * CustomController implements the CRUD actions for Custom model.
  */
-class CustomController extends Controller
+class CustomController extends BaseController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Custom models.

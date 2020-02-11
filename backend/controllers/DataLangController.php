@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * DataLangController implements the CRUD actions for DataLang model.
  */
-class DataLangController extends Controller
+class DataLangController extends BaseController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all DataLang models.

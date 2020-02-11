@@ -5,10 +5,33 @@ namespace backend\controllers;
 use frontend\models\DataLang;
 use iutbay\yii2kcfinder\KCFinder;
 use Yii;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 class BaseController extends Controller
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true
+                    ],
+                    [
+                        'actions' => ['logout', 'index','create', 'update', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@']
+                    ]
+                ]
+            ],
+        ];
+    }
     public function saveDataLang($data, $id_object = 0,$type = DataLang::TYPE_PRODUCT)
     {
         if (empty($data)) {

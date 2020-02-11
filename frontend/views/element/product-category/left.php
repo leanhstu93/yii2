@@ -8,7 +8,7 @@ use frontend\models\ProductCategory;
 ?>
 <div class="sidebar-column col-lg-4 col-xl-3">
     <div class="sidebar mb-30">
-
+    <?php if (!empty($data)) { ?>
         <!--Category Widget-->
         <div class="sidebar-widget service-category-widget">
             <div class="widget-content">
@@ -17,18 +17,20 @@ use frontend\models\ProductCategory;
                 </div>
                 <ul>
                     <?php
-                    foreach ($data as $item) {
-                        if ($item['parent_id'] == 0) {
+                        foreach ($data as $item) {
+                            if ($item['parent_id'] == 0) {
+                                ?>
+                                <li>
+                                    <a href="<?php echo $item->getUrl() ?>"><?php echo $item['name'] ?></a>
+                                </li>
+                            <?php } ?>
+                            <?php
+                        }
                     ?>
-                        <li>
-                            <a href="<?php echo $item->getUrl() ?>"><?php echo $item['name'] ?></a>
-                        </li>
-                        <?php } ?>
-                    <?php } ?>
                 </ul>
             </div>
         </div>
-
+        <?php } ?>
         <!--Branch Widget-->
         <div class="sidebar-widget branch-widget">
             <div class="widget-content">

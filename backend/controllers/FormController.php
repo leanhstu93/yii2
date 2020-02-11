@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * FormController implements the CRUD actions for Form model.
  */
-class FormController extends Controller
+class FormController extends BaseController
 {
     public $enableCsrfValidation = false;
     /**

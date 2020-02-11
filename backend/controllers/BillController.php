@@ -14,22 +14,8 @@ use yii\filters\VerbFilter;
 /**
  * BillController implements the CRUD actions for Bill model.
  */
-class BillController extends Controller
+class BillController extends BaseController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Bill models.

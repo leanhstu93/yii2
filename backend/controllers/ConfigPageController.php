@@ -12,22 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * ConfigPageController implements the CRUD actions for ConfigPage model.
  */
-class ConfigPageController extends Controller
+class ConfigPageController extends BaseController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all ConfigPage models.
