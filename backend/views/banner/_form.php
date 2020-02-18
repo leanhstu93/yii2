@@ -28,8 +28,7 @@ use frontend\models\ProductCategory;
                 <?= $form->field($model, 'desc')->widget(CKEditor::className(), [
                 ]); ?>
 
-                <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                ]);
+                <?= $form->field($model, 'content')->widget(CKEditor::className(), []);
                 ?>
             </div>
             <?php

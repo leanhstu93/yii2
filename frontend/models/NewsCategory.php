@@ -169,13 +169,15 @@ class NewsCategory extends \yii\db\ActiveRecord
                 'name' => $model->name,
                 'link' => $model->getUrl()
             ];
+
+            if($model->parent_id > 0) {
+                self::getBreadCrumb($model->parent_id,$res);
+            } else {
+                return $res;
+            }
         }
 
-        if($model->parent_id > 0) {
-            self::getBreadCrumb($model->parent_id,$res);
-        } else {
-            return $res;
-        }
+        return [];
     }
 
     public function listMapLanguage()

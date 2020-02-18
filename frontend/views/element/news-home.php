@@ -9,7 +9,7 @@ $data = News::getDataByCustomSetting('home_news');
 
         <div class="sec-title centered">
             <a href="#" class="theme-btn"><?= Yii::$app->view->params['lang']->news ?></a>
-            <h1><?= Yii::$app->view->params['lang']->latest ?></h1>
+            <div class="title-section"><?= Yii::$app->view->params['lang']->latest ?></div>
         </div>
 
         <div class="row">
@@ -28,7 +28,9 @@ $data = News::getDataByCustomSetting('home_news');
                         <ul class="post-info">
                             <li class="category">
                                 <a href="<?= $item->getUrl()?>" rel="category tag" style="color: white">
-                                    <?= $data->category->name ?>
+                                    <?php if (!empty($data->category)) { ?>
+                                        <?= $data->category->name ?>
+                                    <?php } ?>
                                 </a>
                             </li>
                             <li class="date"><?= date('d/m/Y', $item->date_update) ?></li>

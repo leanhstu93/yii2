@@ -1453,14 +1453,14 @@ element css
 	margin-bottom: 35px;
 }
 
-.sec-title h1 {
+.sec-title .title-section {
 	font-size: 36px;
 	font-weight: 700;
 	line-height: 42px;
 	color: #222;
 }
 
-.sec-title.light h1 {
+.sec-title.light .title-section {
 	color: #fff;
 }
 
@@ -4932,7 +4932,7 @@ btn Style One
 	background-position:center center;
 }
 
-.main-slider h1{
+.main-slider .title-slide{
 	position:relative;
 	color:#222;
 	font-size:72px;
@@ -4955,7 +4955,7 @@ btn Style One
 	padding-bottom: 50px;
 }
 
-.main-slider h1:before {
+.main-slider .title-slide:before {
 	position: absolute;
 	content: '';
 	background: #f13729;
@@ -4968,16 +4968,16 @@ btn Style One
 	transition-delay: 1s;
 }
 
-.main-slider .active h1:before {
+.main-slider .active .title-slide:before {
 	height: 50px;
 	transition-delay: 3s;
 }
 
-.main-slider .light h1 {
+.main-slider .light .title-slide {
 	color: #fff;
 }
 
-.main-slider .active h1{
+.main-slider .active .title-slide{
 	opacity: 1;
 	-webkit-transform: translateY(0);
 	-moz-transform: translateY(0);
@@ -5517,7 +5517,7 @@ btn Style One
 	margin-bottom: 50px;
 }
 
-.contact-form-section .contact-title h1 {
+.contact-form-section .contact-title > div {
 	position: relative;
 	font-size: 36px;
 	font-weight: 700;
@@ -5525,7 +5525,7 @@ btn Style One
 	padding-bottom: 30px;
 }
 
-.contact-form-section .contact-title h1:before {
+.contact-form-section .contact-title > div:before {
 	position: absolute;
 	content: '';
 	left: 0;

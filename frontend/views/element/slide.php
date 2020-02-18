@@ -12,7 +12,7 @@ use frontend\models\Banner;
             <div class="container">
                 <div class="content text-center">
                     <h4><?= $slide->desc ?></h4>
-                    <h1><?= $slide->name ?></h1>
+                    <div class="title-slide"><?= $slide->name ?></div>
                     <div class="text">
                     </div>
                     <div class="link-box">

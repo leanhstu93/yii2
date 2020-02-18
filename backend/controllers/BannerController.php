@@ -60,10 +60,18 @@ class BannerController extends BaseController
             }
         }
 
+        foreach ($listLanguage as $key => $value) {
+            if ($value['default']) continue;
+            if (empty($dataLang[$key])) {
+                $dataLang[$key] = new DataLang();
+            }
+        }
+
         if ($model->load(Yii::$app->request->post())) {
             $model->user_id = Yii::$app->user->identity->id;
             $model->date_update = time();
             $model->date_create = time();
+            $model->order = 0;
             if ($model->save()) {
                 #save Data Lang
                 if (!empty($_POST['DataLang'])) {
@@ -81,6 +89,7 @@ class BannerController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
+            'dataLang' => $dataLang
         ]);
     }
 

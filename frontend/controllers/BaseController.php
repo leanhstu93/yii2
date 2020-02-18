@@ -10,6 +10,7 @@ use Yii;
 use yii\helpers\Url;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\data\Sort;
 use yii\web\Controller;
 use frontend\models\Company;
 use frontend\models\Menu;
@@ -249,6 +250,17 @@ class BaseController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+    public function getSort()
+    {
+        return new Sort([
+            'attributes' => [
+                'id' => [
+                    'default' => SORT_DESC,
+                ],
+            ],
+        ]);
     }
 
 }

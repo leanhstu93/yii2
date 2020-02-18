@@ -86,6 +86,9 @@
       <path value="$PROJECT_DIR$/vendor/sunhater/kcfinder" />
       <path value="$PROJECT_DIR$/vendor/ckeditor/ckeditor" />
       <path value="$PROJECT_DIR$/vendor/devanych/yii2-cart" />
+      <path value="$PROJECT_DIR$/vendor/zhuravljov/yii2-queue-monitor" />
+      <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-queue" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />

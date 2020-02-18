@@ -26,9 +26,7 @@ class NewsController extends BaseController
     public function actionIndex()
     {
         $searchModel =  new News();
-        $dataProvider = new ActiveDataProvider([
-            'query' => News::find(),
-        ]);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -114,7 +112,6 @@ class NewsController extends BaseController
             }
         }
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post())) {
             $model->seo_name = Router::processSeoName($model->seo_name,$model->id);
             $model->date_update = time();

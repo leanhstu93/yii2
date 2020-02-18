@@ -12,7 +12,7 @@ $pageProduct = ConfigPage::find()->where(['id' => ConfigPage::TYPE_PRODUCT])->on
     <div class="container">
         <div class="sec-title centered">
             <a href="#" class="theme-btn"><?= $pageProduct->name ?></a>
-            <h1><?= $pageProduct->desc ?></h1>
+            <div class="title-section"><?= $pageProduct->desc ?></div>
             <div class="text"><?= $pageProduct->content ?></div>
         </div>
         <div class="row">

@@ -92,6 +92,7 @@ class News extends Base
 
         $dataProvider = new ActiveDataProvider([
             'query'=>$query,
+            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]]
         ]);
 
         /**
@@ -99,12 +100,12 @@ class News extends Base
          * Note: This is setup before the $this->load($params)
          * statement below
          */
-        $dataProvider->setSort([
-            'attributes'=>[
-                'id',
-                'name',
-            ]
-        ]);
+//        $dataProvider->setSort([
+//            'attributes'=>[
+//                'id',
+//                'name',
+//            ]
+//        ]);
 
         if (!($this->load($params))) {
 
@@ -146,9 +147,9 @@ class News extends Base
             if($custom_news->limit == 1) {
                 $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->one();
             } elseif ($custom_news->limit == 0) {
-                $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->all();
+                $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->orderBy('id DESC')->all();
             } else {
-                $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->limit($custom_news->limit)->all();
+                $result->data = self::find()->where(['category_id' => $custom_news->data, 'active' => 1])->limit($custom_news->limit)->orderBy('id DESC')->all();
             }
 
             return $result;

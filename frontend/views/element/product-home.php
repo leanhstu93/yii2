@@ -12,7 +12,7 @@ $configGall =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_GALLERY_IMA
         <div class="row m-0 justify-content-md-between align-items-center">
             <div class="sec-title">
                 <a href="#" class="theme-btn"><?= $configGall->name ?></a>
-                <h1><?= $configGall->desc ?></h1>
+                <div class="title-section"><?= $configGall->desc ?></div>
             </div>
             <div class="link-btn ml-15 mb-30"><a href="<?= $model->getUrlAll() ?>" class="theme-btn btn-style-eleven">
                     <?= Yii::$app->view->params['lang']->see_more_projects ?>

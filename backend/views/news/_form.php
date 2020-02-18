@@ -46,7 +46,7 @@ use frontend\models\Product;
                 <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
                 <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
-                    'rows' => 3,'name' => 'content']);
+                    'rows' => 3]);
 
                 ?>
                 <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>

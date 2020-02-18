@@ -72,7 +72,7 @@ $product = Product::findOne(40);
                                 <div class="col-lg-4">
                                     <div class="sec-title">
                                         <a href="#" class="theme-btn">HDESIGN</a>
-                                        <h1>Quy trình<br> thực hiện tại Hdesign</h1>
+                                        <div class="title-section">Quy trình<br> thực hiện tại Hdesign</div>
                                         <div class="text">Là một thương hiệu của sáng tạo <br> và giải pháp trực tuyến tiền phong trong lĩnh vực
                                         </div>
                                     </div>

@@ -30,6 +30,9 @@ echo $this->render("//element/page-title",['name' => $data->name, 'bread' => $br
 
                             <div class="post_meta">
                                 <ul class="post-info">
+                                    <?php
+                                    if (!empty($data->getCategory())) {
+                                    ?>
                                     <li class="category">
                                         <ul class="post-categories">
                                             <li>
@@ -39,6 +42,7 @@ echo $this->render("//element/page-title",['name' => $data->name, 'bread' => $br
                                             </li>
                                         </ul>
                                     </li>
+                                    <?php } ?>
                                     <li class="author">
                                         <a href="javascript:;">
                                             <span class="icon-user"></span> <?= $data->getUser()->username ?>

@@ -136,9 +136,9 @@ class SinglePage extends Base
                 if ($custom_image->limit == 1) {
                     return self::find()->where('id IN (' . $data . ') AND active =1 ')->one();
                 } elseif ($custom_image->limit == 0) {
-                    return self::find()->where('id IN (' . $data . ') AND active =1 ')->all();
+                    return self::find()->where('id IN (' . $data . ') AND active =1 ')->orderBy('id DESC')->all();
                 } else {
-                    return self::find()->where('id IN (' . $data . ') AND active =1 ')->limit($custom_image->limit)->all();
+                    return self::find()->where('id IN (' . $data . ') AND active =1 ')->limit($custom_image->limit)->orderBy('id DESC')->all();
                 }
             }
         }

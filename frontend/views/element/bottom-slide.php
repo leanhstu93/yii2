@@ -20,7 +20,7 @@ if(!empty($categories)) {
                 <div class="service-block">
                     <div class="inner-box">
                         <div class="top-content">
-                            <h4><a href="single-service.html"><?= $item->name ?></a></h4>
+                            <h4><a href="<?= $item->getUrl() ?>"><?= $item->name ?></a></h4>
                             <div class="image">
                                 <img src="<?= $item->image ?>" alt="">
                             </div>

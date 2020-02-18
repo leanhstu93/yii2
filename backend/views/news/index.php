@@ -37,7 +37,7 @@ $scrollingTop = 10;
                         'format'=>'raw',
                          'filter' => false,
                         'value' => function ($data) {
-                            return Html::img($data['image'],
+                            return Html::img( '/'.$data['image'],
                                 ['width' => '60px']);
                         }
                     ],

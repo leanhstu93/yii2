@@ -215,6 +215,7 @@ class SiteController extends BaseController
         $pages->defaultPageSize = 15;
         $models = $data->offset($pages->offset)
             ->limit($pages->limit)
+            ->orderBy('id DESC')
             ->all();
         # end phan trang
 
@@ -236,6 +237,8 @@ class SiteController extends BaseController
     public function actionGetNewsCategory($id = 0)
     {
         $this->layout = 'main';
+
+        $sort = $this->getSort();
 
         if ($id > 0) {
             $arrIds = [$id];
@@ -278,6 +281,7 @@ class SiteController extends BaseController
         $pages->defaultPageSize = 18;
         $models = $data->offset($pages->offset)
             ->limit($pages->limit)
+            ->orderBy('id DESC')
             ->all();
         # end phan trang
 
