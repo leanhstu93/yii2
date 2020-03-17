@@ -54,9 +54,8 @@ use yii\widgets\ActiveForm;
 
                     <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
-                    <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-
-                    ]);
+                    <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
+                        'rows' => 3]);
                     ?>
 
                     <?= $form->field($model, 'quantity')->textInput() ?>

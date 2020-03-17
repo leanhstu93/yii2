@@ -26,7 +26,7 @@ use yii\data\ActiveDataProvider;
  * @property int $date_create
  * @property int $date_update
  */
-class NewsCategory extends \yii\db\ActiveRecord
+class NewsCategory extends Base
 {
     const OPTION_HOME = 1;
     const OPTION_NEW = 3;

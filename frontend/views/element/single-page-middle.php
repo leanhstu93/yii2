@@ -9,7 +9,7 @@ $data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
     <div class="container">
         <div class="sec-title centered">
             <a href="#" class="theme-btn"><?= $this->params['company']['name'] ?></a>
-            <h1><?= Yii::$app->view->params['lang']->professional_design ?></h1>
+            <div class="title-section"><?= Yii::$app->view->params['lang']->professional_design ?></div>
         </div>
         <div class="row mb-50">
             <div class="col-lg-6">

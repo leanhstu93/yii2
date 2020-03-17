@@ -47,7 +47,6 @@ use frontend\models\Product;
 
                 <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
                     'rows' => 3]);
-
                 ?>
                 <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
             </div>

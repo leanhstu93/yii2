@@ -219,6 +219,18 @@ class SiteController extends BaseController
             ->all();
         # end phan trang
 
+        # set meta
+        $categories->setTranslate();
+        $this->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $categories->meta_keyword
+        ]);
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $categories->meta_desc
+        ]);
+        $this->view->title = $categories->name;
+
         return [
             'file' => 'product-category',
             'data' => [
@@ -254,6 +266,18 @@ class SiteController extends BaseController
                 'link' => Yii::$app->homeUrl
             ];
 
+            # set meta
+            $categories->setTranslate();
+            $this->view->registerMetaTag([
+                'name' => 'keywords',
+                'content' => $categories->meta_keyword
+            ]);
+            $this->view->registerMetaTag([
+                'name' => 'description',
+                'content' => $categories->meta_desc
+            ]);
+            $this->view->title = $categories->name;
+
         } else {
             # get all
             #query
@@ -273,6 +297,20 @@ class SiteController extends BaseController
                 'name' => 'Trang chủ',
                 'link' => Yii::$app->homeUrl
             ];
+
+            # set meta
+            $configPage = new ConfigPage();
+            $modelConfigPage = $configPage->getPageConfig(ConfigPage::TYPE_NEWS);
+            $modelConfigPage->setTranslate();
+            $this->view->registerMetaTag([
+                'name' => 'keywords',
+                'content' => $modelConfigPage->meta_keyword
+            ]);
+            $this->view->registerMetaTag([
+                'name' => 'description',
+                'content' => $modelConfigPage->meta_desc
+            ]);
+            $this->view->title = $modelConfigPage->name;
         }
         //end set breadcrumb
         $newsHot = News::find()->where(['option' => News::OPTION_HOT])->limit(3)->all();
@@ -318,6 +356,16 @@ class SiteController extends BaseController
             'link' => $model->getUrl()
         ];
 
+        # set meta
+        $this->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $model->meta_keyword
+        ]);
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $model->meta_desc
+        ]);
+        $this->view->title = $model->name;
         return [
             'file' => 'news-detail',
             'data' => [
@@ -348,8 +396,19 @@ class SiteController extends BaseController
                 'name' => $model->name,
                 'link' => $model->getUrl()
             ],
-
         ];
+
+        # set meta
+        $model->setTranslate();
+        $this->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $model->meta_keyword
+        ]);
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $model->meta_desc
+        ]);
+        $this->view->title = $model->name;
 
         return [
             'file' => 'product-detail',
@@ -365,6 +424,17 @@ class SiteController extends BaseController
     {
         $models = SinglePage::find()->where(['id'=>$id_object])->one();
 
+        # set meta
+        $models->setTranslate();
+        $this->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $models->meta_keyword
+        ]);
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $models->meta_desc
+        ]);
+        $this->view->title = $models->name;
         $bread = [
             [
                 'name' => $models->name,
@@ -396,8 +466,9 @@ class SiteController extends BaseController
                 'name' => 'Liên hệ',
                 'link' => 'javascrip:;'
             ],
-
         ];
+
+        $this->view->title = Yii::$app->view->params['lang']->contact;
         return [
             'file' => 'contact',
             'data' => [
@@ -417,8 +488,9 @@ class SiteController extends BaseController
                 'name' => 'Giới thiệu',
                 'link' => 'javascrip:;'
             ],
-
         ];
+
+        $this->view->title = Yii::$app->view->params['lang']->about;
         return [
             'file' => 'about',
             'data' => [
@@ -682,6 +754,7 @@ class SiteController extends BaseController
     {
         $categories = ProductCategory::find()->where(['parent_id' => 0])->all();
 
+
         $bread[] = [
             'name' => 'Trang chủ',
             'link' => Yii::$app->homeUrl
@@ -724,6 +797,17 @@ class SiteController extends BaseController
         # end phan trang
 
 
+        # set meta
+        $this->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $modelConfigPage->meta_keyword
+        ]);
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $modelConfigPage->meta_desc
+        ]);
+        $this->view->title = $modelConfigPage->name;
+
         return [
             'file' => 'gallery-image',
             'data' => [
@@ -748,6 +832,7 @@ class SiteController extends BaseController
             'link' => Yii::$app->homeUrl
         ];
 
+        $this->view->title = $data->name;
 
         return [
             'file' => 'gallery-image-detail',

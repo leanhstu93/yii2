@@ -8,7 +8,7 @@ $data  = Banner::getDataByCustomSetting('list_customer');
 <section class=" testimonial-section-three sp-one">
     <div class="container">
         <div class="sec-title centered">
-            <h1><?= $data->category->name ?></h1>
+            <div class="title-section"><?= $data->category->name ?></div>
             <div class="text"><?= $data->category->desc ?></div>
         </div>
         <div class="testimonial-carousel-two owl-carousel owl-theme owl-nav-none owl-dots-none">

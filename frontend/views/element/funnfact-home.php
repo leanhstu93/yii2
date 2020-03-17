@@ -14,7 +14,7 @@ $banner = Banner::getDataByCustomSetting('background_middle_one');
             <div class="col-lg-9 fact-counter">
                 <div class="sec-title light">
                     <a href="#" class="theme-btn">Về chúng tôi</a>
-                    <h1><?= $banner->images->name ?></h1>
+                    <div class="title-section"><?= $banner->images->name ?></div>
                     <div class="text"><?= $banner->images->desc ?></div>
                 </div>
                 <div class="outer-box">

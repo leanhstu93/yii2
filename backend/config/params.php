@@ -304,6 +304,7 @@ return [
         'add_to_cart' => 'Thêm vào giỏ hàng',
         'cart' => 'Giỏ hàng',
         'contact' => 'Liên hệ',
+        'about' => 'Giới thiệu',
         'news' => 'Tin tức',
         'latest' => 'Mới nhất',
         'see_more_projects' => 'Xem thêm dự án',

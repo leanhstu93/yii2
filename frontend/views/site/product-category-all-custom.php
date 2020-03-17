@@ -37,7 +37,7 @@ $product = Product::findOne(40);
                                 <div class="service-block col-md-4">
                                     <div class="inner-box">
                                         <div class="top-content">
-                                            <h4><a href=""><?= $item->name ?></a></h4>
+                                            <h4><a href="<?= $url ?>"><?= $item->name ?></a></h4>
                                             <div class="image">
                                                 <img width="370" height="175"
                                                      src="<?= $item->image ?>"

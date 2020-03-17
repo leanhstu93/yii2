@@ -82,9 +82,11 @@ echo $this->render("//element/page-title",['name' => 'Liên hệ', 'bread' => $b
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="contact-title">
-                                        <h1>Hdesign <br />
-                                            Mang đến giá trị bạn cần</h1>
-                                        </p></div>
+                                        <div class="title-section">Hdesign <br />
+                                            Mang đến giá trị bạn cần
+                                        </div>
+                                        </p>
+                                    </div>
                                     <div class="text">Hãy liên hệ với chúng tôi
                                     </div>
                                     <div class="author-box-two mb-30">

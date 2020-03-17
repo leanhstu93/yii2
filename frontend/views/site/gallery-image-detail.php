@@ -79,7 +79,7 @@ echo $this->render("//element/page-title",['name' => $data->name, 'bread' => $br
                     <section class="case-section-two sp-two">
                         <div class="container">
                             <div class="sec-title centered">
-                                <h1>Dự án liên quan</h1>
+                                <div class="title-section">Dự án liên quan</div>
                             </div>
                             <div class="three-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                                 <?php foreach ($dataRL as $item) { ?>

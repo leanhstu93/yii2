@@ -100,7 +100,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.h1{
 	position: relative;
 	font-weight: normal;
 	margin: 0px;
@@ -5517,7 +5518,7 @@ btn Style One
 	margin-bottom: 50px;
 }
 
-.contact-form-section .contact-title > div {
+.contact-form-section .contact-title h1 {
 	position: relative;
 	font-size: 36px;
 	font-weight: 700;
@@ -5525,7 +5526,7 @@ btn Style One
 	padding-bottom: 30px;
 }
 
-.contact-form-section .contact-title > div:before {
+.contact-form-section .contact-title h1:before {
 	position: absolute;
 	content: '';
 	left: 0;
@@ -10204,7 +10205,7 @@ btn Style One
 	color: #fff;
 }
 
-.video-section h1 {
+.video-section .h1 {
 	color: #fff;
 	font-size: 60px;
 	font-weight: 600;

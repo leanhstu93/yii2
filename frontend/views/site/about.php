@@ -18,7 +18,7 @@ $data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
 
                             <div class="sec-title centered">
                                 <a href="#" class="theme-btn">HDESIGN</a>
-                                <h1><?= Yii::$app->view->params['lang']->professional_design ?> - Digital Marketing</h1>
+                                <div class="title-section"><?= Yii::$app->view->params['lang']->professional_design ?> - Digital Marketing</div>
                             </div>
 
                             <div class="row mb-50">
@@ -134,7 +134,7 @@ $data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
 
                                     <div class="sec-title mb-30">
                                         <a href="#" class="theme-btn">HDESIGN</a>
-                                        <h1>Lý do bạn chọn đến dịch vụ <br>Hdesign</h1>
+                                        <div class="title-section">Lý do bạn chọn đến dịch vụ <br>Hdesign</div>
                                         <div class="text">Nor again is there anyone who loves or pursues or desires to
                                             obtain pain of itself, because it is pain but because occasionally
                                             circumstances occur pain can procure him some great pleasure.
@@ -214,7 +214,7 @@ $data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
                                             class="icon-multimedia"></span></a>
                                 </div>
                                 <h4>Hdesign</h4>
-                                <h1>Giải pháp thương hiệu marketing</h1>
+                                <div class="h1">Giải pháp thương hiệu marketing</div>
                             </div>
                         </div>
                         <div class="outer-box">
@@ -294,7 +294,7 @@ $data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
 
                             <div class="sec-title centered">
                                 <a href="#" class="theme-btn">Thành viên</a>
-                                <h1>Thành viên của Hdesign</h1>
+                                <div class="title-section">Thành viên của Hdesign</div>
                             </div>
 
                             <div class="row">
@@ -522,7 +522,7 @@ $data_tree = SinglePage::getDataByCustomSetting('tree_middle_home');
 
                             <div class="sec-title ml-15">
                                 <a href="#" class="theme-btn">KHÁCH HÀNG</a>
-                                <h1>Khách hàng & đối tác - Hdesign</h1>
+                                <div class="title-section">Khách hàng & đối tác - Hdesign</div>
                             </div>
                             <div class="four-item-carousel owl-carousel owl-theme owl-nav-style-two owl-dots-none">
 
