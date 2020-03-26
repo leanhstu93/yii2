@@ -26,6 +26,8 @@ $myUrl .= '://'.$_SERVER['HTTP_HOST'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="<?= Yii::$app->urlManager->createAbsoluteUrl(Yii::$app->request->url) ?>" />
     <?php $this->registerCsrfMetaTags() ?>
+    <link rel="shortcut icon" type="image/x-icon" href="/<?=  $this->params['company']->logo ?>"/>
+
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 

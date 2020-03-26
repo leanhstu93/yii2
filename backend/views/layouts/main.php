@@ -29,6 +29,7 @@ AppAsset::register($this);
 <script>
     Breakpoints();
 </script>
+
 <script>
     Config.set('assets', '../assets');
 </script>

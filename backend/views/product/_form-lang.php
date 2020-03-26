@@ -1,7 +1,5 @@
 <?php
 /* @var $dataLang app\models\DataLang */
-
-use dosamigos\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -40,12 +38,8 @@ if(!empty($dataFieldLang) && count($listLanguage) > 0) {
 
                 <?php
             } else if($name == 'content') {
-                echo $form->field($model[$code], 'content')->widget(CKEditor::className(), [
-                    'kcfinder' => true,
-                    'options' => [
-                        'name' => 'DataLang['.$code.']['.$name.']'
-                    ]
-                ]);
+                $form->field($model[$code], 'content')->textarea(['class' => 'js-editor',
+                    'rows' => 3]);
             } else if($name == 'desc') {
                 echo $form->field($model[$code], 'desc')->textarea(['rows' => 3,'name' => 'DataLang['.$code.']['.$name.']']);
             } else {

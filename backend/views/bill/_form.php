@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
 use frontend\models\Product;
 
 /* @var $this yii\web\View */
@@ -45,9 +44,8 @@ use frontend\models\Product;
 
                 <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
-                <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                    'kcfinder' => true,
-                ]);
+                <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
+                    'rows' => 3]);
                 ?>
                 <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
             </div>

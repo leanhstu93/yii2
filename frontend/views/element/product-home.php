@@ -44,18 +44,19 @@ $configGall =  ConfigPage::find()->where(['type' => ConfigPage::TYPE_GALLERY_IMA
                             ?>
                             <!--Case Block-->
                             <div class="case-block">
+                                <a href="<?= $item->getUrl() ?>">
                                 <div class="inner-box">
                                     <div class="image">
                                         <img src="<?= $item->image ?>" alt="" />
-                                        <a class="img-opener" href="<?= $item->image ?>" data-fancybox="gallery"></a>
                                         <div class="overlay-box">
                                             <div class="overlay-inner">
                                                 <div class="category-title"><?= $item->name ?></div>
-                                                <h2><a href="<?= $item->image ?>"><?= $item->desc ?></a></h2>
+                                                <h2><?= $item->desc ?></h2>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                             <?php } ?>
 

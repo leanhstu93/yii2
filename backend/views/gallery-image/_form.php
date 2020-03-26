@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
 use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */
@@ -35,13 +34,12 @@ use frontend\models\ProductCategory;
                 </div>
             </div>
 
-            <?= $form->field($model, 'desc')->widget(CKEditor::className(), [
-                'kcfinder' => true,
-            ]); ?>
+            <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
-            <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-            ]);
+            <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
+                'rows' => 3]);
             ?>
+
         </div>
         <?= $this->render('//element/panel-heading',array_pop($menu)) ?>
         <div class="panel-body container-fluid">

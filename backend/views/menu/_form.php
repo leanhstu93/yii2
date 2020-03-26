@@ -1,11 +1,8 @@
 <?php
 
-use frontend\models\Router;
 use \frontend\models\SinglePage;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
-use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ProductCategory */

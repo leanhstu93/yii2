@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
 use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */

@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
 use frontend\models\Product;
 
 /* @var $this yii\web\View */
@@ -71,6 +70,7 @@ use frontend\models\Product;
                     'class' => ''
                 ],
             ] ;
+
             ?>
             <?= $this->render('_form-lang',['model' => $dataLang,'dataFieldLang' => $dataFieldLang,'form' => $form])  ?>
 

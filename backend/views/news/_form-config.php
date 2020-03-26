@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ConfigPage */
@@ -35,10 +34,8 @@ use dosamigos\ckeditor\CKEditor;
 
                 <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
-                <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                    'kcfinder' => true,
-                ]);
-                ?>
+                <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
+                    'rows' => 3]); ?>
             </div>
             <!-- tab vn -->
             <!-- tab en -->

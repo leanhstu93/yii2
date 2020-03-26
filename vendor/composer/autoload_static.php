@@ -61,7 +61,6 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         ),
         'd' => 
         array (
-            'dosamigos\\ckeditor\\' => 19,
             'devanych\\cart\\' => 14,
         ),
         'c' => 
@@ -231,10 +230,6 @@ class ComposerStaticInit323059f41f6ecca0b67b23daabcbe1b2
         'kartik\\base\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base/src',
-        ),
-        'dosamigos\\ckeditor\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/2amigos/yii2-ckeditor-widget/src',
         ),
         'devanych\\cart\\' => 
         array (

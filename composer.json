@@ -21,7 +21,6 @@
         "kartik-v/yii2-grid": "@dev",
         "kartik-v/yii2-krajee-base": "@dev",
         "kartik-v/yii2-widget-colorinput": "*",
-        "2amigos/yii2-ckeditor-widget" : "~2.1",
         "kartik-v/yii2-editable": "@dev",
          "devanych/yii2-cart": "*",
         "zhuravljov/yii2-queue-monitor": "~0.1"
@@ -45,6 +44,7 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        }
+        },
+        { "packagist": false }
     ]
 }

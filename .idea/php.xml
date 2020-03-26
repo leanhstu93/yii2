@@ -82,9 +82,6 @@
       <path value="$PROJECT_DIR$/vendor/guzzle/guzzle" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/vendor/2amigos/yii2-ckeditor-widget" />
-      <path value="$PROJECT_DIR$/vendor/sunhater/kcfinder" />
-      <path value="$PROJECT_DIR$/vendor/ckeditor/ckeditor" />
       <path value="$PROJECT_DIR$/vendor/devanych/yii2-cart" />
       <path value="$PROJECT_DIR$/vendor/zhuravljov/yii2-queue-monitor" />
       <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-queue" />

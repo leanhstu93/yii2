@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
 use frontend\models\ProductCategory;
 
 /* @var $this yii\web\View */
@@ -25,10 +24,10 @@ use frontend\models\ProductCategory;
 
                 <?= $form->field($model, 'link')->textInput(['class' => 'js__title form-control'])?>
 
-                <?= $form->field($model, 'desc')->widget(CKEditor::className(), [
-                ]); ?>
+                <?= $form->field($model, 'desc')->textarea(['rows' => 3]) ?>
 
-                <?= $form->field($model, 'content')->widget(CKEditor::className(), []);
+                <?= $form->field($model, 'content')->textarea(['class' => 'js-editor' ,
+                    'rows' => 3]);
                 ?>
             </div>
             <?php

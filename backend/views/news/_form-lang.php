@@ -1,9 +1,6 @@
 <?php
 /* @var $dataLang app\models\DataLang */
-
-use dosamigos\ckeditor\CKEditor;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
 $listLanguage = Yii::$app->params['listLanguage'];
 

@@ -1,6 +1,4 @@
 <?php
-
-use dosamigos\ckeditor\CKEditor;
 use frontend\models\Product;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
